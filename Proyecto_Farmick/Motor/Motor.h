@@ -25,7 +25,6 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
         inline bool juegoActivo() {return m_juegoActivo;}
         inline SDL_Renderer* getRenderizador(){return m_renderizador;}
 
-
     protected:
 
     private:

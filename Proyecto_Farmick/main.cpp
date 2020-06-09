@@ -2,13 +2,14 @@
 #include "Motor.h"
 #include "cultivo_maquinaEstados/Cultivo.h"
 
+
+
 int main(int argc, char** argv)
 {
 
-    Cultivo cultivo1;
 
 
-  Motor::GetInstancia()->inicializar();
+    Motor::GetInstancia()->inicializar();
 //Bucle principal del juego ( Game Loop )
     while(Motor::GetInstancia()->juegoActivo())
     {
@@ -18,15 +19,15 @@ int main(int argc, char** argv)
         Motor::GetInstancia()->actualizar();
         //Renderizado (Crear Dibujo)
         Motor::GetInstancia()->renderizar();
-
-        //a modo de prueba de la maquina de estados de cultivo:
-        cultivo1.Hacer();
-
     }
 
-    Motor::GetInstancia()->limpiar();
+    Motor::GetInstancia()->limpiar();//devuelve la memoria pedida
 
     return 0;
 }
 
-
+/* necesitamos :
+-cargar dos imagenes usando el gestor de texturas.
+-lograr vincular una imagen con cada uno de los 2 estados de la maquina de estados actual.
+basicamente vamos a ver como cambia de una imagen a otra en la ventana de sdl.
+*/

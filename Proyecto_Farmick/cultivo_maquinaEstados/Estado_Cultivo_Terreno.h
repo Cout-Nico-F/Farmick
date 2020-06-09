@@ -3,6 +3,7 @@
 #include "Cultivo.h"
 #include "Estado_Cultivo.h"
 
+
 ///estado concreto: terreno (sin arar)
 class Estado_Cultivo_Terreno : public Estado_Cultivo ///Estado N en concreto (Estado Terreno)
 {

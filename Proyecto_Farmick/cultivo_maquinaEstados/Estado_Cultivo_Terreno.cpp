@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Estado_Cultivo_Terreno.h"
 #include "Estado_Cultivo_Arado.h"
+#include "gestorTexturas.h"
+#include "Motor.h"
 
 Estado_Cultivo_Terreno::Estado_Cultivo_Terreno(Cultivo* contexto) : _contexto(contexto)
 {

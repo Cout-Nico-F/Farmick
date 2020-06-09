@@ -1,4 +1,8 @@
 #include "Motor.h"
+#include "../cultivo_maquinaEstados/Cultivo.h"
+#include "gestorTexturas.h"
+
+Cultivo cultivo1;//a modo de prueba de la maquina de estados de cultivo:
 
 Motor* Motor::s_instancia = nullptr;
 
@@ -42,10 +46,21 @@ void Motor::salir()
 void Motor::actualizar()
 {
     SDL_Log("Actualizando!");
+
+
+        //a modo de prueba de la maquina de estados de cultivo:
+        cultivo1.Hacer();
 }
 
 void Motor::renderizar()
 {
+    SDL_SetRenderDrawColor(m_renderizador,247,229,178,255);
+    SDL_RenderClear(m_renderizador); //Fondo color amarillo arena
+
+    GestorTexturas::getInstancia()->cargar("terreno","assets/cultivo_terreno.png");
+    GestorTexturas::getInstancia()->dibujar("terreno",400,400,99,50);
+
+    SDL_RenderPresent(m_renderizador);
 
 }
 
@@ -58,6 +73,7 @@ void Motor::eventos()
     case SDL_QUIT:
         salir();
         break;
+   // case SDL_MOUSEBUTTONDOWN
     }
 }
 
