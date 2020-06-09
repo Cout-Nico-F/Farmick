@@ -67,3 +67,8 @@ $RECYCLE.BIN/
 *.depend
 bin/
 obj/
+
+#Exepciones ( SDL2 )
+!libFLAC-8.dll
+!libfreetype-6.dll
+!libjpeg-9.dll
