@@ -4,6 +4,27 @@
 
 Cultivo cultivo1;//a modo de prueba de la maquina de estados de cultivo:
 
+bool Motor::metodo_cargador_de_imagenes()
+{
+if(!cargado) //parche para evitar falla de memoria
+    {
+        GestorTexturas::getInstancia()->cargar("logoGrande","assets/logo_grande.png");
+        GestorTexturas::getInstancia()->cargar("terreno","assets/cultivo_terreno.png");
+        cargado = true;
+    }
+
+    GestorTexturas::getInstancia()->dibujar("logoGrande",150,66,728,259);
+
+    GestorTexturas::getInstancia()->dibujar("terreno",428,500,99,50);
+}
+
+Motor::Motor()
+{
+
+}
+
+
+
 Motor* Motor::s_instancia = nullptr;
 
 bool Motor::inicializar()
@@ -55,13 +76,10 @@ void Motor::actualizar()
 void Motor::renderizar()
 {
     SDL_SetRenderDrawColor(m_renderizador,247,229,178,255);
-    SDL_RenderClear(m_renderizador); //Fondo color amarillo arena
-
-    GestorTexturas::getInstancia()->cargar("terreno","assets/cultivo_terreno.png");
-    GestorTexturas::getInstancia()->dibujar("terreno",400,400,99,50);
+    SDL_RenderClear(m_renderizador); ///Fondo color amarillo arena
+    metodo_cargador_de_imagenes(/*necesita recibir el objeto a mostrar*/);///metodo de prueba
 
     SDL_RenderPresent(m_renderizador);
-
 }
 
 void Motor::eventos()
@@ -77,7 +95,19 @@ void Motor::eventos()
     }
 }
 
-Motor::Motor()
-{
+//objeto a mostrar: ( va a ser un objeto de la clase imagen )
+//necesitamos la clase imagen que tenga los atributos: id, direccion, bool cargada, posX, posY, tamX, tamY
 
-}
+/*
+if(!cargado) //parche para evitar falla de memoria
+    {
+        GestorTexturas::getInstancia()->cargar("logoGrande","assets/logo_grande.png");
+        GestorTexturas::getInstancia()->cargar("terreno","assets/cultivo_terreno.png");
+        cargado = true;
+    }
+
+    GestorTexturas::getInstancia()->dibujar("logoGrande",150,66,728,259);
+
+    GestorTexturas::getInstancia()->dibujar("terreno",428,500,99,50);
+
+*/

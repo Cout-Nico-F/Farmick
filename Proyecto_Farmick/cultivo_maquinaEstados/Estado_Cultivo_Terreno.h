@@ -8,11 +8,15 @@
 class Estado_Cultivo_Terreno : public Estado_Cultivo ///Estado N en concreto (Estado Terreno)
 {
 private:
-    Cultivo* _contexto;//referencia a cultivo
-//estado_cultivo_terreno tiene un cultivo ( composicion usada para cerrar el circulo de la maquina finita de estados )
+    Cultivo* _contexto;///referencia a cultivo
+///estado_cultivo_terreno tiene un cultivo ( composicion usada para cerrar el circulo de la maquina finita de estados )
+
+   // Imagen* imagen; ///los objetos de esta clase van a tener una imagen (composicion)
+//los metodos para mostrar esta imagen deben ser parte de esta clase o de otra intermedia? un objeto de esta clase deberia poder mostrarse a si mismo?
+
 public:
     Estado_Cultivo_Terreno(Cultivo* contexto);
-    void Hacer()override; //sobrecarga
+    void Hacer()override; ///sobrecarga
 
 };
 

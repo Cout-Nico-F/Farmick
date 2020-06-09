@@ -3,6 +3,11 @@
 
 GestorTexturas* GestorTexturas::s_instancia = nullptr; //necesitamos entender un poco mejor esta linea
 
+GestorTexturas::GestorTexturas()
+{
+
+}
+
 bool GestorTexturas::cargar(std::string id, std::string nombreArchivo)
 {
     SDL_Surface* superficie = IMG_Load(nombreArchivo.c_str());//que funcion es c_str?
@@ -44,9 +49,4 @@ void GestorTexturas::dibujar(std::string id, int x, int y, int ancho, int alto, 
     SDL_Rect rectFuente = {0, 0, ancho, alto};
     SDL_Rect rectDestino= {x, y, ancho, alto};
     SDL_RenderCopyEx(Motor::GetInstancia()->getRenderizador(), m_mapaTexturas[id], &rectFuente, &rectDestino, 0,nullptr, flip);
-}
-
-GestorTexturas::GestorTexturas()
-{
-    //constructor
 }
