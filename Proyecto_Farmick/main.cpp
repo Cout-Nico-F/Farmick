@@ -8,11 +8,11 @@ int main(int argc, char** argv)
     while(Motor::GetInstancia()->juegoActivo())
     {
         //Eventos
-        Motor::GetInstancia()->Eventos();
+        Motor::GetInstancia()->eventos();
         //Actualizacion
         Motor::GetInstancia()->actualizar();
         //Renderizado (Crear Dibujo)
-        Motor::GetInstancia()->Renderizar();
+        Motor::GetInstancia()->renderizar();
     }
 
     Motor::GetInstancia()->limpiar();

@@ -2,8 +2,8 @@
 #include "SDL.h"
 #include "SDL_image.h"
 
-#define ANCHO_PANTALLA 1280 ///resolucion actual 1280x720
-#define ALTO_PANTALLA 720
+#define ANCHO_PANTALLA 1024 ///resolucion actual 1280x720
+#define ALTO_PANTALLA 768
 
 ///Usamos m_ en los miembros de clase (atributos) para reconocerlos rapidamente.
 ///Usamos s_ para diferenciar los atributos estaticos.
@@ -19,8 +19,8 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
         bool limpiar();
         void salir();
         void actualizar();
-        void Renderizar();
-        void Eventos();
+        void renderizar();
+        void eventos();
 
         inline bool juegoActivo() {return m_juegoActivo;}
         inline SDL_Renderer* getRenderizador(){return m_renderizador;}
