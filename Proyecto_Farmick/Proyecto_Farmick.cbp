@@ -36,6 +36,8 @@
 		</Compiler>
 		<Unit filename="Motor/Motor.cpp" />
 		<Unit filename="Motor/Motor.h" />
+		<Unit filename="gestorTexturas.cpp" />
+		<Unit filename="gestorTexturas.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

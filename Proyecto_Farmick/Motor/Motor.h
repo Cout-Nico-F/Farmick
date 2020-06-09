@@ -2,7 +2,7 @@
 #include "SDL.h"
 #include "SDL_image.h"
 
-#define ANCHO_PANTALLA 1024 ///resolucion actual 1280x720
+#define ANCHO_PANTALLA 1024 ///resolucion actual 1024x768
 #define ALTO_PANTALLA 768
 
 ///Usamos m_ en los miembros de clase (atributos) para reconocerlos rapidamente.
@@ -30,7 +30,7 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
 
     private:
         Motor();///el constructor es privado porque sino cualquiera podria crear instancias de engine
-        static Motor* s_instancia;
+        static Motor* s_instancia;///motor es estatico y debe vivir durante todo el programa
         bool m_juegoActivo;
         SDL_Window* m_ventana;
         SDL_Renderer* m_renderizador;
