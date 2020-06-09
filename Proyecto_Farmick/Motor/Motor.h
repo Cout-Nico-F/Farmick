@@ -23,7 +23,7 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
         void Eventos();
 
         inline bool juegoActivo() {return m_juegoActivo;}
-        inline SDL_Renderer* getRenderer(){return m_renderer;}
+        inline SDL_Renderer* getRenderizador(){return m_renderizador;}
 
 
     protected:
@@ -32,7 +32,7 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
         Motor();///el constructor es privado porque sino cualquiera podria crear instancias de engine
         static Motor* s_instancia;
         bool m_juegoActivo;
-        SDL_Window* m_window;
-        SDL_Renderer* m_renderer;
+        SDL_Window* m_ventana;
+        SDL_Renderer* m_renderizador;
 };
 

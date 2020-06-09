@@ -9,14 +9,14 @@ bool Motor::inicializar()
         SDL_Log("Failed to initialize SDL: %s", SDL_GetError());
         return false;
     }
-    m_window = SDL_CreateWindow("Titulo de la ventana",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,SCREEN_WIDTH,SCREEN_HEIGHT,0);
-    if(m_window == nullptr)
+    m_ventana = SDL_CreateWindow("Titulo de la ventana",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,ANCHO_PANTALLA,ALTO_PANTALLA,0);
+    if(m_ventana == nullptr)
     {
         SDL_Log("Failed to create Window: %s",SDL_GetError());
         return false;
     }
-    m_renderer = SDL_CreateRenderer(m_window,SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-    if(m_renderer == nullptr)
+    m_renderizador = SDL_CreateRenderer(m_ventana,-1,SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    if(m_renderizador == nullptr)
     {
         SDL_Log("Failed to create Renderer: %s",SDL_GetError());
         return false;
@@ -28,17 +28,20 @@ bool Motor::inicializar()
 
 bool Motor::limpiar()
 {
-
+SDL_DestroyRenderer(m_renderizador);
+SDL_DestroyWindow(m_ventana);
+IMG_Quit();
+SDL_Quit();
 }
 
 void Motor::salir()
 {
-
+    m_juegoActivo = false;
 }
 
 void Motor::actualizar()
 {
-
+SDL_Log("Actualizando!");
 }
 
 void Motor::Renderizar()
