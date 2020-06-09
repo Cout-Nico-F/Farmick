@@ -36,8 +36,16 @@
 		</Compiler>
 		<Unit filename="Motor/Motor.cpp" />
 		<Unit filename="Motor/Motor.h" />
-		<Unit filename="gestorTexturas.cpp" />
-		<Unit filename="gestorTexturas.h" />
+		<Unit filename="Motor/gestorTexturas.cpp" />
+		<Unit filename="Motor/gestorTexturas.h" />
+		<Unit filename="cultivo_maquinaEstados/Cultivo.cpp" />
+		<Unit filename="cultivo_maquinaEstados/Cultivo.h" />
+		<Unit filename="cultivo_maquinaEstados/Estado_Cultivo.cpp" />
+		<Unit filename="cultivo_maquinaEstados/Estado_Cultivo.h" />
+		<Unit filename="cultivo_maquinaEstados/Estado_Cultivo_Arado.cpp" />
+		<Unit filename="cultivo_maquinaEstados/Estado_Cultivo_Arado.h" />
+		<Unit filename="cultivo_maquinaEstados/Estado_Cultivo_Terreno.cpp" />
+		<Unit filename="cultivo_maquinaEstados/Estado_Cultivo_Terreno.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
