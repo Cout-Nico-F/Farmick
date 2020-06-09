@@ -21,7 +21,7 @@ protected:
 private:
     GestorTexturas();///el constructor es privado porque sino cualquiera podria crear instancias
     static GestorTexturas* s_instancia;
-    std::map <std::string,SDL_texture*> m_mapaTexturas;
+    std::map <std::string,SDL_Texture*> m_mapaTexturas;
 };
 
 
