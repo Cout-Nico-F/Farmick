@@ -8,7 +8,7 @@ class Cultivo ///este es nuestro Contexto
 public:
     Cultivo();
     void setEstado (Estado_Cultivo* nuevo_estado);
-    void Hacer();
+    void hacer();
     void metodo_cargador_de_imagenes();
 
     //void setEstadoMotor(Estado_Cultivo* estado);

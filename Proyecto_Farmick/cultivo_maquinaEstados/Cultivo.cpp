@@ -13,11 +13,11 @@ void Cultivo::setEstado(Estado_Cultivo* nuevo_estado)
     estado_actual = nuevo_estado;
 }
 
-void Cultivo::Hacer()
+void Cultivo::hacer()
 {
     //delegacion.
 
-    estado_actual->Hacer();
+    estado_actual->hacer();
 }
 
 void Cultivo::metodo_cargador_de_imagenes()
