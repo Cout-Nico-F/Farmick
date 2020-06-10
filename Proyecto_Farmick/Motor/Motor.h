@@ -37,6 +37,5 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
         SDL_Window* m_ventana;
         SDL_Renderer* m_renderizador;
         Cultivo* Estado_Cultivo;
-
 };
 

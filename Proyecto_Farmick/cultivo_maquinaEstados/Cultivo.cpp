@@ -1,6 +1,6 @@
 #include "Cultivo.h"
 #include "Estado_Cultivo_Terreno.h"
-#include "Motor.h"
+#include "../Motor/Motor.h"
 
 Cultivo::Cultivo()
 {
@@ -20,9 +20,15 @@ void Cultivo::Hacer()
     estado_actual->Hacer();
 }
 
-bool Cultivo::metodo_cargador_de_imagenes()
+void Cultivo::metodo_cargador_de_imagenes()
 {
 
     //delegacion
     estado_actual-> metodo_cargador_de_imagenes();
 }
+
+void Cultivo::setEstadoMotor(Estado_Cultivo* estado)
+{
+    estado_motor->actualizarEstadoCultivo(estado);
+}
+

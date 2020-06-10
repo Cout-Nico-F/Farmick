@@ -70,7 +70,6 @@ void Motor::renderizar()
     SDL_SetRenderDrawColor(m_renderizador,247,229,178,255);
     SDL_RenderClear(m_renderizador); ///Fondo color amarillo arena
     //metodo_cargador_de_imagenes(/*necesita recibir el objeto a mostrar*/);///metodo de prueba
-    this->actualizarEstadoCultivo()
     Estado_Cultivo-> metodo_cargador_de_imagenes();
     SDL_RenderPresent(m_renderizador);
 }
@@ -111,6 +110,5 @@ if(!cargado) //parche para evitar falla de memoria
 */
 void actualizarEstadoCultivo(Cultivo * nuevoEstado)
 {
-    Estado_Cultivo=nuevoEstado;
-
+    Estado_Cultivo = nuevoEstado;
 }
