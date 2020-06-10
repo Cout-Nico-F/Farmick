@@ -10,8 +10,8 @@ class Estado_Cultivo_Terreno : public Estado_Cultivo ///Estado N en concreto (Es
 
 public:
     Estado_Cultivo_Terreno(Cultivo* contexto);
-    
-    void Hacer () override; ///sobrecarga
+
+    void hacer () override; ///sobrecarga
     void metodo_cargador_de_imagenes()override;
 
     bool cargado = false;//parche usado en cultivo_arado
