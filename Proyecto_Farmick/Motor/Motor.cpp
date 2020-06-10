@@ -68,8 +68,10 @@ void Motor::eventos()
         salir();
         break;
     case SDL_MOUSEBUTTONDOWN:
-        //if(event.button.button==SDL_BUTTON_LEFT)
-        cultivo1.Hacer();
+        if(event.button.button==SDL_BUTTON_LEFT)
+            if(event.button.x >=428 && event.button.x <= 527)
+                if(event.button.y >=500 && event.button.y <= 550)
+                    cultivo1.Hacer(); // cambiar espeguetti de ifs
         //cambiar estado
     }
 }

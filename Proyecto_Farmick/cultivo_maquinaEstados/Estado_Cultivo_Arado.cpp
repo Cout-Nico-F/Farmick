@@ -17,7 +17,7 @@ void Estado_Cultivo_Arado::Hacer()
     Motor::GetInstancia()->actualizarEstadoCultivo(objeto);
 }
 
-bool Estado_Cultivo_Arado::metodo_cargador_de_imagenes()
+void Estado_Cultivo_Arado::metodo_cargador_de_imagenes()
 {
 
     if(!cargado) //para evitar falla de memoria

@@ -23,18 +23,19 @@ void Estado_Cultivo_Terreno::Hacer()
 
 }
 
-bool Estado_Cultivo_Terreno::metodo_cargador_de_imagenes()
+void Estado_Cultivo_Terreno::metodo_cargador_de_imagenes()
     {
 
         if(!cargado) //para evitar falla de memoria
         {
             GestorTexturas::getInstancia()->cargar("logoGrande","assets/logo_grande.png");
             GestorTexturas::getInstancia()->cargar("terreno","assets/cultivo_terreno.png");
+            GestorTexturas::getInstancia()->cargar("click","assets/click.png");
             cargado = true;
         }
 
         GestorTexturas::getInstancia()->dibujar("logoGrande",150,66,728,259);
-
+        GestorTexturas::getInstancia()->dibujar("click",391,370,174,70);
         GestorTexturas::getInstancia()->dibujar("terreno",428,500,99,50);
         //SDL_Delay(1000);
     }
