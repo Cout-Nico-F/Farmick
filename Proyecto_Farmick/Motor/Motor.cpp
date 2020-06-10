@@ -35,6 +35,7 @@ bool Motor::limpiar()
     SDL_DestroyWindow(m_ventana);
     IMG_Quit();
     SDL_Quit();
+    return true; // Provisorio
 }
 
 void Motor::salir()

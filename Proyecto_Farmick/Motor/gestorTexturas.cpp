@@ -31,6 +31,7 @@ bool GestorTexturas::borrar(std::string id)
 {
     SDL_DestroyTexture(m_mapaTexturas[id]);
     m_mapaTexturas.erase(id);
+return true; // Provisorio
 }
 
 bool GestorTexturas::limpiar()
@@ -42,6 +43,7 @@ bool GestorTexturas::limpiar()
     }
     m_mapaTexturas.clear();
     SDL_Log("Mapa de texturas se ha limpiado correctamente");
+return true; // Provisorio
 }
 
 void GestorTexturas::dibujar(std::string id, int x, int y, int ancho, int alto, SDL_RendererFlip flip)
