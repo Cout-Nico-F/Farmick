@@ -24,6 +24,7 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
         void eventos();
 
         bool metodo_cargador_de_imagenes();//metodo de prueba
+
         void actualizarEstadoCultivo(Estado_Cultivo* nuevoEstado);
 
         inline bool juegoActivo() {return m_juegoActivo;}

@@ -61,30 +61,32 @@ void Motor::actualizar()
     //este metodo necesita delegar hacia una interface?
     SDL_Log("Actualizando!");
 
-        //a modo de prueba de la maquina de estados de cultivo:
-        cultivo1.Hacer();
+
 }
 
 void Motor::renderizar()
 {
+
+
     SDL_SetRenderDrawColor(m_renderizador,247,229,178,255);
     SDL_RenderClear(m_renderizador); ///Fondo color amarillo arena
     //metodo_cargador_de_imagenes(/*necesita recibir el objeto a mostrar*/);///metodo de prueba
-    estado_cultivo-> metodo_cargador_de_imagenes();
+    cultivo1.metodo_cargador_de_imagenes();//
+    //estado_cultivo-> metodo_cargador_de_imagenes();
     SDL_RenderPresent(m_renderizador);
 }
 
 void Motor::eventos()
 {
-    SDL_Event event;
-    SDL_PollEvent(&event);
-    switch(event.type)
-    {
-    case SDL_QUIT:
-        salir();
-        break;
-   // case SDL_MOUSEBUTTONDOWN
-    }
+//    SDL_Event event;
+//    SDL_PollEvent(&event);
+//    switch(event.type)
+//    {
+//    case SDL_QUIT:
+//        salir();
+//        break;
+//   // case SDL_MOUSEBUTTONDOWN
+//    }
 }
 
 Motor::Motor()
