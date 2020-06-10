@@ -11,7 +11,7 @@ Estado_Cultivo_Terreno::Estado_Cultivo_Terreno(Cultivo* contexto) : punteroAcult
 
 }
 
-void Estado_Cultivo_Terreno::Hacer()
+void Estado_Cultivo_Terreno::hacer()
 {
     std::cout<<"Implementacion de Hacer() de Terreno"<<std::endl;
     //a continuacion a modo de prueba se cambia el estado hacia estado arado( en el juego esto se disparara segun hechos o condiciones )

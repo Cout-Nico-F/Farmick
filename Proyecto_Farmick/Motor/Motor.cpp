@@ -69,7 +69,7 @@ void Motor::eventos()
         break;
     case SDL_MOUSEBUTTONDOWN:
         //if(event.button.button==SDL_BUTTON_LEFT)
-        cultivo1.Hacer();
+        cultivo1.hacer();
         //cambiar estado
     }
 }
