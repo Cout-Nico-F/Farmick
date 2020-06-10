@@ -24,7 +24,8 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
         void eventos();
 
         bool metodo_cargador_de_imagenes();//metodo de prueba
-        void actualizarEstadoCultivo(Cultivo* nuevoEstado);
+        void actualizarEstadoCultivo(Estado_Cultivo* nuevoEstado);
+
         inline bool juegoActivo() {return m_juegoActivo;}
         inline SDL_Renderer* getRenderizador(){return m_renderizador;}
 
@@ -36,6 +37,6 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
         bool m_juegoActivo;
         SDL_Window* m_ventana;
         SDL_Renderer* m_renderizador;
-        Cultivo* Estado_Cultivo;
+        Estado_Cultivo* estado_cultivo;
 };
 

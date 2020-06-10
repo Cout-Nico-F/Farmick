@@ -17,8 +17,10 @@ void Estado_Cultivo_Terreno::Hacer()
     //a continuacion a modo de prueba se cambia el estado hacia estado arado( en el juego esto se disparara segun hechos o condiciones )
 
 
-//    if(si hizo click)
-    punteroAcultivo->setEstado(new Estado_Cultivo_Arado(punteroAcultivo));
+    //    if(si hizo click)
+    Estado_Cultivo* objeto = new Estado_Cultivo_Arado(punteroAcultivo);
+    punteroAcultivo->setEstado(objeto);
+    punteroAmotor->actualizarEstadoCultivo(objeto);
     //punteroMotor->actualizarEstado (punteroAcultivo);
 }
 

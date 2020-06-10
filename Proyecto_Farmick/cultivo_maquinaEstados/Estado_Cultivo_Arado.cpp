@@ -8,7 +8,7 @@ Estado_Cultivo_Arado::Estado_Cultivo_Arado(Cultivo* contexto): _contexto(context
 
 };
 
-void Estado_Cultivo_Arado::Hacer()     //sobrecarga de metodo
+void Estado_Cultivo_Arado::Hacer()
 {
     std::cout<<"Implementacion de Hacer() de Arado"<<std::endl;
     //Cuando el metodo hacer lo implementa estado_cultivo_arado hace algo diferente a cuando hacer es implementado por otra clase de estado ( ej terreno)

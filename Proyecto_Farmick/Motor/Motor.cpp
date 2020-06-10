@@ -70,7 +70,7 @@ void Motor::renderizar()
     SDL_SetRenderDrawColor(m_renderizador,247,229,178,255);
     SDL_RenderClear(m_renderizador); ///Fondo color amarillo arena
     //metodo_cargador_de_imagenes(/*necesita recibir el objeto a mostrar*/);///metodo de prueba
-    Estado_Cultivo-> metodo_cargador_de_imagenes();
+    estado_cultivo-> metodo_cargador_de_imagenes();
     SDL_RenderPresent(m_renderizador);
 }
 
@@ -108,7 +108,7 @@ if(!cargado) //parche para evitar falla de memoria
     GestorTexturas::getInstancia()->dibujar("terreno",428,500,99,50);
 
 */
-void actualizarEstadoCultivo(Cultivo * nuevoEstado)
+void Motor::actualizarEstadoCultivo(Estado_Cultivo* nuevoEstado)
 {
-    Estado_Cultivo = nuevoEstado;
+    estado_cultivo = nuevoEstado;
 }

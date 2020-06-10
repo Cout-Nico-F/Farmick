@@ -10,11 +10,12 @@ public:
     void setEstado (Estado_Cultivo* nuevo_estado);
     void Hacer();
     void metodo_cargador_de_imagenes();
-    void setEstadoMotor(Estado_Cultivo* estado);
+
+    //void setEstadoMotor(Estado_Cultivo* estado);
 
 private:
     Estado_Cultivo* estado_actual;//composicion (un cultivo tiene un estado_cultivo)
-    Motor * estado_motor;
+    //Motor * estado_motor;
 };
 
 
