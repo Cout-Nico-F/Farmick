@@ -1,6 +1,7 @@
 #pragma once
 #include "SDL.h"
 #include "SDL_image.h"
+#include "../cultivo_maquinaEstados/Cultivo.h"
 
 #define ANCHO_PANTALLA 1024 ///resolucion actual 1024x768
 #define ALTO_PANTALLA 768
@@ -36,5 +37,7 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
         SDL_Window* m_ventana;
         SDL_Renderer* m_renderizador;
         bool cargado = false;//parche usado en motor::renderizar
+        Estado_Cultivo* cultivo;
+
 };
 

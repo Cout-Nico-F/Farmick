@@ -1,5 +1,4 @@
 #include "Motor.h"
-#include "../cultivo_maquinaEstados/Cultivo.h"
 #include "gestorTexturas.h"
 
 Cultivo cultivo1;//a modo de prueba de la maquina de estados de cultivo:
@@ -17,13 +16,6 @@ if(!cargado) //parche para evitar falla de memoria
 
     GestorTexturas::getInstancia()->dibujar("terreno",428,500,99,50);
 }
-
-Motor::Motor()
-{
-
-}
-
-
 
 Motor* Motor::s_instancia = nullptr;
 
@@ -66,8 +58,8 @@ void Motor::salir()
 
 void Motor::actualizar()
 {
+    //este metodo necesita delegar hacia una interface?
     SDL_Log("Actualizando!");
-
 
         //a modo de prueba de la maquina de estados de cultivo:
         cultivo1.Hacer();
@@ -93,6 +85,11 @@ void Motor::eventos()
         break;
    // case SDL_MOUSEBUTTONDOWN
     }
+}
+
+Motor::Motor()
+{
+// cultivo = new Cultivo();
 }
 
 //objeto a mostrar: ( va a ser un objeto de la clase imagen )

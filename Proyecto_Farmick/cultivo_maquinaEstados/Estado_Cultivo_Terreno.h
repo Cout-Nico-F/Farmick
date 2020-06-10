@@ -8,7 +8,7 @@
 class Estado_Cultivo_Terreno : public Estado_Cultivo ///Estado N en concreto (Estado Terreno)
 {
 private:
-    Cultivo* _contexto;///referencia a cultivo
+    Cultivo* punteroAcultivo;///referencia a cultivo
 ///estado_cultivo_terreno tiene un cultivo ( composicion usada para cerrar el circulo de la maquina finita de estados )
 
    // Imagen* imagen; ///los objetos de esta clase van a tener una imagen (composicion)
@@ -16,7 +16,7 @@ private:
 
 public:
     Estado_Cultivo_Terreno(Cultivo* contexto);
-    void Hacer()override; ///sobrecarga
+    void Hacer () override; ///sobrecarga
 
 };
 

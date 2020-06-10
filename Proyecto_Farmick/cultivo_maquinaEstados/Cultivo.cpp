@@ -4,7 +4,7 @@
 Cultivo::Cultivo()
 {
     estado_actual = new Estado_Cultivo_Terreno(this);//al construir un objeto se setea en el estado inicial: terreno
-    //ctor
+    //constructor
 }
 
 void Cultivo::setEstado(Estado_Cultivo* nuevo_estado)
@@ -14,5 +14,7 @@ void Cultivo::setEstado(Estado_Cultivo* nuevo_estado)
 
 void Cultivo::Hacer()
 {
+    //delegacion.
+
     estado_actual->Hacer();
 }
