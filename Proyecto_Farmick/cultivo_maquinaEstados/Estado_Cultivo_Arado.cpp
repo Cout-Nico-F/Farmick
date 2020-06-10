@@ -19,7 +19,7 @@ void Estado_Cultivo_Arado::Hacer()
 
 bool Estado_Cultivo_Arado::metodo_cargador_de_imagenes()
 {
-    Hacer();
+
     if(!cargado) //para evitar falla de memoria
     {
         GestorTexturas::getInstancia()->cargar("logoGrande","assets/logo_grande.png");
@@ -29,8 +29,8 @@ bool Estado_Cultivo_Arado::metodo_cargador_de_imagenes()
 
     GestorTexturas::getInstancia()->dibujar("logoGrande",150,66,728,259);
 
-    GestorTexturas::getInstancia()->dibujar("arada",328,500,99,50);
+    GestorTexturas::getInstancia()->dibujar("arada",428,500,99,50);
 
-    SDL_Delay(1000);
+    //SDL_Delay(1000);
 }
 

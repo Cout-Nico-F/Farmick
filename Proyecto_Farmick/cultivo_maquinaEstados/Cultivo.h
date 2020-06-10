@@ -15,8 +15,6 @@ public:
 
 private:
     Estado_Cultivo* estado_actual;//composicion (un cultivo tiene un estado_cultivo)
-
-//    Motor* estado_motor;
 };
 
 
