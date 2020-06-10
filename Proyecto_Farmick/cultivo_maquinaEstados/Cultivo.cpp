@@ -1,5 +1,6 @@
 #include "Cultivo.h"
 #include "Estado_Cultivo_Terreno.h"
+#include "Motor.h"
 
 Cultivo::Cultivo()
 {
@@ -17,4 +18,11 @@ void Cultivo::Hacer()
     //delegacion.
 
     estado_actual->Hacer();
+}
+
+bool Cultivo::metodo_cargador_de_imagenes()
+{
+
+    //delegacion
+    estado_actual-> metodo_cargador_de_imagenes();
 }

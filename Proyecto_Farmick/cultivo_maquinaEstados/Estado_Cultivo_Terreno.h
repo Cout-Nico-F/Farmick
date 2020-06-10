@@ -17,6 +17,8 @@ private:
 public:
     Estado_Cultivo_Terreno(Cultivo* contexto);
     void Hacer () override; ///sobrecarga
+    bool metodo_cargador_de_imagenes()override;
+    bool cargado = false;//parche usado en cultivo_arado
 
 };
 

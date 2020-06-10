@@ -16,9 +16,23 @@ void Estado_Cultivo_Terreno::Hacer()
     std::cout<<"Implementacion de Hacer() de Terreno"<<std::endl;
     //a continuacion a modo de prueba se cambia el estado hacia estado arado( en el juego esto se disparara segun hechos o condiciones )
 
+
 //    if(si hizo click)
     punteroAcultivo->setEstado(new Estado_Cultivo_Arado(punteroAcultivo));
+    //punteroMotor->actualizarEstado (punteroAcultivo);
 }
 
+bool Estado_Cultivo_Terreno::metodo_cargador_de_imagenes()
+    {
+        if(!cargado) //parche para evitar falla de memoria
+        {
+            GestorTexturas::getInstancia()->cargar("logoGrande","assets/logo_grande.png");
+            GestorTexturas::getInstancia()->cargar("terreno","assets/cultivo_terreno.png");
+            cargado = true;
+        }
 
+        GestorTexturas::getInstancia()->dibujar("logoGrande",150,66,728,259);
+
+        GestorTexturas::getInstancia()->dibujar("terreno",428,500,99,50);
+    }
 

@@ -3,19 +3,19 @@
 
 Cultivo cultivo1;//a modo de prueba de la maquina de estados de cultivo:
 
-bool Motor::metodo_cargador_de_imagenes()
-{
-if(!cargado) //parche para evitar falla de memoria
-    {
-        GestorTexturas::getInstancia()->cargar("logoGrande","assets/logo_grande.png");
-        GestorTexturas::getInstancia()->cargar("terreno","assets/cultivo_terreno.png");
-        cargado = true;
-    }
-
-    GestorTexturas::getInstancia()->dibujar("logoGrande",150,66,728,259);
-
-    GestorTexturas::getInstancia()->dibujar("terreno",428,500,99,50);
-}
+//bool Motor::metodo_cargador_de_imagenes()
+//{
+//if(!cargado) //parche para evitar falla de memoria
+//    {
+//        GestorTexturas::getInstancia()->cargar("logoGrande","assets/logo_grande.png");
+//        GestorTexturas::getInstancia()->cargar("terreno","assets/cultivo_terreno.png");
+//        cargado = true;
+//    }
+//
+//    GestorTexturas::getInstancia()->dibujar("logoGrande",150,66,728,259);
+//
+//    GestorTexturas::getInstancia()->dibujar("terreno",428,500,99,50);
+//}
 
 Motor* Motor::s_instancia = nullptr;
 
@@ -69,8 +69,9 @@ void Motor::renderizar()
 {
     SDL_SetRenderDrawColor(m_renderizador,247,229,178,255);
     SDL_RenderClear(m_renderizador); ///Fondo color amarillo arena
-    metodo_cargador_de_imagenes(/*necesita recibir el objeto a mostrar*/);///metodo de prueba
-
+    //metodo_cargador_de_imagenes(/*necesita recibir el objeto a mostrar*/);///metodo de prueba
+    this->actualizarEstadoCultivo()
+    Estado_Cultivo-> metodo_cargador_de_imagenes();
     SDL_RenderPresent(m_renderizador);
 }
 
@@ -108,3 +109,8 @@ if(!cargado) //parche para evitar falla de memoria
     GestorTexturas::getInstancia()->dibujar("terreno",428,500,99,50);
 
 */
+void actualizarEstadoCultivo(Cultivo * nuevoEstado)
+{
+    Estado_Cultivo=nuevoEstado;
+
+}
