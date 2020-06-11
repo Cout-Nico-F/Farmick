@@ -31,6 +31,6 @@ void Estado_Cultivo_Arado::metodo_cargador_de_imagenes()
 
     GestorTexturas::getInstancia()->dibujar("arada",428,500,99,50);
 
-    //SDL_Delay(1000);
+
 }
 

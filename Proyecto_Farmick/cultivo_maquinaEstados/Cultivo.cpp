@@ -27,8 +27,3 @@ void Cultivo::metodo_cargador_de_imagenes()
     estado_actual-> metodo_cargador_de_imagenes();
 }
 
-//void Cultivo::setEstadoMotor(Estado_Cultivo* estado)
-//{
-//    estado_motor->actualizarEstadoCultivo(estado);
-//}
-
