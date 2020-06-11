@@ -26,7 +26,7 @@ void Estado_Cultivo_Terreno::hacer()
 void Estado_Cultivo_Terreno::metodo_cargador_de_imagenes()
     {
 
-        if(!cargado) //para evitar falla de memoria
+        if(!cargado) //para evitar que se carge mas de una vez
         {
             GestorTexturas::getInstancia()->cargar("logoGrande","assets/logo_grande.png");
             GestorTexturas::getInstancia()->cargar("terreno","assets/cultivo_terreno.png");

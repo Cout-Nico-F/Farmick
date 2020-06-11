@@ -40,7 +40,6 @@
 		<Unit filename="Motor/gestorTexturas.h" />
 		<Unit filename="cultivo_maquinaEstados/Cultivo.cpp" />
 		<Unit filename="cultivo_maquinaEstados/Cultivo.h" />
-		<Unit filename="cultivo_maquinaEstados/Estado_Cultivo.cpp" />
 		<Unit filename="cultivo_maquinaEstados/Estado_Cultivo.h" />
 		<Unit filename="cultivo_maquinaEstados/Estado_Cultivo_Arado.cpp" />
 		<Unit filename="cultivo_maquinaEstados/Estado_Cultivo_Arado.h" />
