@@ -16,7 +16,7 @@ void Estado_Cultivo_Terreno::hacer()
     std::cout<<"Implementacion de Hacer() de Terreno"<<std::endl;
     //a continuacion a modo de prueba se cambia el estado hacia estado arado( en el juego esto se disparara segun hechos o condiciones )
 
-    //    if(si hizo click)
+    //    if(condicion)
     Estado_Cultivo* objeto = new Estado_Cultivo_Arado(punteroAcultivo);
     punteroAcultivo->setEstado(objeto);
     Motor::GetInstancia()->actualizarEstadoCultivo(objeto);
@@ -37,6 +37,6 @@ void Estado_Cultivo_Terreno::metodo_cargador_de_imagenes()
         GestorTexturas::getInstancia()->dibujar("logoGrande",150,66,728,259);
         GestorTexturas::getInstancia()->dibujar("click",391,370,174,70);
         GestorTexturas::getInstancia()->dibujar("terreno",428,500,99,50);
-        //SDL_Delay(1000);
+
     }
 
