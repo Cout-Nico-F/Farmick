@@ -5,7 +5,7 @@
 
 Estado_Cultivo_Arado::Estado_Cultivo_Arado(Cultivo* contexto): _contexto(contexto)//usa su constructor + el constructor heredado de la clase base
 {
-
+ int a = 2;
 };
 
 void Estado_Cultivo_Arado::hacer()

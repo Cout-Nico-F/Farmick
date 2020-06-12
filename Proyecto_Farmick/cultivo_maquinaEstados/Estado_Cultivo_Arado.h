@@ -11,6 +11,7 @@ public:
 
 private:
     Cultivo* _contexto;
+
 //esta composicion es una de las formas de cerrar el circulo de la maquina finita de estados
 //en la documentacion se habla de otras maneras mas utiles devolviendo un new estado
 
