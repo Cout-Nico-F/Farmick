@@ -6,7 +6,7 @@
 
 Estado_Cultivo_Terreno::Estado_Cultivo_Terreno(Cultivo* contexto) : punteroAcultivo(contexto)
 {
-
+   //INFO SOBRE PORQUE SE HACE ESA ASIGNACION EN EL CONSTRUCTOR ESTE EN EL PRIMER COMENTARIO 298LIKES---> https://stackoverflow.com/questions/2785612/c-what-does-the-colon-after-a-constructor-mean
     ///EL constructor esta llamando a su ves al contrusctor de la clase de la que hereda (padre)
 
 }
