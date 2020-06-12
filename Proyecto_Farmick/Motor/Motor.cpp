@@ -82,7 +82,7 @@ void Motor::eventos()
 
 Motor::Motor()
 {
-// cultivo = new Cultivo();
+// cultivo = new Cultivo(); <-?
 }
 
 void Motor::actualizarEstadoCultivo(Estado_Cultivo* nuevoEstado)

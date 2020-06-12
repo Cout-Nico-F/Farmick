@@ -34,6 +34,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Jugador.cpp" />
+		<Unit filename="Jugador.h" />
 		<Unit filename="Motor/Motor.cpp" />
 		<Unit filename="Motor/Motor.h" />
 		<Unit filename="Motor/gestorTexturas.cpp" />
