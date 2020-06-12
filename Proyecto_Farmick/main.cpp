@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Motor.h"
 #include "cultivo_maquinaEstados/Cultivo.h"
 

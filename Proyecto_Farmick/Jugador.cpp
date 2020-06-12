@@ -6,3 +6,8 @@ Jugador::Jugador()
 {
     _monedas = 0; //inicializo monedas en cero cuando se crea el objeto de jugador.
 }
+
+void Jugador::incrementarMonedas()
+{
+    _monedas++;
+}

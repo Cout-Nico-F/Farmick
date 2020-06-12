@@ -1,5 +1,6 @@
 #include "Motor.h"
 #include "gestorTexturas.h"
+#include "../Jugador.h"
 
 Cultivo cultivo1;//a modo de prueba de la maquina de estados de cultivo:
 //el gameplay le da mensajes a cultivo (lo hace con un metodo ) leer mensajes relacionado a metodos
@@ -75,8 +76,14 @@ void Motor::eventos()
         if(event.button.button==SDL_BUTTON_LEFT)
             if(event.button.x >=428 && event.button.x <= 527)
                 if(event.button.y >=500 && event.button.y <= 550)
+                {
+                    //se que esto seria parte de actualizar() pero todavia no se me ocurrio como
+                    //hacer para pasarle el mensaje
+                    Jugador::getInstancia()->incrementarMonedas();
                     cultivo1.hacer(); // cambiar espeguetti de ifs
-        //cambiar estado
+                }
+
+        //cambia estado
     }
 }
 
