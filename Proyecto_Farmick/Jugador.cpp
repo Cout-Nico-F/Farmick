@@ -10,4 +10,15 @@ Jugador::Jugador()
 void Jugador::incrementarMonedas()
 {
     _monedas++;
+
 }
+void Jugador::gastarMonedas(int cuantas)
+{
+    _monedas -=cuantas;
+}
+
+int Jugador::getMonedas()
+{
+    return _monedas;
+}
+

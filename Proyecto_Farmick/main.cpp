@@ -30,7 +30,7 @@ basicamente ver como cambia de una imagen a otra en la ventana de sdl usando los
 */
 //Para la entrega final
 /*Objetivos:
-+Indicador de monedas
++Indicador de monedas ( por ahora logre que un click nos de una moneda )
 +ciclo completo del cultivo
 +implementar disparadores para el cambio de estado ( condiciones para que se efectue el cambio al estado correspondiente )
 +
