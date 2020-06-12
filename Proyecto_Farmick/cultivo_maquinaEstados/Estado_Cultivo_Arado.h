@@ -10,7 +10,7 @@ public:
     void metodo_cargador_de_imagenes()override;
 
 private:
-    Cultivo* _contexto;
+    Cultivo* _punteroAcultivo;
 
 //esta composicion es una de las formas de cerrar el circulo de la maquina finita de estados
 //en la documentacion se habla de otras maneras mas utiles devolviendo un new estado

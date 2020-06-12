@@ -2,6 +2,9 @@
 #include "gestorTexturas.h"
 
 Cultivo cultivo1;//a modo de prueba de la maquina de estados de cultivo:
+//el gameplay le da mensajes a cultivo (lo hace con un metodo ) leer mensajes relacionado a metodos
+//los objetos de cultivo los crea la clase gameplay
+
 
 Motor* Motor::s_instancia = nullptr;
 

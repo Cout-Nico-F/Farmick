@@ -10,6 +10,9 @@ GestorTexturas::GestorTexturas()
 
 bool GestorTexturas::cargar(std::string id, std::string nombreArchivo)
 {
+    //patron de recursos (resourse)
+    //debe preguntar si ya esta cargada ( si piden cargar con un id de recurso que todavia no existe)
+    //se guarda una lista de imagenes para comprobar si ya esta cargado. si ya esta cargado devuelve un recurso ( un puntero al buffer de texturas)
     SDL_Surface* superficie = IMG_Load(nombreArchivo.c_str());//que funcion es c_str?
     if(superficie==nullptr)
     {
