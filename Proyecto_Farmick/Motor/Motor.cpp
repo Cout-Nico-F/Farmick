@@ -49,8 +49,29 @@ void Motor::salir()
 
 void Motor::actualizar()
 {
-    //este metodo necesita delegar hacia una interface?
-    //SDL_Log("Actualizando!");
+    if(m_boton)
+    {
+        if(m_evento_x >=428 && m_evento_x <= 527)
+        {
+            if(m_evento_y >=500 && m_evento_y <= 550)
+            {
+                //se que esto seria parte de actualizar() pero todavia no se me ocurrio como
+                //hacer para pasarle el mensaje
+                /*temporal*/Jugador::getInstancia()->incrementarMonedas();
+                SDL_Log("Encontraste una moneda");
+
+                if(Jugador::getInstancia()->getMonedas()>=10)
+                {
+                    Jugador::getInstancia()->gastarMonedas(10);
+                    cultivo1.hacer(); // cambiar espeguetti de ifs
+                }
+                else
+                    SDL_Log("Monedas insuficientes, necesitas 10");
+            }
+        }
+    }
+//este metodo necesita delegar hacia una interface?
+//SDL_Log("Actualizando!");
 }
 
 void Motor::renderizar()
@@ -65,35 +86,30 @@ void Motor::renderizar()
 
 void Motor::eventos()
 {
-    SDL_Event event;
-    SDL_PollEvent(&event);
-    switch(event.type)
+    SDL_Event evento;
+    SDL_PollEvent(&evento);
+    switch (evento.type)
     {
     case SDL_QUIT:
+    {
         salir();
-        break;
+    }
+    break;
+
     case SDL_MOUSEBUTTONDOWN:
-        if(event.button.button==SDL_BUTTON_LEFT)
+    {
+        if(evento.button.button==SDL_BUTTON_LEFT)
         {
-/*temporal*/Jugador::getInstancia()->incrementarMonedas();
-            SDL_Log("Encontraste una moneda");
-
-            if(event.button.x >=428 && event.button.x <= 527)
-                if(event.button.y >=500 && event.button.y <= 550)
-                {
-                    //se que esto seria parte de actualizar() pero todavia no se me ocurrio como
-                    //hacer para pasarle el mensaje
-                    if(Jugador::getInstancia()->getMonedas()>10)
-                    {
-                        Jugador::getInstancia()->gastarMonedas(10);
-                        cultivo1.hacer(); // cambiar espeguetti de ifs
-                    }
-                    else SDL_Log("Monedas insuficientes, necesitas 10");
-
-
-                }
-
-        }//cambia estado
+            m_evento_x=evento.button.x;
+            m_evento_y=evento.button.y;
+            m_boton=true;
+        }
+    }break;
+    default:
+        {
+            m_boton=false;
+        }
+        break;
     }
 }
 

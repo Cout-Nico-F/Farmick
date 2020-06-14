@@ -15,6 +15,8 @@ public:
 
 private:
     Estado_Cultivo* estado_actual;//composicion (un cultivo tiene un estado_cultivo)
+    int m_ubicacion_x;
+    int m_ubicacion_y;
 };
 
 
