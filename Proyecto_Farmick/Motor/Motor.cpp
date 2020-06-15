@@ -24,8 +24,9 @@ void Motor::borrarCultivos()
     std::map<std::string,Cultivo*>::iterator iterador;
     for(iterador = m_mapaCultivos.begin(); iterador!=m_mapaCultivos.end(); iterador++)
     {
-        delete(iterador->second);//a que atributo del iterador esta accediendo? no aparece en la doc de cplusplus
-    }
+        delete(iterador->second);//a que atributo del iterador esta accediendo? no aparece en la doc de cplusplus (solucionado: leer link)
+    }///https://stackoverflow.com/questions/15451287/what-does-iterator-second-mean
+    //basicamente second se refiere al segundo parametro del iterador, tiene 2 uno es el id y el otro es el puntero por eso le decimos delete(puntero)
     m_mapaCultivos.clear();
     SDL_Log("Mapa de Cultivos se ha limpiado correctamente");
 }
@@ -111,7 +112,10 @@ void Motor::renderizar()
 {
     SDL_SetRenderDrawColor(m_renderizador,247,229,178,255);
     SDL_RenderClear(m_renderizador); ///Fondo color amarillo arena
-
+    //mirando esta parte me doy cuenta que si cada cultivo
+    //pudiera ejecutar el metodo cargador de imagines de manera diferente seria muy interesante
+    //cultivo1.metodocargador pondria la imagen del cultivo1 en las coordinadas correctas,]
+    //y al poner un cultivoN.metodocargador este se pondria en la ubicacion seteada en ese metodo concreto
     m_mapaCultivos["cultivo1"]->metodo_cargador_de_imagenes();
     indicadorMonedas();
 }
