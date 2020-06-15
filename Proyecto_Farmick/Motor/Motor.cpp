@@ -97,24 +97,7 @@ void Motor::renderizar()
     SDL_RenderClear(m_renderizador); ///Fondo color amarillo arena
 
     cultivo1.metodo_cargador_de_imagenes();
-
-
-    //indicadorMonedas();
-    //
-    std::string monedas = "MONEDAS: " + std::to_string(Jugador::getInstancia()->getMonedas());
-    const char*monedas_mostrar=monedas.c_str();
-
-    SDL_Color color = {239,184,16}; //Color oro.
-    m_superficie = TTF_RenderText_Solid(m_fuente,monedas_mostrar, color);
-    m_textura = SDL_CreateTextureFromSurface(m_renderizador, m_superficie);
-    int texW, texH;
-    SDL_QueryTexture(m_textura, NULL, NULL, &texW, &texH);
-    SDL_Rect destRect = {20,20, texW, texH};
-    SDL_RenderCopy (m_renderizador, m_textura, NULL, &destRect);
-    SDL_RenderPresent (m_renderizador);
-    SDL_DestroyTexture (m_textura);
-    SDL_FreeSurface (m_superficie);
-    //
+    indicadorMonedas();
 }
 
 void Motor::eventos()
@@ -155,6 +138,23 @@ Motor::Motor()
 void Motor::actualizarEstadoCultivo(Estado_Cultivo* nuevoEstado)
 {
     estado_cultivo = nuevoEstado;
+}
+
+void Motor::indicadorMonedas()
+{
+    std::string monedas = "MONEDAS: " + std::to_string(Jugador::getInstancia()->getMonedas());
+    const char*monedas_mostrar=monedas.c_str();
+
+    SDL_Color color = {239,184,16}; //Color oro.
+    m_superficie = TTF_RenderText_Solid(m_fuente,monedas_mostrar, color);
+    m_textura = SDL_CreateTextureFromSurface(m_renderizador, m_superficie);
+    int texW, texH;
+    SDL_QueryTexture(m_textura, NULL, NULL, &texW, &texH);
+    SDL_Rect destRect = {20,20, texW, texH};
+    SDL_RenderCopy (m_renderizador, m_textura, NULL, &destRect);
+    SDL_RenderPresent (m_renderizador);
+    SDL_DestroyTexture (m_textura);
+    SDL_FreeSurface (m_superficie);
 }
 
 //objeto a mostrar: ( va a ser un objeto de la clase imagen )
