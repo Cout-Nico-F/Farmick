@@ -44,6 +44,7 @@ bool Motor::inicializar()
 
 bool Motor::limpiar()
 {
+    GestorTexturas::getInstancia()->limpiar();
     SDL_DestroyRenderer(m_renderizador);
     SDL_DestroyWindow(m_ventana);
     IMG_Quit();
@@ -102,14 +103,17 @@ void Motor::renderizar()
 
 
    // SDL_Color color = {255,140,0}; //Color naranja.
-    SDL_Color color = {239,184,16}; //Color naranja.
+    SDL_Color color = {239,184,16}; //Color oro.
     m_superficie = TTF_RenderText_Solid(m_fuente,monedas_mostrar, color);
     m_textura = SDL_CreateTextureFromSurface(m_renderizador, m_superficie);
     int texW, texH;
     SDL_QueryTexture(m_textura, NULL, NULL, &texW, &texH);
     SDL_Rect destRect = {20,20, texW, texH};
-    SDL_RenderCopy ( m_renderizador , m_textura , NULL, &destRect);
+    SDL_RenderCopy (m_renderizador , m_textura , NULL, &destRect);
     SDL_RenderPresent (m_renderizador);
+    SDL_DestroyTexture (m_textura);
+    SDL_FreeSurface (m_superficie);
+
     //
 }
 

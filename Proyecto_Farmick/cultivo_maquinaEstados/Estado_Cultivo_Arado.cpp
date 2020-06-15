@@ -12,6 +12,9 @@ void Estado_Cultivo_Arado::hacer()
 {
     std::cout<<"Implementacion de Hacer() de Arado"<<std::endl;
     //Cuando el metodo hacer lo implementa estado_cultivo_arado hace algo diferente a cuando hacer es implementado por otra clase de estado ( ej terreno)
+    GestorTexturas::getInstancia()->borrar("logoGrande");
+    GestorTexturas::getInstancia()->borrar("arada");
+
     Estado_Cultivo* objeto = new Estado_Cultivo_Terreno(_punteroAcultivo);
     _punteroAcultivo->setEstado(objeto);//En esta linea estamos cambiando de estado hacia terreno.
     Motor::GetInstancia()->actualizarEstadoCultivo(objeto);

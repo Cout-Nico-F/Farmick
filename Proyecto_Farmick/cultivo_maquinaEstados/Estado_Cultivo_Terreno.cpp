@@ -17,6 +17,9 @@ void Estado_Cultivo_Terreno::hacer()
     //a continuacion a modo de prueba se cambia el estado hacia estado arado( en el juego esto se disparara segun hechos o condiciones )
 
     //    if(condicion)
+    GestorTexturas::getInstancia()->borrar("logoGrande");
+    GestorTexturas::getInstancia()->borrar("terreno");
+    GestorTexturas::getInstancia()->borrar("click");
     Estado_Cultivo* objeto = new Estado_Cultivo_Arado(punteroAcultivo);
     punteroAcultivo->setEstado(objeto);
     Motor::GetInstancia()->actualizarEstadoCultivo(objeto);
