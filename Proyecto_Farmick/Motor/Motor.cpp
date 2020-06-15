@@ -89,7 +89,7 @@ void Motor::actualizar()
         }
     }
 }   //*--*
-//metodo();
+
 
 //este metodo necesita delegar hacia una interface?
 //SDL_Log("Actualizando!");
