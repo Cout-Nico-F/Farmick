@@ -1,6 +1,10 @@
 #include "Motor.h"
 #include "gestorTexturas.h"
 #include "../Jugador.h"
+#include <string>
+#include <cstring>
+
+
 
 Cultivo cultivo1;//a modo de prueba de la maquina de estados de cultivo.
 
@@ -17,6 +21,11 @@ bool Motor::inicializar()
         SDL_Log("Fallo al inicializar SDL: %s", SDL_GetError());
         return false;
     }
+    if(TTF_Init()==-1)
+    {
+        SDL_Log("Fallo al inicializar TTF: %s",SDL_GetError());
+        return false;
+    }
     m_ventana = SDL_CreateWindow("Titulo de la ventana",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,ANCHO_PANTALLA,ALTO_PANTALLA,0);
     if(m_ventana == nullptr)
     {
@@ -29,6 +38,7 @@ bool Motor::inicializar()
         SDL_Log("Failed to create Renderer: %s",SDL_GetError());
         return false;
     }
+    m_fuente = TTF_OpenFont("Aarvark Cafe.ttf",25);
     return m_juegoActivo = true;
 }
 
@@ -37,6 +47,12 @@ bool Motor::limpiar()
     SDL_DestroyRenderer(m_renderizador);
     SDL_DestroyWindow(m_ventana);
     IMG_Quit();
+
+    SDL_DestroyTexture(m_textura);
+    SDL_FreeSurface(m_superficie);
+    TTF_CloseFont(m_fuente);
+    TTF_Quit();
+
     SDL_Quit();
     return true;
 }
@@ -73,12 +89,24 @@ void Motor::actualizar()
 
 void Motor::renderizar()
 {
-
     SDL_SetRenderDrawColor(m_renderizador,247,229,178,255);
     SDL_RenderClear(m_renderizador); ///Fondo color amarillo arena
 
     cultivo1.metodo_cargador_de_imagenes();//
     SDL_RenderPresent(m_renderizador);
+
+
+    std::string monedas = "MONEDAS: " + std::to_string(Jugador::getInstancia()->getMonedas());
+    const char*monedas_mostrar=monedas.c_str();
+
+    SDL_Color color = {255,140,0}; //Color amarillo.
+    m_superficie = TTF_RenderText_Solid(m_fuente,monedas_mostrar, color);
+    m_textura = SDL_CreateTextureFromSurface(m_renderizador, m_superficie);
+    int texW, texH;
+    SDL_QueryTexture(m_textura, NULL, NULL, &texW, &texH);
+    SDL_Rect destRect = {20,20, texW, texH};
+    SDL_RenderCopy ( m_renderizador , m_textura , NULL, &destRect);
+    SDL_RenderPresent (m_renderizador);
 }
 
 void Motor::eventos()
