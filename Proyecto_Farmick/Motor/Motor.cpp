@@ -93,7 +93,7 @@ void Motor::salir()
 
 void Motor::actualizar()
 {
-    if(m_boton)
+    if(m_botonIzqMouse)
     {
         //necesita un if (click fuera del cultivo)
 
@@ -104,16 +104,19 @@ void Motor::actualizar()
             {
                 Jugador::getInstancia()->gastarMonedas(10);
                 m_mapaCultivos["cultivo1"]->hacer();
+                m_botonIzqMouse = false;
             }
             else
             {
                 SDL_Log("Monedas insuficientes, necesitas 10");
+                m_botonIzqMouse = false;
             }
         }
         else
         {
             Jugador::getInstancia()->incrementarMonedas();
             SDL_Log("Encontraste una moneda");
+            m_botonIzqMouse = false;
         }
     }
 }   //*--*
@@ -150,13 +153,13 @@ void Motor::eventos()
         {
             m_evento_x=evento.button.x;
             m_evento_y=evento.button.y;
-            m_boton=true;
+            m_botonIzqMouse=true;
         }
     }
     break;
     default:
     {
-        m_boton=false;
+        m_botonIzqMouse=false;
     }
     break;
     }

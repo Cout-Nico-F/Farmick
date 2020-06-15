@@ -50,7 +50,7 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
 
         int m_evento_x;
         int m_evento_y;
-        bool m_boton;
+        bool m_botonIzqMouse;
 
         TTF_Font * m_fuente;
         SDL_Surface * m_superficie;
