@@ -3,6 +3,7 @@
 #include "SDL_image.h"
 #include "../cultivo_maquinaEstados/Cultivo.h"
 #include "SDL_ttf.h"
+#include <map>
 
 #define ANCHO_PANTALLA 901 ///resolucion actual 1024x768
 #define ALTO_PANTALLA 676
@@ -31,6 +32,9 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
         //bool clickTerreno(); FALTA IMPLEMENTAR LA FORMULA PARA DETECTAR EN QUE TERRENO SE HIZO CLICK
         //void inicializarUbicacionCultivos();// INICIALIZACION DE UBICACION
 
+        void crearCultivos();
+        void borrarCultivos();
+
         inline bool juegoActivo() {return m_juegoActivo;}
         inline SDL_Renderer* getRenderizador(){return m_renderizador;}
 
@@ -51,6 +55,7 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
         TTF_Font * m_fuente;
         SDL_Surface * m_superficie;
         SDL_Texture* m_textura;
-       // Cultivo mapa_cultivos[3][3]();// Array de Objetos (no funciona)
+        //Cultivo* m_mapa_cultivos[3][3];// Array de punteros a Objetos ( compila, falta asignarle adonde apuntan cada uno
+        std::map<std::string, Cultivo*> m_mapaCultivos;
 };
 

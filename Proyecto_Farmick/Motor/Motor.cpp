@@ -5,8 +5,31 @@
 #include <cstring>
 
 
+void Motor::crearCultivos()
+{
+    Cultivo* cultivo1 = new Cultivo("cultivo1");//a modo de prueba de la maquina de estados de cultivo.
+    m_mapaCultivos[cultivo1->getIdCultivo()] = cultivo1;
 
-Cultivo cultivo1;//a modo de prueba de la maquina de estados de cultivo.
+    Cultivo* cultivo2 = new Cultivo("cultivo2");
+    m_mapaCultivos["cultivo2"] = cultivo2;
+
+    Cultivo* cultivo3 = new Cultivo("cultivo3");
+
+    Cultivo* cultivo4 = new Cultivo("cultivo4");
+   // m_mapa_cultivos[0][0] = cultivo1;
+}
+
+void Motor::borrarCultivos()
+{
+    std::map<std::string,Cultivo*>::iterator iterador;
+    for(iterador = m_mapaCultivos.begin();iterador!=m_mapaCultivos.end();iterador++)
+    {
+        delete(iterador->second);//a que atributo del iterador esta accediendo? no aparece en la doc de cplusplus
+    }
+    m_mapaCultivos.clear();
+    SDL_Log("Mapa de Cultivos se ha limpiado correctamente");
+}
+
 
 //el gameplay le da mensajes a cultivo (lo hace con un metodo ) leer mensajes relacionado a metodos
 //los objetos de cultivo los crea la clase gameplay
@@ -39,11 +62,16 @@ bool Motor::inicializar()
         return false;
     }
     m_fuente = TTF_OpenFont("Aarvark Cafe.ttf",25);
+
+    crearCultivos();
+
     return m_juegoActivo = true;
 }
 
 bool Motor::limpiar()
 {
+    borrarCultivos();
+
     GestorTexturas::getInstancia()->limpiar();
     SDL_DestroyRenderer(m_renderizador);
     SDL_DestroyWindow(m_ventana);
@@ -75,7 +103,7 @@ void Motor::actualizar()
             if(Jugador::getInstancia()->getMonedas()>=10)
             {
                 Jugador::getInstancia()->gastarMonedas(10);
-                cultivo1.hacer();
+                m_mapaCultivos["cultivo1"]->hacer();
             }
             else
             {
@@ -100,7 +128,7 @@ void Motor::renderizar()
     SDL_SetRenderDrawColor(m_renderizador,247,229,178,255);
     SDL_RenderClear(m_renderizador); ///Fondo color amarillo arena
 
-    cultivo1.metodo_cargador_de_imagenes();
+    m_mapaCultivos["cultivo1"]->metodo_cargador_de_imagenes();
     indicadorMonedas();
 }
 

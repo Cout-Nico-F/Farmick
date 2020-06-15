@@ -8,6 +8,12 @@ Cultivo::Cultivo()
     //constructor
 }
 
+Cultivo::Cultivo(std::string id)
+{
+    estado_actual = new Estado_Cultivo_Terreno(this);
+    m_idCultivo = id;
+}
+
 void Cultivo::setEstado(Estado_Cultivo* nuevo_estado)
 {
     estado_actual = nuevo_estado;
@@ -36,3 +42,9 @@ int Cultivo::getUbicacion_y()
 {
     return m_ubicacion_y;
 }
+
+std::string Cultivo::getIdCultivo()
+{
+    return m_idCultivo;
+}
+

@@ -10,7 +10,8 @@ GestorTexturas::GestorTexturas()
 
 bool GestorTexturas::cargar(std::string id, std::string nombreArchivo)
 {
-    //patron de recursos (resourse)
+    //leer el patron de recursos (resourse) recomendacion de brian
+
     //debe preguntar si ya esta cargada ( si piden cargar con un id de recurso que todavia no existe)
     //se guarda una lista de imagenes para comprobar si ya esta cargado. si ya esta cargado devuelve un recurso ( un puntero al buffer de texturas)
 
