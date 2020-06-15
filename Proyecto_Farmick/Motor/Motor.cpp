@@ -92,14 +92,17 @@ void Motor::renderizar()
     SDL_SetRenderDrawColor(m_renderizador,247,229,178,255);
     SDL_RenderClear(m_renderizador); ///Fondo color amarillo arena
 
-    cultivo1.metodo_cargador_de_imagenes();//
-    SDL_RenderPresent(m_renderizador);
+    cultivo1.metodo_cargador_de_imagenes();
 
 
+    //GestorTexto::getInstancia()->mostrarMonedas();
+    //
     std::string monedas = "MONEDAS: " + std::to_string(Jugador::getInstancia()->getMonedas());
     const char*monedas_mostrar=monedas.c_str();
 
-    SDL_Color color = {255,140,0}; //Color amarillo.
+
+   // SDL_Color color = {255,140,0}; //Color naranja.
+    SDL_Color color = {239,184,16}; //Color naranja.
     m_superficie = TTF_RenderText_Solid(m_fuente,monedas_mostrar, color);
     m_textura = SDL_CreateTextureFromSurface(m_renderizador, m_superficie);
     int texW, texH;
@@ -107,6 +110,7 @@ void Motor::renderizar()
     SDL_Rect destRect = {20,20, texW, texH};
     SDL_RenderCopy ( m_renderizador , m_textura , NULL, &destRect);
     SDL_RenderPresent (m_renderizador);
+    //
 }
 
 void Motor::eventos()
