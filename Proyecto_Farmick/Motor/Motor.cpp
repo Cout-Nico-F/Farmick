@@ -67,9 +67,10 @@ void Motor::actualizar()
 {
     if(m_boton)
     {
+        //necesita un if (click fuera del cultivo)
         Jugador::getInstancia()->incrementarMonedas();
         SDL_Log("Encontraste una moneda");
-
+        //Aca va la llamada a un metodo que contiene este framento de code *--*
         if(m_evento_x >=428 && m_evento_x <= 527)
         {
             if(m_evento_y >=500 && m_evento_y <= 550)
@@ -83,7 +84,9 @@ void Motor::actualizar()
                     SDL_Log("Monedas insuficientes, necesitas 10");
             }
         }
-    }
+    }   //*--*
+    //metodo();
+
 //este metodo necesita delegar hacia una interface?
 //SDL_Log("Actualizando!");
 }
@@ -96,24 +99,21 @@ void Motor::renderizar()
     cultivo1.metodo_cargador_de_imagenes();
 
 
-    //GestorTexto::getInstancia()->mostrarMonedas();
+    //indicadorMonedas();
     //
     std::string monedas = "MONEDAS: " + std::to_string(Jugador::getInstancia()->getMonedas());
     const char*monedas_mostrar=monedas.c_str();
 
-
-   // SDL_Color color = {255,140,0}; //Color naranja.
     SDL_Color color = {239,184,16}; //Color oro.
     m_superficie = TTF_RenderText_Solid(m_fuente,monedas_mostrar, color);
     m_textura = SDL_CreateTextureFromSurface(m_renderizador, m_superficie);
     int texW, texH;
     SDL_QueryTexture(m_textura, NULL, NULL, &texW, &texH);
     SDL_Rect destRect = {20,20, texW, texH};
-    SDL_RenderCopy (m_renderizador , m_textura , NULL, &destRect);
+    SDL_RenderCopy (m_renderizador, m_textura, NULL, &destRect);
     SDL_RenderPresent (m_renderizador);
     SDL_DestroyTexture (m_textura);
     SDL_FreeSurface (m_superficie);
-
     //
 }
 
