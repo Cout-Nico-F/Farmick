@@ -4,8 +4,8 @@
 #include "../cultivo_maquinaEstados/Cultivo.h"
 #include "SDL_ttf.h"
 
-#define ANCHO_PANTALLA 1024 ///resolucion actual 1024x768
-#define ALTO_PANTALLA 768
+#define ANCHO_PANTALLA 901 ///resolucion actual 1024x768
+#define ALTO_PANTALLA 676
 
 ///Usamos m_ en los miembros de clase (atributos) para reconocerlos rapidamente.
 ///Usamos s_ para diferenciar los atributos estaticos.

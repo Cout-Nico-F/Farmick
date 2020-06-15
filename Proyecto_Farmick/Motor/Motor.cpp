@@ -68,28 +68,32 @@ void Motor::actualizar()
     if(m_boton)
     {
         //necesita un if (click fuera del cultivo)
-        Jugador::getInstancia()->incrementarMonedas();
-        SDL_Log("Encontraste una moneda");
+
         //Aca va la llamada a un metodo que contiene este framento de code *--*
-        if(m_evento_x >=428 && m_evento_x <= 527)
+        if(m_evento_x >=428 && m_evento_x <= 527 && m_evento_y >=500 && m_evento_y <= 550)
         {
-            if(m_evento_y >=500 && m_evento_y <= 550)
+            if(Jugador::getInstancia()->getMonedas()>=10)
             {
-                if(Jugador::getInstancia()->getMonedas()>=10)
-                {
-                    Jugador::getInstancia()->gastarMonedas(10);
-                    cultivo1.hacer();
-                }
-                else
-                    SDL_Log("Monedas insuficientes, necesitas 10");
+                Jugador::getInstancia()->gastarMonedas(10);
+                cultivo1.hacer();
+            }
+            else
+            {
+                SDL_Log("Monedas insuficientes, necesitas 10");
             }
         }
-    }   //*--*
-    //metodo();
+        else
+        {
+            Jugador::getInstancia()->incrementarMonedas();
+            SDL_Log("Encontraste una moneda");
+        }
+    }
+}   //*--*
+//metodo();
 
 //este metodo necesita delegar hacia una interface?
 //SDL_Log("Actualizando!");
-}
+
 
 void Motor::renderizar()
 {
