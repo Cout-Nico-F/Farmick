@@ -25,7 +25,8 @@ void Motor::borrarCultivos()
     for(iterador = m_mapaCultivos.begin(); iterador!=m_mapaCultivos.end(); iterador++)
     {
         delete(iterador->second);//a que atributo del iterador esta accediendo? no aparece en la doc de cplusplus (solucionado: leer link)
-    }///https://stackoverflow.com/questions/15451287/what-does-iterator-second-mean
+    }
+    ///https://stackoverflow.com/questions/15451287/what-does-iterator-second-mean
     //basicamente second se refiere al segundo parametro del iterador, tiene 2 uno es el id y el otro es el puntero por eso le decimos delete(puntero)
     m_mapaCultivos.clear();
     SDL_Log("Mapa de Cultivos se ha limpiado correctamente");

@@ -46,11 +46,13 @@ bool GestorTexturas::limpiar()
     std::map<std::string,SDL_Texture*>::iterator iterador;
     for(iterador = m_mapaTexturas.begin();iterador!=m_mapaTexturas.end();iterador++)
     {
-        SDL_DestroyTexture(iterador->second);//a que atributo del iterador esta accediendo? no aparece en la doc de cplusplus
+        SDL_DestroyTexture(iterador->second);//a que atributo del iterador esta accediendo? no aparece en la doc de cplusplus (solucionado: leer link)
     }
+    ///https://stackoverflow.com/questions/15451287/what-does-iterator-second-mean
+    //basicamente second se refiere al segundo parametro del iterador, tiene 2 uno es el id y el otro es el puntero por eso le decimos delete(puntero)
     m_mapaTexturas.clear();
     SDL_Log("Mapa de texturas se ha limpiado correctamente");
-return true; // Provisorio
+return true;
 }
 
 void GestorTexturas::dibujar(std::string id, int x, int y, int ancho, int alto, SDL_RendererFlip flip)
