@@ -9,7 +9,7 @@
 
 ///Usamos m_ en los miembros de clase (atributos) para reconocerlos rapidamente.
 ///Usamos s_ para diferenciar los atributos estaticos.
-
+class Cultivo;
 class Motor ///Singletone ( solo puede existir una instancia de esta clase a la vez )
 {
     public:
@@ -27,6 +27,9 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
         bool metodo_cargador_de_imagenes();//metodo de prueba
         void indicadorMonedas();
         void actualizarEstadoCultivo(Estado_Cultivo* nuevoEstado);
+
+        //bool clickTerreno(); FALTA IMPLEMENTAR LA FORMULA PARA DETECTAR EN QUE TERRENO SE HIZO CLICK
+        //void inicializarUbicacionCultivos();// INICIALIZACION DE UBICACION
 
         inline bool juegoActivo() {return m_juegoActivo;}
         inline SDL_Renderer* getRenderizador(){return m_renderizador;}
@@ -48,5 +51,6 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
         TTF_Font * m_fuente;
         SDL_Surface * m_superficie;
         SDL_Texture* m_textura;
+       // Cultivo mapa_cultivos[3][3]();// Array de Objetos (no funciona)
 };
 

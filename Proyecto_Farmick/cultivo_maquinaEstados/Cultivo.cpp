@@ -27,3 +27,12 @@ void Cultivo::metodo_cargador_de_imagenes()
     estado_actual-> metodo_cargador_de_imagenes();
 }
 
+int Cultivo::getUbicacion_x()
+{
+    return m_ubicacion_x;
+}
+
+int Cultivo::getUbicacion_y()
+{
+    return m_ubicacion_y;
+}

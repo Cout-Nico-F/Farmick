@@ -163,3 +163,20 @@ void Motor::indicadorMonedas()
 
 //objeto a mostrar: ( va a ser un objeto de la clase imagen )
 //necesitamos la clase imagen que tenga los atributos: id, direccion, bool cargada, posX, posY, tamX, tamY
+
+//void Motor::inicializarUbicacionCultivos()
+//{
+//    int x=428;
+//    int y=500;
+//    for (int f=0; f<3;f++)
+//    {
+//        y=y+f*25;
+//        for(int col=0;col<3;col++)
+//        {
+//            mapa_cultivos[f][col].m_ubicacion_x=x;
+//            mapa_cultivos[f][col].m_ubicacion_y=y;
+//            x=x+col*50;
+//        }
+//    }
+//}
+//     INICIALIZACION CON MATRIZ

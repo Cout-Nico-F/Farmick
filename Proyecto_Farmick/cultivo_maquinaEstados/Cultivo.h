@@ -10,7 +10,8 @@ public:
     void setEstado (Estado_Cultivo* nuevo_estado);
     void hacer();
     void metodo_cargador_de_imagenes();
-
+    int getUbicacion_x();
+    int getUbicacion_y();
     //void setEstadoMotor(Estado_Cultivo* estado);
 
 private:
