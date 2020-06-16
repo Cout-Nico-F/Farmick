@@ -26,7 +26,7 @@ void Estado_Cultivo_Terreno::hacer()
 
 }
 
-void Estado_Cultivo_Terreno::metodo_cargador_de_imagenes()
+void Estado_Cultivo_Terreno::metodo_cargador_de_imagenes() //este metodo esta mal, porque sirve para un solo objeto de la clase terreno
     {
 
         if(!cargado) //para evitar que se carge mas de una vez
