@@ -9,6 +9,7 @@ class Cultivo ///este es nuestro Contexto
 
 public:
     Cultivo();
+    ~Cultivo();
     Cultivo(std::string id);
     void setEstado (Estado_Cultivo* nuevo_estado);
     void hacer();

@@ -14,6 +14,11 @@ Cultivo::Cultivo(std::string id)
     m_idCultivo = id;
 }
 
+Cultivo::~Cultivo()
+{
+    delete estado_actual;//faltaba devolver memo en el destructor. pero esta forma es correcta? o solo borre el puntero?
+}
+
 void Cultivo::setEstado(Estado_Cultivo* nuevo_estado)
 {
     estado_actual = nuevo_estado;

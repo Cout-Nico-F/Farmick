@@ -4,6 +4,12 @@
 #include <string>
 #include <cstring>
 
+//tips de brian:
+//el gameplay le da mensajes a cultivo (lo hace con un metodo ) leer mensajes relacionado a metodos
+
+//los objetos de cultivo los crea la clase gameplay
+
+Motor* Motor::s_instancia = nullptr;
 
 void Motor::crearCultivos()
 {
@@ -11,11 +17,13 @@ void Motor::crearCultivos()
     m_mapaCultivos[cultivo1->getIdCultivo()] = cultivo1;
 
     Cultivo* cultivo2 = new Cultivo("cultivo2");
-    m_mapaCultivos["cultivo2"] = cultivo2;
+    m_mapaCultivos[cultivo2->getIdCultivo()] = cultivo2;
 
     Cultivo* cultivo3 = new Cultivo("cultivo3");
+    m_mapaCultivos[cultivo3->getIdCultivo()] = cultivo3;
 
     Cultivo* cultivo4 = new Cultivo("cultivo4");
+    m_mapaCultivos[cultivo4->getIdCultivo()] = cultivo4;
     // m_mapa_cultivos[0][0] = cultivo1;
 }
 
@@ -31,13 +39,6 @@ void Motor::borrarCultivos()
     m_mapaCultivos.clear();
     SDL_Log("Mapa de Cultivos se ha limpiado correctamente");
 }
-
-
-//el gameplay le da mensajes a cultivo (lo hace con un metodo ) leer mensajes relacionado a metodos
-//los objetos de cultivo los crea la clase gameplay
-
-
-Motor* Motor::s_instancia = nullptr;
 
 bool Motor::inicializar()
 {
@@ -103,11 +104,7 @@ void Motor::actualizar()
         //recibiendo clickEnArea(objeto) y ese objeto ya conozca los parametros q pasamos ahora
     }
 }
-
-
 //este metodo necesita delegar hacia una interface?
-//SDL_Log("Actualizando!");
-
 
 void Motor::renderizar()
 {
@@ -118,6 +115,7 @@ void Motor::renderizar()
     //cultivo1.metodocargador pondria la imagen del cultivo1 en las coordinadas correctas,]
     //y al poner un cultivoN.metodocargador este se pondria en la ubicacion seteada en ese metodo concreto
     m_mapaCultivos["cultivo1"]->metodo_cargador_de_imagenes();
+    m_mapaCultivos["cultivo2"]->metodo_cargador_de_imagenes();
     indicadorMonedas();
 }
 
@@ -177,6 +175,7 @@ void Motor::indicadorMonedas()
     SDL_DestroyTexture (m_textura);
     SDL_FreeSurface (m_superficie);
 }
+//idea
 //objeto a mostrar: ( va a ser un objeto de la clase imagen )
 //necesitamos la clase imagen que tenga los atributos: id, direccion, bool cargada, posX, posY, tamX, tamY
 

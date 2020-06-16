@@ -10,7 +10,7 @@ Estado_Cultivo_Arado::Estado_Cultivo_Arado(Cultivo* contexto): _punteroAcultivo(
 
 void Estado_Cultivo_Arado::hacer()
 {
-    std::cout<<"Implementacion de Hacer() de Arado"<<std::endl;
+    std::cout<<"Arado cambiando de estado hacia Terreno"<<std::endl;
     //Cuando el metodo hacer lo implementa estado_cultivo_arado hace algo diferente a cuando hacer es implementado por otra clase de estado ( ej terreno)
     GestorTexturas::getInstancia()->borrar("logoGrande");
     GestorTexturas::getInstancia()->borrar("arada");
@@ -18,6 +18,7 @@ void Estado_Cultivo_Arado::hacer()
     Estado_Cultivo* objeto = new Estado_Cultivo_Terreno(_punteroAcultivo);
     _punteroAcultivo->setEstado(objeto);//En esta linea estamos cambiando de estado hacia terreno.
     Motor::GetInstancia()->actualizarEstadoCultivo(objeto);
+
 }
 
 void Estado_Cultivo_Arado::metodo_cargador_de_imagenes()
