@@ -7,7 +7,7 @@
 Estado_Cultivo_Terreno::Estado_Cultivo_Terreno(Cultivo* contexto) : punteroAcultivo(contexto)
 {
    //INFO SOBRE PORQUE SE HACE ESA ASIGNACION EN EL CONSTRUCTOR ESTE EN EL PRIMER COMENTARIO 298LIKES---> https://stackoverflow.com/questions/2785612/c-what-does-the-colon-after-a-constructor-mean
-    ///EL constructor esta llamando a su ves al contrusctor de la clase de la que hereda (padre)
+
 
 }
 
@@ -26,11 +26,13 @@ void Estado_Cultivo_Terreno::hacer()
 
 }
 
-void Estado_Cultivo_Terreno::metodo_cargador_de_imagenes() //este metodo esta mal, porque sirve para un solo objeto de la clase terreno
+void Estado_Cultivo_Terreno::metodo_cargador_de_imagenes(/*int pos_x, int pos_y*/)//recibe donde           //este metodo esta mal, porque sirve para un solo objeto de la clase terreno
     {
 
         if(!cargado) //para evitar que se carge mas de una vez
         {
+            //Imagen* terreno = new Imagen();
+                                                //( terreno->getId(), terreno->getDir() ); donde terreno es un puntero a la imagen terreno.
             GestorTexturas::getInstancia()->cargar("logoGrande","assets/logo_grande.png");
             GestorTexturas::getInstancia()->cargar("terreno","assets/cultivo_terreno.png");
             GestorTexturas::getInstancia()->cargar("click","assets/click.png");
@@ -40,6 +42,7 @@ void Estado_Cultivo_Terreno::metodo_cargador_de_imagenes() //este metodo esta ma
         GestorTexturas::getInstancia()->dibujar("logoGrande",150,66,728,259);
         GestorTexturas::getInstancia()->dibujar("click",391,370,174,70);
         GestorTexturas::getInstancia()->dibujar("terreno",428,500,100,50);
+
         //GestorTexturas::getInstancia()->dibujar("terreno",Cultivo::getUbicacion_x(),Cultivo::getUbicacion_y(),100,50);
         //Para Ubicacion de X e Y de varios terrenos
     }

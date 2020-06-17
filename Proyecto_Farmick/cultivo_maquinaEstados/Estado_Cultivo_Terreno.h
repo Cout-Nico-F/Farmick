@@ -20,6 +20,8 @@ private:
     Cultivo* punteroAcultivo;///referencia a cultivo
 ///estado_cultivo_terreno tiene un cultivo ( composicion usada para cerrar el circulo de la maquina finita de estados )
 
+    //Imagen* terreno;
+
    // Imagen* imagen; ///los objetos de esta clase van a tener una imagen (composicion)
 //los metodos para mostrar esta imagen deben ser parte de esta clase o de otra intermedia? un objeto de esta clase deberia poder mostrarse a si mismo?
 

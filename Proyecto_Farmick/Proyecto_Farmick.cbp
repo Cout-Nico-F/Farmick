@@ -42,6 +42,8 @@
 		<Unit filename="Motor/Motor.h" />
 		<Unit filename="Motor/gestorTexturas.cpp" />
 		<Unit filename="Motor/gestorTexturas.h" />
+		<Unit filename="Objetos/Imagen.cpp" />
+		<Unit filename="Objetos/Imagen.h" />
 		<Unit filename="Objetos/Objeto.h" />
 		<Unit filename="Objetos/ObjetoDelJuego.h" />
 		<Unit filename="cultivo_maquinaEstados/Cultivo.cpp" />
