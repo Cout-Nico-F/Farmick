@@ -1,6 +1,7 @@
 #ifndef OBJETODELJUEGO_H
 #define OBJETODELJUEGO_H
 #include "Objeto.h"
+#include <string>
 
 
 //clase con la que vamos crear nuestro sistema de herencia
