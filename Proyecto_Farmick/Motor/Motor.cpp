@@ -2,6 +2,7 @@
 #include "gestorTexturas.h"
 #include "../Jugador.h"
 #include "GestorEventos.h"
+#include "GamePlay.h"
 
 //tips de brian:
 //el gameplay le da mensajes a cultivo (lo hace con un metodo ) leer mensajes relacionado a metodos
@@ -9,22 +10,6 @@
 //los objetos de cultivo los crea la clase gameplay
 
 Motor* Motor::s_instancia = nullptr;
-
-void Motor::crearCultivos()
-{
-    Cultivo* cultivo1 = new Cultivo("cultivo1");//a modo de prueba de la maquina de estados de cultivo.
-    m_mapaCultivos[cultivo1->getIdCultivo()] = cultivo1;
-
-    Cultivo* cultivo2 = new Cultivo("cultivo2");
-    m_mapaCultivos[cultivo2->getIdCultivo()] = cultivo2;
-
-    Cultivo* cultivo3 = new Cultivo("cultivo3");
-    m_mapaCultivos[cultivo3->getIdCultivo()] = cultivo3;
-
-    Cultivo* cultivo4 = new Cultivo("cultivo4");
-    m_mapaCultivos[cultivo4->getIdCultivo()] = cultivo4;
-    // m_mapa_cultivos[0][0] = cultivo1;
-}
 
 void Motor::borrarCultivos()
 {
@@ -65,8 +50,7 @@ bool Motor::inicializar()
     }
     m_fuente = TTF_OpenFont("Aarvark Cafe.ttf",25);
 
-    crearCultivos();
-
+    GamePlay::getInstancia()->crearCultivos();
     return m_juegoActivo = true;
 }
 
@@ -150,7 +134,7 @@ void Motor::eventos()
 
 Motor::Motor()
 {
-// cultivo = new Cultivo(); <-?
+// constructor
 }
 
 void Motor::actualizarEstadoCultivo(Estado_Cultivo* nuevoEstado)
@@ -158,7 +142,7 @@ void Motor::actualizarEstadoCultivo(Estado_Cultivo* nuevoEstado)
     estado_cultivo = nuevoEstado;
 }
 
-void Motor::indicadorMonedas()
+void Motor::indicadorMonedas()//esta tiene que ir al textureManager o alguna clase referida a la GUI (la interfaz grafica de usuario )
 {
     std::string monedas = "MONEDAS: " + std::to_string(Jugador::getInstancia()->getMonedas());
     const char*monedas_mostrar=monedas.c_str();
@@ -195,7 +179,7 @@ void Motor::indicadorMonedas()
 //}
 //     INICIALIZACION CON MATRIZ
 
-
+//getters
 Cultivo* Motor::getCultivo(std::string idCultivo)
 {
     return m_mapaCultivos[idCultivo];
