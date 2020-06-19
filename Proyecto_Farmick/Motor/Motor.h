@@ -14,7 +14,7 @@ class Cultivo;
 class Motor ///Singletone ( solo puede existir una instancia de esta clase a la vez )
 {
     public:
-        static Motor* GetInstancia()
+        static Motor* GetInstancia()//pasar a camelCase
         {
             return s_instancia = (s_instancia == nullptr)? new Motor() : s_instancia;
         }
@@ -28,13 +28,13 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
         bool metodo_cargador_de_imagenes();//metodo de prueba
         void indicadorMonedas();
         void actualizarEstadoCultivo(Estado_Cultivo* nuevoEstado);
+        Cultivo* getCultivo(std::string idCultivo);
 
         //bool clickTerreno(); FALTA IMPLEMENTAR LA FORMULA PARA DETECTAR EN QUE TERRENO SE HIZO CLICK
         //void inicializarUbicacionCultivos();// INICIALIZACION DE UBICACION
 
         void crearCultivos();
         void borrarCultivos();
-        void clickEnArea(int desdeX, int hastaX, int desdeY, int hastaY, std::string idCultivo);
 
         inline bool juegoActivo() {return m_juegoActivo;}
         inline SDL_Renderer* getRenderizador(){return m_renderizador;}
@@ -49,9 +49,9 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
         SDL_Renderer* m_renderizador;
         Estado_Cultivo* estado_cultivo;
 
-        int m_evento_x;
-        int m_evento_y;
-        bool m_botonIzqMouse;
+//        int m_evento_x;
+//        int m_evento_y;
+//        bool m_botonIzqMouse;
 
         TTF_Font * m_fuente;
         SDL_Surface * m_superficie;
