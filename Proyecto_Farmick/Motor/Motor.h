@@ -34,7 +34,6 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
 
         void crearCultivos();
         void borrarCultivos();
-        void clickEnArea(int desdeX, int hastaX, int desdeY, int hastaY, std::string idCultivo);
 
         inline bool juegoActivo() {return m_juegoActivo;}
         inline SDL_Renderer* getRenderizador(){return m_renderizador;}
@@ -49,9 +48,9 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
         SDL_Renderer* m_renderizador;
         Estado_Cultivo* estado_cultivo;
 
-        int m_evento_x;
-        int m_evento_y;
-        bool m_botonIzqMouse;
+//        int m_evento_x;
+//        int m_evento_y;
+//        bool m_botonIzqMouse;
 
         TTF_Font * m_fuente;
         SDL_Surface * m_superficie;
