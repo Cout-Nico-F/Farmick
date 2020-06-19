@@ -17,7 +17,7 @@ Cultivo::Cultivo(std::string id)
 Cultivo::~Cultivo()
 {
     delete estado_actual;//faltaba devolver memo en el destructor. pero esta forma es correcta? o solo borre el puntero?
-}
+}//el compilador nos avisa que esto puede traer comportamientos indefinidos(no deseados).
 
 void Cultivo::setEstado(Estado_Cultivo* nuevo_estado)
 {
@@ -27,7 +27,6 @@ void Cultivo::setEstado(Estado_Cultivo* nuevo_estado)
 void Cultivo::hacer()
 {
     //delegacion.
-
     estado_actual->hacer();
 }
 

@@ -28,6 +28,7 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
         bool metodo_cargador_de_imagenes();//metodo de prueba
         void indicadorMonedas();
         void actualizarEstadoCultivo(Estado_Cultivo* nuevoEstado);
+        Cultivo* getCultivo(std::string idCultivo);
 
         //bool clickTerreno(); FALTA IMPLEMENTAR LA FORMULA PARA DETECTAR EN QUE TERRENO SE HIZO CLICK
         //void inicializarUbicacionCultivos();// INICIALIZACION DE UBICACION

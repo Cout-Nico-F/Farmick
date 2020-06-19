@@ -17,6 +17,10 @@ class GestorEventos// tambien conocido como InputManager, es la clase que se enc
 
         //setters
         void setBotonIzq(bool estado);
+        void setEventoX(int eventoX);
+        void setEventoY(int eventoY);
+        //getters
+        bool getBotonIzq();
     protected:
 
     private:

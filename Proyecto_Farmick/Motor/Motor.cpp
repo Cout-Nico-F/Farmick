@@ -95,9 +95,9 @@ void Motor::salir()
 
 void Motor::actualizar()
 {
-    if(m_botonIzqMouse)
+    if(GestorEventos::getInstancia()->getBotonIzq())
     {
-        clickEnArea(428,527,500,550,"cultivo1");
+        GestorEventos::getInstancia()->clickEnArea(428,527,500,550,"cultivo1");
         //Aca podemos pensar una manera de que esto este seteado en algun lado
         //como en una clase objeto que tenga estos valores o alguna otra clase
         //recibiendo clickEnArea(objeto) y ese objeto ya conozca los parametros q pasamos ahora
@@ -134,16 +134,15 @@ void Motor::eventos()
     {
         if(evento.button.button==SDL_BUTTON_LEFT)
         {
-            m_evento_x=evento.button.x;
-            m_evento_y=evento.button.y;
-
+            GestorEventos::getInstancia()->setEventoX(evento.button.x);
+            GestorEventos::getInstancia()->setEventoY(evento.button.y);
             GestorEventos::getInstancia()->setBotonIzq(true);
         }
     }
     break;
     default:
     {
-        m_botonIzqMouse=false;
+       //GestorEventos::getInstancia()->setBotonIzq(false);
     }
     break;
     }
@@ -197,4 +196,8 @@ void Motor::indicadorMonedas()
 //     INICIALIZACION CON MATRIZ
 
 
+Cultivo* Motor::getCultivo(std::string idCultivo)
+{
+    return m_mapaCultivos[idCultivo];
+}
 
