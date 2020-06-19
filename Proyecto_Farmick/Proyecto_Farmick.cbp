@@ -38,6 +38,8 @@
 		</Compiler>
 		<Unit filename="Jugador.cpp" />
 		<Unit filename="Jugador.h" />
+		<Unit filename="Motor/GamePlay.cpp" />
+		<Unit filename="Motor/GamePlay.h" />
 		<Unit filename="Motor/Motor.cpp" />
 		<Unit filename="Motor/Motor.h" />
 		<Unit filename="Motor/gestorTexturas.cpp" />
