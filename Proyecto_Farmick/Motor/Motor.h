@@ -14,7 +14,7 @@ class Cultivo;
 class Motor ///Singletone ( solo puede existir una instancia de esta clase a la vez )
 {
     public:
-        static Motor* GetInstancia()
+        static Motor* GetInstancia()//pasar a camelCase
         {
             return s_instancia = (s_instancia == nullptr)? new Motor() : s_instancia;
         }

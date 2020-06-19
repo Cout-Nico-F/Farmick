@@ -1,7 +1,7 @@
 #include "Motor.h"
 #include "gestorTexturas.h"
 #include "../Jugador.h"
-
+#include "GestorEventos.h"
 
 //tips de brian:
 //el gameplay le da mensajes a cultivo (lo hace con un metodo ) leer mensajes relacionado a metodos
@@ -136,7 +136,8 @@ void Motor::eventos()
         {
             m_evento_x=evento.button.x;
             m_evento_y=evento.button.y;
-            m_botonIzqMouse=true;
+
+            GestorEventos::getInstancia()->setBotonIzq(true);
         }
     }
     break;

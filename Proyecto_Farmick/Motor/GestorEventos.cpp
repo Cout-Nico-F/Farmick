@@ -1,15 +1,23 @@
 #include "GestorEventos.h"
 #include "../Jugador.h"
+//tengo cierta desconfianza en la linea 4.Se ejecuta una sola vez?
+GestorEventos* GestorEventos::s_instancia = nullptr;
 
 GestorEventos::GestorEventos()
 {
-
     //ctor
 }
 
 GestorEventos::~GestorEventos()
 {
     //dtor
+}
+
+//setters
+
+void GestorEventos::setBotonIzq(bool estado)
+{
+    this->m_botonIzqMouse = estado;
 }
 
 void GestorEventos::clickEnArea(int desdeX, int hastaX, int desdeY, int hastaY, std::string idCultivo)
