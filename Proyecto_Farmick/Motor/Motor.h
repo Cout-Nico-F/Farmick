@@ -35,6 +35,8 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
         void crearCultivos();
         void borrarCultivos();
         void clickEnArea(int desdeX, int hastaX, int desdeY, int hastaY, std::string idCultivo);
+        std::string buscarIDCultivo();
+        bool buscarEnMatriz();
 
         inline bool juegoActivo() {return m_juegoActivo;}
         inline SDL_Renderer* getRenderizador(){return m_renderizador;}

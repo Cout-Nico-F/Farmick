@@ -11,7 +11,7 @@ class Estado_Cultivo_Terreno : public Estado_Cultivo ///Estado N en concreto (Es
 public:
     Estado_Cultivo_Terreno(Cultivo* contexto);
 
-    void hacer () override; ///sobrecarga
+    void hacer() override; ///sobrecarga
     void metodo_cargador_de_imagenes()override;
 
     bool cargado = false;//parche usado en cultivo_arado
@@ -19,6 +19,8 @@ public:
 private:
     Cultivo* punteroAcultivo;///referencia a cultivo
 ///estado_cultivo_terreno tiene un cultivo ( composicion usada para cerrar el circulo de la maquina finita de estados )
+
+    Estado_Cultivo *objeto;
 
     //Imagen* terreno;
 

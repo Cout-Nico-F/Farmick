@@ -53,3 +53,12 @@ std::string Cultivo::getIdCultivo()
     return m_idCultivo;
 }
 
+void Cultivo::setUbicacion_x(int x)
+{
+    m_ubicacion_x=x;
+}
+
+void Cultivo::setUbicacion_y(int y)
+{
+    m_ubicacion_y=y;
+}

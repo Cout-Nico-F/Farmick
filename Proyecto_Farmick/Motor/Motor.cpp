@@ -15,22 +15,31 @@ void Motor::crearCultivos()
 {
     Cultivo* cultivo1 = new Cultivo("cultivo1");//a modo de prueba de la maquina de estados de cultivo.
     m_mapaCultivos[cultivo1->getIdCultivo()] = cultivo1;
+    cultivo1->setUbicacion_x(428);
+    cultivo1->setUbicacion_y(500);
 
     Cultivo* cultivo2 = new Cultivo("cultivo2");
     m_mapaCultivos[cultivo2->getIdCultivo()] = cultivo2;
+    cultivo2->setUbicacion_x(378);
+    cultivo2->setUbicacion_y(525);
 
     Cultivo* cultivo3 = new Cultivo("cultivo3");
     m_mapaCultivos[cultivo3->getIdCultivo()] = cultivo3;
+    cultivo3->setUbicacion_x(478);
+    cultivo3->setUbicacion_y(525);
 
     Cultivo* cultivo4 = new Cultivo("cultivo4");
     m_mapaCultivos[cultivo4->getIdCultivo()] = cultivo4;
+    cultivo4->setUbicacion_x(428);
+    cultivo4->setUbicacion_y(550);
+
     // m_mapa_cultivos[0][0] = cultivo1;
 }
 
 void Motor::borrarCultivos()
 {
     std::map<std::string,Cultivo*>::iterator iterador;
-    for(iterador = m_mapaCultivos.begin(); iterador!=m_mapaCultivos.end(); iterador++)
+    for(iterador = m_mapaCultivos.begin(); iterador!= m_mapaCultivos.end(); iterador++)
     {
         delete(iterador->second);//a que atributo del iterador esta accediendo? no aparece en la doc de cplusplus (solucionado: leer link)
     }
@@ -94,18 +103,6 @@ void Motor::salir()
     m_juegoActivo = false;
 }
 
-void Motor::actualizar()
-{
-    if(m_botonIzqMouse)
-    {
-        clickEnArea(428,527,500,550,"cultivo1");
-        //Aca podemos pensar una manera de que esto este seteado en algun lado
-        //como en una clase objeto que tenga estos valores o alguna otra clase
-        //recibiendo clickEnArea(objeto) y ese objeto ya conozca los parametros q pasamos ahora
-    }
-}
-//este metodo necesita delegar hacia una interface?
-
 void Motor::renderizar()
 {
     SDL_SetRenderDrawColor(m_renderizador,247,229,178,255);
@@ -116,6 +113,8 @@ void Motor::renderizar()
     //y al poner un cultivoN.metodocargador este se pondria en la ubicacion seteada en ese metodo concreto
     m_mapaCultivos["cultivo1"]->metodo_cargador_de_imagenes();
     m_mapaCultivos["cultivo2"]->metodo_cargador_de_imagenes();
+    m_mapaCultivos["cultivo3"]->metodo_cargador_de_imagenes();
+    m_mapaCultivos["cultivo4"]->metodo_cargador_de_imagenes();
     indicadorMonedas();
 }
 
@@ -196,15 +195,34 @@ void Motor::indicadorMonedas()
 //}
 //     INICIALIZACION CON MATRIZ
 
-void Motor::clickEnArea(int desdeX, int hastaX, int desdeY, int hastaY, std::string idCultivo)
+void Motor::actualizar()
 {
-    if(m_evento_x >=desdeX && m_evento_x <= hastaX && m_evento_y >= desdeY && m_evento_y <= hastaY)//defino el area
+    if(m_botonIzqMouse)
+    {
+        clickEnArea(428,527,500,550,"cultivo1");
+        //Aca podemos pensar una manera de que esto este seteado en algun lado
+        //como en una clase objeto que tenga estos valores o alguna otra clase
+        //recibiendo clickEnArea(objeto) y ese objeto ya conozca los parametros q pasamos ahora
+    }
+}
+//este metodo necesita delegar hacia una interface?
+
+
+void Motor::clickEnArea(int desdeX, int hastaX, int desdeY, int hastaY, std::string idCultivo)
+//void Motor::clickEnArea()
+{
+    ///Cambiar fórmula para que sirva en los rombos.
+    /// if(m_evento_x >=desdeX && m_evento_x <= hastaX && m_evento_y >= desdeY && m_evento_y <= hastaY)//defino el area
+    if(buscarEnMatriz())
+        //idCultivo = buscarIDCultivo();
     {
         if(Jugador::getInstancia()->getMonedas()>=10)
         {
             Jugador::getInstancia()->gastarMonedas(10);
 
             m_mapaCultivos[idCultivo]->hacer();
+
+
             m_botonIzqMouse = false;
         }
         else
@@ -221,3 +239,38 @@ void Motor::clickEnArea(int desdeX, int hastaX, int desdeY, int hastaY, std::str
     }
 }
 
+bool Motor::buscarEnMatriz()
+{
+    int ubicacionPrimeraFilaY=500;   //ubicacion del rombo superior en Y
+    int ubicacionUltimaColumnaX=428; //ubicacion del rombo superior en X
+    int tamanioTerrenoX=100;
+    int tamanioTerrenoY=50;
+    int cantidadFilas=2;
+    int cantidadColumnas=2;
+    int x,y;
+
+    for(x=ubicacionUltimaColumnaX; x > ubicacionUltimaColumnaX-(cantidadColumnas*(tamanioTerrenoX/2)); x-=(tamanioTerrenoX/2))
+    {
+        for(y=ubicacionPrimeraFilaY; y < ubicacionPrimeraFilaY+(cantidadFilas*(tamanioTerrenoY/2)); y+= (tamanioTerrenoY/2))
+        {
+            if(m_evento_y>y && m_evento_y<50+y)
+            {
+                if((m_evento_x>x) && (m_evento_x<x+100))
+                return true;
+//
+//                if((m_evento_x>x) && (m_evento_x<50+x))
+//                {
+//                    if((m_evento_y>-0.5*m_evento_x+25)&&(m_evento_y<0.5*m_evento_x+25))
+//                        return true;
+//                }
+//                else if((m_evento_x>50+x) && (m_evento_x<100+x))
+//                {
+//                    if((m_evento_y>0.5*m_evento_x-25)&&(m_evento_y<-0.5*m_evento_x+75))
+//                        return true;
+            }
+        }
+//                    if(((m_evento_y > -0.5*m_evento_x+25)&& (m_evento_y < 0.5*m_evento_x+25)) ||
+//                       ((m_evento_y > 0.5*m_evento_x-25)&& (m_evento_y < -0.5*m_evento_x+75)))
+    }
+    return false;
+}

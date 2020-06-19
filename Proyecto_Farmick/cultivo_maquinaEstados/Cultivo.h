@@ -16,6 +16,8 @@ public:
     void metodo_cargador_de_imagenes();
     int getUbicacion_x();
     int getUbicacion_y();
+    void setUbicacion_x(int);
+    void setUbicacion_y(int);
     std::string getIdCultivo();
     //void setEstadoMotor(Estado_Cultivo* estado);
 

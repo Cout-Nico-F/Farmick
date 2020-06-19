@@ -15,10 +15,9 @@ void Estado_Cultivo_Arado::hacer()
     GestorTexturas::getInstancia()->borrar("logoGrande");
     GestorTexturas::getInstancia()->borrar("arada");
 
-    Estado_Cultivo* objeto = new Estado_Cultivo_Terreno(_punteroAcultivo);
-    _punteroAcultivo->setEstado(objeto);//En esta linea estamos cambiando de estado hacia terreno.
+    objeto = new Estado_Cultivo_Terreno(_punteroAcultivo);
+    _punteroAcultivo->setEstado(objeto); //En esta linea estamos cambiando de estado hacia terreno.
     Motor::GetInstancia()->actualizarEstadoCultivo(objeto);
-
 }
 
 void Estado_Cultivo_Arado::metodo_cargador_de_imagenes()
@@ -33,8 +32,7 @@ void Estado_Cultivo_Arado::metodo_cargador_de_imagenes()
 
     GestorTexturas::getInstancia()->dibujar("logoGrande",150,66,728,259);
 
-    GestorTexturas::getInstancia()->dibujar("arada",428,500,100,50);
-    //GestorTexturas::getInstancia()->dibujar("arada",Cultivo::getUbicacion_x(),Cultivo::getUbicacion_y(),100,50);
+    //GestorTexturas::getInstancia()->dibujar("arada",428,500,100,50);
+    GestorTexturas::getInstancia()->dibujar("arada",_punteroAcultivo->getUbicacion_x(),_punteroAcultivo->getUbicacion_y(),100,50);
     ////Para Ubicacion de X e Y de varios terrenos
 }
-
