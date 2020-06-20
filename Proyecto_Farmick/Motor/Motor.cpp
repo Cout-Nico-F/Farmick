@@ -199,30 +199,22 @@ void Motor::actualizar()
 {
     if(m_botonIzqMouse)
     {
-        clickEnArea(428,527,500,550,"cultivo1");
-        //Aca podemos pensar una manera de que esto este seteado en algun lado
-        //como en una clase objeto que tenga estos valores o alguna otra clase
-        //recibiendo clickEnArea(objeto) y ese objeto ya conozca los parametros q pasamos ahora
+        clickEnArea();
     }
 }
 //este metodo necesita delegar hacia una interface?
 
 
-void Motor::clickEnArea(int desdeX, int hastaX, int desdeY, int hastaY, std::string idCultivo)
-//void Motor::clickEnArea()
+void Motor::clickEnArea()
 {
-    ///Cambiar fórmula para que sirva en los rombos.
-    /// if(m_evento_x >=desdeX && m_evento_x <= hastaX && m_evento_y >= desdeY && m_evento_y <= hastaY)//defino el area
-    if(buscarEnMatriz())
-        //idCultivo = buscarIDCultivo();
+    std::string idCultivo = buscarEnMatriz();
+    if(idCultivo!="0000")
     {
         if(Jugador::getInstancia()->getMonedas()>=10)
         {
             Jugador::getInstancia()->gastarMonedas(10);
 
             m_mapaCultivos[idCultivo]->hacer();
-
-
             m_botonIzqMouse = false;
         }
         else
@@ -239,38 +231,25 @@ void Motor::clickEnArea(int desdeX, int hastaX, int desdeY, int hastaY, std::str
     }
 }
 
-bool Motor::buscarEnMatriz()
+std::string Motor::buscarEnMatriz()
 {
-    int ubicacionPrimeraFilaY=500;   //ubicacion del rombo superior en Y
-    int ubicacionUltimaColumnaX=428; //ubicacion del rombo superior en X
-    int tamanioTerrenoX=100;
-    int tamanioTerrenoY=50;
-    int cantidadFilas=2;
-    int cantidadColumnas=2;
-    int x,y;
-
-    for(x=ubicacionUltimaColumnaX; x > ubicacionUltimaColumnaX-(cantidadColumnas*(tamanioTerrenoX/2)); x-=(tamanioTerrenoX/2))
+    std::map<std::string,Cultivo*>::iterator iterador;
+    for(iterador = m_mapaCultivos.begin(); iterador!= m_mapaCultivos.end(); iterador++)
     {
-        for(y=ubicacionPrimeraFilaY; y < ubicacionPrimeraFilaY+(cantidadFilas*(tamanioTerrenoY/2)); y+= (tamanioTerrenoY/2))
+        int x= m_evento_x - iterador->second->getUbicacion_x();
+        int y= m_evento_y - iterador->second->getUbicacion_y();
+
+        if((x>0) && (x<50))
         {
-            if(m_evento_y>y && m_evento_y<50+y)
-            {
-                if((m_evento_x>x) && (m_evento_x<x+100))
-                return true;
-//
-//                if((m_evento_x>x) && (m_evento_x<50+x))
-//                {
-//                    if((m_evento_y>-0.5*m_evento_x+25)&&(m_evento_y<0.5*m_evento_x+25))
-//                        return true;
-//                }
-//                else if((m_evento_x>50+x) && (m_evento_x<100+x))
-//                {
-//                    if((m_evento_y>0.5*m_evento_x-25)&&(m_evento_y<-0.5*m_evento_x+75))
-//                        return true;
-            }
+            if((y>-0.5*x+25)&&(y<0.5*x+25))
+                return iterador->first;
         }
-//                    if(((m_evento_y > -0.5*m_evento_x+25)&& (m_evento_y < 0.5*m_evento_x+25)) ||
-//                       ((m_evento_y > 0.5*m_evento_x-25)&& (m_evento_y < -0.5*m_evento_x+75)))
+
+        else if((x>50) && (x<100))
+        {
+            if((y>0.5*x-25)&&(y<-0.5*x+75))
+                return iterador->first;
+        }
     }
-    return false;
+return "0000";
 }
