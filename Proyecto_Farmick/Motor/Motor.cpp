@@ -111,10 +111,12 @@ void Motor::renderizar()
     //pudiera ejecutar el metodo cargador de imagines de manera diferente seria muy interesante
     //cultivo1.metodocargador pondria la imagen del cultivo1 en las coordinadas correctas,]
     //y al poner un cultivoN.metodocargador este se pondria en la ubicacion seteada en ese metodo concreto
-    m_mapaCultivos["cultivo1"]->metodo_cargador_de_imagenes();
-    m_mapaCultivos["cultivo2"]->metodo_cargador_de_imagenes();
-    m_mapaCultivos["cultivo3"]->metodo_cargador_de_imagenes();
-    m_mapaCultivos["cultivo4"]->metodo_cargador_de_imagenes();
+
+    std::map<std::string,Cultivo*>::iterator iterador;
+    for(iterador = m_mapaCultivos.begin(); iterador!= m_mapaCultivos.end(); iterador++)
+    {
+    iterador->second->metodo_cargador_de_imagenes();
+    }
     indicadorMonedas();
 }
 
