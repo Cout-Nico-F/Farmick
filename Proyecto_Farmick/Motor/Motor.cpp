@@ -77,11 +77,41 @@ void Motor::salir()
     m_juegoActivo = false;
 }
 
+std::map<std::string,Cultivo*> Motor::getMapa()
+{
+    return m_mapaCultivos;
+}
+
+std::string Motor::buscarEnMapa()
+{
+    std::map<std::string,Cultivo*>::iterator iterador;
+    for(iterador = m_mapaCultivos.begin(); iterador!= m_mapaCultivos.end(); iterador++)
+    {
+        int x= GestorEventos::getInstancia()->getX() - iterador->second->getUbicacion_x();
+        int y= GestorEventos::getInstancia()->getY() - iterador->second->getUbicacion_y();
+
+        if((x>0) && (x<50))
+        {
+            if((y>-0.5*x+25)&&(y<0.5*x+25))
+                return iterador->first;
+        }
+
+        else if((x>50) && (x<100))
+        {
+            if((y>0.5*x-25)&&(y<-0.5*x+75))
+                return iterador->first;
+        }
+    }
+    return "0000";
+}
+
 void Motor::actualizar()
 {
     if(GestorEventos::getInstancia()->getBotonIzq())
     {
-        GestorEventos::getInstancia()->clickEnArea(428,527,500,550,"cultivo1");
+        std::string idCultivo = Motor::buscarEnMapa();
+        GestorEventos::getInstancia()->clickEnArea(idCultivo);
+
         //Aca podemos pensar una manera de que esto este seteado en algun lado
         //como en una clase objeto que tenga estos valores o alguna otra clase
         //recibiendo clickEnArea(objeto) y ese objeto ya conozca los parametros q pasamos ahora
@@ -126,7 +156,7 @@ void Motor::eventos()
     break;
     default:
     {
-       //GestorEventos::getInstancia()->setBotonIzq(false);
+        //GestorEventos::getInstancia()->setBotonIzq(false);
     }
     break;
     }

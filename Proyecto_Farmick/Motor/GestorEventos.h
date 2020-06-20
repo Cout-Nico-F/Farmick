@@ -12,7 +12,7 @@ class GestorEventos// tambien conocido como InputManager, es la clase que se enc
         }
         GestorEventos();
         ~GestorEventos();
-        void clickEnArea(int desdeX, int hastaX, int desdeY, int hastaY, std::string idCultivo);
+        void clickEnArea(std::string idCultivo);
 
 
         //setters
@@ -21,6 +21,8 @@ class GestorEventos// tambien conocido como InputManager, es la clase que se enc
         void setEventoY(int eventoY);
         //getters
         bool getBotonIzq();
+        int getX();
+        int getY();
     protected:
 
     private:

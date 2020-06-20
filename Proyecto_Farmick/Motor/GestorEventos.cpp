@@ -30,33 +30,44 @@ void GestorEventos::setBotonIzq(bool estado)
 {
     this->m_botonIzqMouse = estado;
 }
-//setters
+//getters
+
+int GestorEventos::getX()
+{
+    return m_evento_x;
+}
+
+int GestorEventos::getY()
+{
+    return m_evento_y;
+}
 
 bool GestorEventos::getBotonIzq()
 {
     return m_botonIzqMouse;
 }
 
-void GestorEventos::clickEnArea(int desdeX, int hastaX, int desdeY, int hastaY, std::string idCultivo)
+void GestorEventos::clickEnArea(std::string idCultivo)
 {
-    if(m_evento_x >=desdeX && m_evento_x <= hastaX && m_evento_y >= desdeY && m_evento_y <= hastaY)//defino el area
+    m_botonIzqMouse = false; /// Esto lo corrí aca porque estaba en todos los casos de los if
+
+    if(idCultivo!="0000")
     {
         if(Jugador::getInstancia()->getMonedas()>=10)
         {
             Jugador::getInstancia()->gastarMonedas(10);
-            Motor::GetInstancia()->getCultivo(idCultivo)->hacer();
-            m_botonIzqMouse = false;
+            //Motor::GetInstancia()->getCultivo(idCultivo)->hacer(); ///Aca lo hice de la forma que esta debajo, podemos ponerlo de cualquiera de las dos maneras
+            std::map<std::string,Cultivo*> mapa= Motor::GetInstancia()->getMapa();
+            mapa[idCultivo]->hacer();
         }
         else
         {
             SDL_Log("Monedas insuficientes, necesitas 10");
-            m_botonIzqMouse = false;
         }
     }
     else
     {
         Jugador::getInstancia()->incrementarMonedas();
         SDL_Log("Encontraste una moneda");
-        m_botonIzqMouse = false;
     }
 }

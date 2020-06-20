@@ -29,6 +29,9 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
         void indicadorMonedas();
         void actualizarEstadoCultivo(Estado_Cultivo* nuevoEstado);
         Cultivo* getCultivo(std::string idCultivo);
+        std::string buscarEnMapa();
+
+        std::map<std::string, Cultivo*> getMapa();
 
         //bool clickTerreno(); FALTA IMPLEMENTAR LA FORMULA PARA DETECTAR EN QUE TERRENO SE HIZO CLICK
         //void inicializarUbicacionCultivos();// INICIALIZACION DE UBICACION
