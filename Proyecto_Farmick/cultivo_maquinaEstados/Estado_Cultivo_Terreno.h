@@ -19,7 +19,7 @@ public:
 private:
     Cultivo* punteroAcultivo;///referencia a cultivo
 ///estado_cultivo_terreno tiene un cultivo ( composicion usada para cerrar el circulo de la maquina finita de estados )
-
+    Estado_Cultivo* _objeto;
     //Imagen* terreno;
 
    // Imagen* imagen; ///los objetos de esta clase van a tener una imagen (composicion)

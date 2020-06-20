@@ -20,9 +20,9 @@ void Estado_Cultivo_Terreno::hacer()
     GestorTexturas::getInstancia()->borrar("logoGrande");
     GestorTexturas::getInstancia()->borrar("terreno");
     GestorTexturas::getInstancia()->borrar("click");
-    Estado_Cultivo* objeto = new Estado_Cultivo_Arado(punteroAcultivo);
-    punteroAcultivo->setEstado(objeto);
-    Motor::GetInstancia()->actualizarEstadoCultivo(objeto);
+    _objeto = new Estado_Cultivo_Arado(punteroAcultivo);
+    punteroAcultivo->setEstado(_objeto);
+    Motor::GetInstancia()->actualizarEstadoCultivo(_objeto);
 
 }
 

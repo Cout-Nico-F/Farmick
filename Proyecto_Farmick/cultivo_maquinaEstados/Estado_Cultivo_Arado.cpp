@@ -15,9 +15,9 @@ void Estado_Cultivo_Arado::hacer()
     GestorTexturas::getInstancia()->borrar("logoGrande");
     GestorTexturas::getInstancia()->borrar("arada");
 
-    Estado_Cultivo* objeto = new Estado_Cultivo_Terreno(_punteroAcultivo);
-    _punteroAcultivo->setEstado(objeto);//En esta linea estamos cambiando de estado hacia terreno.
-    Motor::GetInstancia()->actualizarEstadoCultivo(objeto);
+    _objeto = new Estado_Cultivo_Terreno(_punteroAcultivo);
+    _punteroAcultivo->setEstado(_objeto);//En esta linea estamos cambiando de estado hacia terreno.
+    Motor::GetInstancia()->actualizarEstadoCultivo(_objeto);
 
 }
 
