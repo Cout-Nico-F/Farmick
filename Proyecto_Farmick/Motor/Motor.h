@@ -32,6 +32,7 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
         std::string buscarEnMapa();
 
         std::map<std::string, Cultivo*> getMapa();
+        void setMapa(std::string, Cultivo*);
 
         //bool clickTerreno(); FALTA IMPLEMENTAR LA FORMULA PARA DETECTAR EN QUE TERRENO SE HIZO CLICK
         //void inicializarUbicacionCultivos();// INICIALIZACION DE UBICACION

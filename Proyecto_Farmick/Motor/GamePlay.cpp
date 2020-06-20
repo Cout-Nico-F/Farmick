@@ -1,4 +1,5 @@
 #include "GamePlay.h"
+#include "../cultivo_maquinaEstados/Cultivo.h"
 
 GamePlay* GamePlay::s_instancia = nullptr;
 
@@ -14,16 +15,32 @@ GamePlay::~GamePlay()
 
 void GamePlay::crearCultivos()
 {
-//    Cultivo* cultivo1 = new Cultivo("cultivo1");//a modo de prueba de la maquina de estados de cultivo.
-//    m_mapaCultivos[cultivo1->getIdCultivo()] = cultivo1;
-//
-//    Cultivo* cultivo2 = new Cultivo("cultivo2");
-//    m_mapaCultivos[cultivo2->getIdCultivo()] = cultivo2;
-//
-//    Cultivo* cultivo3 = new Cultivo("cultivo3");
-//    m_mapaCultivos[cultivo3->getIdCultivo()] = cultivo3;
-//
-//    Cultivo* cultivo4 = new Cultivo("cultivo4");
-//    m_mapaCultivos[cultivo4->getIdCultivo()] = cultivo4;
-//    // m_mapa_cultivos[0][0] = cultivo1;
+    //Se crea la Matriz de posiciones en el mapa
+
+    int matrizPosiciones[25][2]={0};
+    int x=200;
+    int y=475;
+    for(int i=0;i<5;i++)
+    {
+        for(int j=0;j<5;j++)
+        {
+            matrizPosiciones[i*5+j][0]=x;
+            matrizPosiciones[i*5+j][1]=y;
+            x+=50;
+            y-=25;
+        }
+        y+=150;
+        x-=200;
+    }
+
+    //Se crean los objetos cultivo en las coordenadas seteadas previamente
+
+    for(int i=0;i<25;i++)
+    {
+        std::string nombreCultivo = "CULTIVO_" + std::to_string(i+1);
+        Cultivo* cultivoX = new Cultivo(nombreCultivo);//a modo de prueba de la maquina de estados de cultivo.
+        Motor::GetInstancia()->setMapa(cultivoX->getIdCultivo(),cultivoX);
+        cultivoX->setUbicacion_x(matrizPosiciones[i][0]);
+        cultivoX->setUbicacion_y(matrizPosiciones[i][1]);
+    }
 }

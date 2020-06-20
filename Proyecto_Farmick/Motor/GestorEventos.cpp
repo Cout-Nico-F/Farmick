@@ -2,6 +2,8 @@
 #include "../Jugador.h"
 #include "SDL.h"
 #include "Motor.h"
+
+
 //tengo cierta desconfianza en la linea 4.Se ejecuta una sola vez?
 GestorEventos* GestorEventos::s_instancia = nullptr;
 
