@@ -17,6 +17,8 @@ public:
     int getUbicacion_x();
     int getUbicacion_y();
     std::string getIdCultivo();
+    void setUbicacion_x(int);
+    void setUbicacion_y(int);
     //void setEstadoMotor(Estado_Cultivo* estado);
 
 private:
