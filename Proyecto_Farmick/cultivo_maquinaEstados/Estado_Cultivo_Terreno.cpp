@@ -41,7 +41,8 @@ void Estado_Cultivo_Terreno::metodo_cargador_de_imagenes(/*int pos_x, int pos_y*
 
         GestorTexturas::getInstancia()->dibujar("logoGrande",150,66,728,259);
         GestorTexturas::getInstancia()->dibujar("click",391,370,174,70);
-        GestorTexturas::getInstancia()->dibujar("terreno",428,500,100,50);
+        //GestorTexturas::getInstancia()->dibujar("terreno",428,500,100,50); /// Lo cambiamos por el de abajo que tiene los getUbicación
+        GestorTexturas::getInstancia()->dibujar("terreno",punteroAcultivo->getUbicacion_x(),punteroAcultivo->getUbicacion_y(),100,50);
 
         //GestorTexturas::getInstancia()->dibujar("terreno",Cultivo::getUbicacion_x(),Cultivo::getUbicacion_y(),100,50);
         //Para Ubicacion de X e Y de varios terrenos

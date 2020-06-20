@@ -32,9 +32,7 @@ void Estado_Cultivo_Arado::metodo_cargador_de_imagenes()
     }
 
     GestorTexturas::getInstancia()->dibujar("logoGrande",150,66,728,259);
-
-    GestorTexturas::getInstancia()->dibujar("arada",428,500,100,50);
-    //GestorTexturas::getInstancia()->dibujar("arada",Cultivo::getUbicacion_x(),Cultivo::getUbicacion_y(),100,50);
-    ////Para Ubicacion de X e Y de varios terrenos
+    //GestorTexturas::getInstancia()->dibujar("arada",428,500,100,50); // Lo cambiamos por el de abajo que tiene los getUbicación
+    GestorTexturas::getInstancia()->dibujar("arada",_punteroAcultivo->getUbicacion_x(),_punteroAcultivo->getUbicacion_y(),100,50);
 }
 
