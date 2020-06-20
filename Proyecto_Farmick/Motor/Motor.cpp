@@ -13,27 +13,47 @@ Motor* Motor::s_instancia = nullptr;
 
 void Motor::crearCultivos()
 {
-    Cultivo* cultivo1 = new Cultivo("cultivo1");//a modo de prueba de la maquina de estados de cultivo.
-    m_mapaCultivos[cultivo1->getIdCultivo()] = cultivo1;
-    cultivo1->setUbicacion_x(428);
-    cultivo1->setUbicacion_y(500);
+    int matrizPosiciones[25][2]={0};
+    int x=200;
+    int y=475;
+    for(int i=0;i<5;i++)
+    {
+        for(int j=0;j<5;j++)
+        {
+            matrizPosiciones[i*5+j][0]=x;
+            matrizPosiciones[i*5+j][1]=y;
+            x+=50;
+            y-=25;
+        }
+        y+=150;
+        x-=200;
+    }
 
-    Cultivo* cultivo2 = new Cultivo("cultivo2");
-    m_mapaCultivos[cultivo2->getIdCultivo()] = cultivo2;
-    cultivo2->setUbicacion_x(378);
-    cultivo2->setUbicacion_y(525);
+    for(int i=0;i<25;i++)
+    {
+        std::string nombreCultivo = "CULTIVO_" + std::to_string(i+1);
+        Cultivo* cultivoX = new Cultivo(nombreCultivo);//a modo de prueba de la maquina de estados de cultivo.
+        m_mapaCultivos[cultivoX->getIdCultivo()] = cultivoX;
+        cultivoX->setUbicacion_x(matrizPosiciones[i][0]);
+        cultivoX->setUbicacion_y(matrizPosiciones[i][1]);
+    }
 
-    Cultivo* cultivo3 = new Cultivo("cultivo3");
-    m_mapaCultivos[cultivo3->getIdCultivo()] = cultivo3;
-    cultivo3->setUbicacion_x(478);
-    cultivo3->setUbicacion_y(525);
-
-    Cultivo* cultivo4 = new Cultivo("cultivo4");
-    m_mapaCultivos[cultivo4->getIdCultivo()] = cultivo4;
-    cultivo4->setUbicacion_x(428);
-    cultivo4->setUbicacion_y(550);
-
-    // m_mapa_cultivos[0][0] = cultivo1;
+//
+//
+//    Cultivo* cultivo2 = new Cultivo("cultivo2");
+//    m_mapaCultivos[cultivo2->getIdCultivo()] = cultivo2;
+//    cultivo2->setUbicacion_x(378);
+//    cultivo2->setUbicacion_y(525);
+//
+//    Cultivo* cultivo3 = new Cultivo("cultivo3");
+//    m_mapaCultivos[cultivo3->getIdCultivo()] = cultivo3;
+//    cultivo3->setUbicacion_x(478);
+//    cultivo3->setUbicacion_y(525);
+//
+//    Cultivo* cultivo4 = new Cultivo("cultivo4");
+//    m_mapaCultivos[cultivo4->getIdCultivo()] = cultivo4;
+//    cultivo4->setUbicacion_x(428);
+//    cultivo4->setUbicacion_y(550);
 }
 
 void Motor::borrarCultivos()
