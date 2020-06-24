@@ -17,7 +17,7 @@ bool Estado_Cultivo_Crecido::aumentarProgreso()
 
 void Estado_Cultivo_Crecido::hacer()
 {
-    std::cout<<"Sembrado cambiando de estado hacia Terreno"<<std::endl;
+    std::cout<<"Crecido cambiando de estado hacia Terreno"<<std::endl;
 
     _objeto = new Estado_Cultivo_Terreno(_punteroAcultivo);
     _punteroAcultivo->setEstado(_objeto);
