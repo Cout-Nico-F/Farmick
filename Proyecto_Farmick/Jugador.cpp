@@ -4,7 +4,7 @@ Jugador* Jugador::s_instancia = nullptr; //inicializo el puntero a nulo preparan
 
 Jugador::Jugador()
 {
-    _monedas = 0; //inicializo monedas en cero cuando se crea el objeto de jugador.
+    _monedas = 110; //inicializo monedas en cero cuando se crea el objeto de jugador.
 }
 
 void Jugador::incrementarMonedas()

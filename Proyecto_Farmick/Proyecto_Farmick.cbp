@@ -15,6 +15,7 @@
 					<Add option="-g" />
 					<Add directory="Motor" />
 					<Add directory="Objetos" />
+					<Add directory="cultivo_maquinaEstados" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -26,6 +27,7 @@
 					<Add option="-O2" />
 					<Add directory="Motor" />
 					<Add directory="Objetos" />
+					<Add directory="cultivo_maquinaEstados" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -55,6 +57,8 @@
 		<Unit filename="cultivo_maquinaEstados/Estado_Cultivo.h" />
 		<Unit filename="cultivo_maquinaEstados/Estado_Cultivo_Arado.cpp" />
 		<Unit filename="cultivo_maquinaEstados/Estado_Cultivo_Arado.h" />
+		<Unit filename="cultivo_maquinaEstados/Estado_Cultivo_Sembrado.cpp" />
+		<Unit filename="cultivo_maquinaEstados/Estado_Cultivo_Sembrado.h" />
 		<Unit filename="cultivo_maquinaEstados/Estado_Cultivo_Terreno.cpp" />
 		<Unit filename="cultivo_maquinaEstados/Estado_Cultivo_Terreno.h" />
 		<Unit filename="main.cpp" />

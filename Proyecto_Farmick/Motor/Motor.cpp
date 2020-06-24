@@ -51,6 +51,13 @@ bool Motor::inicializar()
     m_fuente = TTF_OpenFont("Aarvark Cafe.ttf",25);
 
     GamePlay::getInstancia()->crearCultivos();
+
+    GestorTexturas::getInstancia()->cargar("logoGrande","assets/logo_grande.png");
+    GestorTexturas::getInstancia()->cargar("click","assets/click.png");
+
+    GestorTexturas::getInstancia()->cargar("terreno","assets/cultivo_terreno.png");
+    GestorTexturas::getInstancia()->cargar("arada","assets/cultivo_arada.png");
+
     return m_juegoActivo = true;
 }
 
@@ -134,6 +141,7 @@ void Motor::renderizar()
     //y al poner un cultivoN.metodocargador este se pondria en la ubicacion seteada en ese metodo concreto
 
     std::map<std::string,Cultivo*>::iterator iterador;
+
     for(iterador = m_mapaCultivos.begin(); iterador!= m_mapaCultivos.end(); iterador++)
     {
         iterador->second->metodo_cargador_de_imagenes();
