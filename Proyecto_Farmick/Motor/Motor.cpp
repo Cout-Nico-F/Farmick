@@ -56,7 +56,8 @@ bool Motor::inicializar()
     GestorTexturas::getInstancia()->cargar("click","assets/click.png");
 
     GestorTexturas::getInstancia()->cargar("terreno","assets/cultivo_terreno.png");
-    GestorTexturas::getInstancia()->cargar("arada","assets/cultivo_arada.png");
+    GestorTexturas::getInstancia()->cargar("arado","assets/cultivo_arado.png");
+    GestorTexturas::getInstancia()->cargar("sembrado","assets/cultivo_sembrado.png");
 
     return m_juegoActivo = true;
 }
