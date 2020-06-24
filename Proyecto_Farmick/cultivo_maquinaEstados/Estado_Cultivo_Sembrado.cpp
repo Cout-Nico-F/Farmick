@@ -1,5 +1,5 @@
 #include "Estado_Cultivo_Sembrado.h"
-#include "Estado_Cultivo_Terreno.h"
+#include "Estado_Cultivo_Crecido.h"
 #include "../Motor/gestorTexturas.h"
 
 Estado_Cultivo_Sembrado::Estado_Cultivo_Sembrado(Cultivo* contexto): _punteroAcultivo(contexto)
@@ -16,9 +16,9 @@ return false;
 
 void Estado_Cultivo_Sembrado::hacer()
 {
-    std::cout<<"Sembrado cambiando de estado hacia Terreno"<<std::endl;
+    std::cout<<"Sembrado cambiando de estado hacia Crecido"<<std::endl;
 
-    _objeto = new Estado_Cultivo_Terreno(_punteroAcultivo);
+    _objeto = new Estado_Cultivo_Crecido(_punteroAcultivo);
     _punteroAcultivo->setEstado(_objeto);
     Motor::GetInstancia()->actualizarEstadoCultivo(_objeto);
 }
