@@ -55,12 +55,12 @@ void GestorEventos::clickEnArea(std::string idCultivo)
 
     if(idCultivo!="0000")
     {
-        if(Jugador::getInstancia()->getMonedas()>=10)
+        if(Jugador::getInstancia()->getMonedas()>=4)
         {
-            Jugador::getInstancia()->gastarMonedas(10);
+            Jugador::getInstancia()->gastarMonedas(4);
             //Motor::GetInstancia()->getCultivo(idCultivo)->hacer(); ///Aca lo hice de la forma que esta debajo, podemos ponerlo de cualquiera de las dos maneras
             std::map<std::string,Cultivo*> mapa= Motor::GetInstancia()->getMapa();
-            mapa[idCultivo]->hacer();
+            if(mapa[idCultivo]->aumentarProgreso()) mapa[idCultivo]->hacer();
         }
         else
         {

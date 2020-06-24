@@ -13,13 +13,14 @@ public:
 
     void hacer () override; ///sobrecarga
     void metodo_cargador_de_imagenes()override;
-
     bool cargado = false;//parche usado en cultivo_arado
+    bool aumentarProgreso() override;
 
 private:
     Cultivo* punteroAcultivo;///referencia a cultivo
 ///estado_cultivo_terreno tiene un cultivo ( composicion usada para cerrar el circulo de la maquina finita de estados )
     Estado_Cultivo* _objeto;
+    int progreso;
     //Imagen* terreno;
 
    // Imagen* imagen; ///los objetos de esta clase van a tener una imagen (composicion)

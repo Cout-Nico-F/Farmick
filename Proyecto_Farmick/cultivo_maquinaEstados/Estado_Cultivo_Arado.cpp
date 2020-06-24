@@ -6,7 +6,15 @@
 Estado_Cultivo_Arado::Estado_Cultivo_Arado(Cultivo* contexto): _punteroAcultivo(contexto)//(esta inicializando el atributo)
 {
  //_contexto(contexto) esto es lo mismo que: _contexto = contexto;
+ progreso=0;
 };
+
+bool Estado_Cultivo_Arado::aumentarProgreso()
+{
+    progreso++;
+    if(progreso==5)    return true;
+return false;
+}
 
 void Estado_Cultivo_Arado::hacer()
 {

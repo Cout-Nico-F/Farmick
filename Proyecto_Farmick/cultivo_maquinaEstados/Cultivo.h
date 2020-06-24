@@ -13,6 +13,7 @@ public:
     Cultivo(std::string id);
     void setEstado (Estado_Cultivo* nuevo_estado);
     void hacer();
+    bool aumentarProgreso();
     void metodo_cargador_de_imagenes();
     int getUbicacion_x();
     int getUbicacion_y();

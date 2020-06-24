@@ -24,6 +24,13 @@ void Cultivo::setEstado(Estado_Cultivo* nuevo_estado)
     estado_actual = nuevo_estado;
 }
 
+bool Cultivo::aumentarProgreso()
+{
+    //delegacion.
+    if(estado_actual->aumentarProgreso()) return true;
+return false;
+}
+
 void Cultivo::hacer()
 {
     //delegacion.

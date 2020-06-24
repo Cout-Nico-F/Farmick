@@ -4,8 +4,15 @@
 
 Estado_Cultivo_Sembrado::Estado_Cultivo_Sembrado(Cultivo* contexto): _punteroAcultivo(contexto)
 {
-
+    progreso=0;
 };
+
+bool Estado_Cultivo_Sembrado::aumentarProgreso()
+{
+    progreso++;
+    if(progreso==3)    return true;
+return false;
+}
 
 void Estado_Cultivo_Sembrado::hacer()
 {
