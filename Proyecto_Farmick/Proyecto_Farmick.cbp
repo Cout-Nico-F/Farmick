@@ -57,6 +57,8 @@
 		<Unit filename="cultivo_maquinaEstados/Estado_Cultivo.h" />
 		<Unit filename="cultivo_maquinaEstados/Estado_Cultivo_Arado.cpp" />
 		<Unit filename="cultivo_maquinaEstados/Estado_Cultivo_Arado.h" />
+		<Unit filename="cultivo_maquinaEstados/Estado_Cultivo_Crecido.cpp" />
+		<Unit filename="cultivo_maquinaEstados/Estado_Cultivo_Crecido.h" />
 		<Unit filename="cultivo_maquinaEstados/Estado_Cultivo_Sembrado.cpp" />
 		<Unit filename="cultivo_maquinaEstados/Estado_Cultivo_Sembrado.h" />
 		<Unit filename="cultivo_maquinaEstados/Estado_Cultivo_Terreno.cpp" />
