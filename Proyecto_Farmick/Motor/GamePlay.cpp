@@ -29,8 +29,8 @@ void GamePlay::crearCultivos()
             x+=50;
             y-=25;
         }
-        y+=150;
-        x-=200;
+        y+=148;
+        x-=202;
     }
 
     //Se crean los objetos cultivo en las coordenadas seteadas previamente
