@@ -31,16 +31,6 @@ void Estado_Cultivo_Arado::hacer()
 
 void Estado_Cultivo_Arado::metodo_cargador_de_imagenes()
 {
-
-//    if(!cargado) //para evitar falla de memoria
-//    {
-//        GestorTexturas::getInstancia()->cargar("logoGrande","assets/logo_grande.png");
-//        GestorTexturas::getInstancia()->cargar("arada","assets/cultivo_arada.png");
-//        cargado = true;
-//    }
-
-    //GestorTexturas::getInstancia()->dibujar("logoGrande",120,66,728,259);
-    //GestorTexturas::getInstancia()->dibujar("arada",428,500,100,50); // Lo cambiamos por el de abajo que tiene los getUbicación
     GestorTexturas::getInstancia()->dibujar("arado",_punteroAcultivo->getUbicacion_x(),_punteroAcultivo->getUbicacion_y(),100,50);
 }
 

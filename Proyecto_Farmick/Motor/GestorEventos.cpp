@@ -4,7 +4,6 @@
 #include "Motor.h"
 
 
-//tengo cierta desconfianza en la linea 4.Se ejecuta una sola vez?
 GestorEventos* GestorEventos::s_instancia = nullptr;
 
 GestorEventos::GestorEventos()
@@ -58,7 +57,6 @@ void GestorEventos::clickEnArea(std::string idCultivo)
         if(Jugador::getInstancia()->getMonedas()>=4)
         {
             Jugador::getInstancia()->gastarMonedas(4);
-            //Motor::GetInstancia()->getCultivo(idCultivo)->hacer(); ///Aca lo hice de la forma que esta debajo, podemos ponerlo de cualquiera de las dos maneras
             std::map<std::string,Cultivo*> mapa= Motor::GetInstancia()->getMapa();
             if(mapa[idCultivo]->aumentarProgreso()) mapa[idCultivo]->hacer();
         }

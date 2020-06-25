@@ -5,24 +5,11 @@
 #include "GamePlay.h"
 #include "Timer.h"
 
-//tips de brian:
-//el gameplay le da mensajes a cultivo (lo hace con un metodo ) leer mensajes relacionado a metodos
-
-//los objetos de cultivo los crea la clase gameplay
-
 Motor* Motor::s_instancia = nullptr;
 
-void Motor::borrarCultivos()
+Motor::Motor()
 {
-    std::map<std::string,Cultivo*>::iterator iterador;
-    for(iterador = m_mapaCultivos.begin(); iterador!=m_mapaCultivos.end(); iterador++)
-    {
-        delete(iterador->second);//a que atributo del iterador esta accediendo? no aparece en la doc de cplusplus (solucionado: leer link)
-    }
-    ///https://stackoverflow.com/questions/15451287/what-does-iterator-second-mean
-    //basicamente second se refiere al segundo parametro del iterador, tiene 2 uno es el id y el otro es el puntero por eso le decimos delete(puntero)
-    m_mapaCultivos.clear();
-    SDL_Log("Mapa de Cultivos se ha limpiado correctamente");
+// constructor
 }
 
 bool Motor::inicializar()
@@ -85,39 +72,6 @@ bool Motor::limpiar()
 void Motor::salir()
 {
     m_juegoActivo = false;
-}
-
-std::map<std::string,Cultivo*> Motor::getMapa()
-{
-    return m_mapaCultivos;
-}
-
-void Motor::setMapa(std::string idCultivo, Cultivo* nuevoCultivo)
-{
-    m_mapaCultivos[idCultivo]=nuevoCultivo;
-}
-
-std::string Motor::buscarEnMapa()
-{
-    std::map<std::string,Cultivo*>::iterator iterador;
-    for(iterador = m_mapaCultivos.begin(); iterador!= m_mapaCultivos.end(); iterador++)
-    {
-        int x= GestorEventos::getInstancia()->getX() - iterador->second->getUbicacion_x();
-        int y= GestorEventos::getInstancia()->getY() - iterador->second->getUbicacion_y();
-
-        if((x>0) && (x<50))
-        {
-            if((y>-0.5*x+25)&&(y<0.5*x+25))
-                return iterador->first;
-        }
-
-        else if((x>50) && (x<100))
-        {
-            if((y>0.5*x-25)&&(y<-0.5*x+75))
-                return iterador->first;
-        }
-    }
-    return "0000";
 }
 
 void Motor::actualizar()
@@ -183,16 +137,6 @@ void Motor::eventos()
     }
 }
 
-Motor::Motor()
-{
-// constructor
-}
-
-void Motor::actualizarEstadoCultivo(Estado_Cultivo* nuevoEstado)
-{
-    estado_cultivo = nuevoEstado;
-}
-
 void Motor::indicadorMonedas()//esta tiene que ir al textureManager o alguna clase referida a la GUI (la interfaz grafica de usuario )
 {
     std::string monedas = "MONEDAS: " + std::to_string(Jugador::getInstancia()->getMonedas());
@@ -213,9 +157,62 @@ void Motor::indicadorMonedas()//esta tiene que ir al textureManager o alguna cla
 //objeto a mostrar: ( va a ser un objeto de la clase imagen )
 //necesitamos la clase imagen que tenga los atributos: id, direccion, bool cargada, posX, posY, tamX, tamY
 
+std::string Motor::buscarEnMapa()
+{
+    std::map<std::string,Cultivo*>::iterator iterador;
+    for(iterador = m_mapaCultivos.begin(); iterador!= m_mapaCultivos.end(); iterador++)
+    {
+        int x= GestorEventos::getInstancia()->getX() - iterador->second->getUbicacion_x();
+        int y= GestorEventos::getInstancia()->getY() - iterador->second->getUbicacion_y();
+
+        if((x>0) && (x<50))
+        {
+            if((y>-0.5*x+25)&&(y<0.5*x+25))
+                return iterador->first;
+        }
+
+        else if((x>50) && (x<100))
+        {
+            if((y>0.5*x-25)&&(y<-0.5*x+75))
+                return iterador->first;
+        }
+    }
+    return "0000";
+}
+
+void Motor::borrarCultivos()
+{
+    std::map<std::string,Cultivo*>::iterator iterador;
+    for(iterador = m_mapaCultivos.begin(); iterador!=m_mapaCultivos.end(); iterador++)
+    {
+        delete(iterador->second);//a que atributo del iterador esta accediendo? no aparece en la doc de cplusplus (solucionado: leer link)
+    }
+    ///https://stackoverflow.com/questions/15451287/what-does-iterator-second-mean
+    //basicamente second se refiere al segundo parametro del iterador, tiene 2 uno es el id y el otro es el puntero por eso le decimos delete(puntero)
+    m_mapaCultivos.clear();
+    SDL_Log("Mapa de Cultivos se ha limpiado correctamente");
+}
+
 //getters
 Cultivo* Motor::getCultivo(std::string idCultivo)
 {
     return m_mapaCultivos[idCultivo];
+}
+
+std::map<std::string,Cultivo*> Motor::getMapa()
+{
+    return m_mapaCultivos;
+}
+
+//setters
+
+void Motor::actualizarEstadoCultivo(Estado_Cultivo* nuevoEstado)
+{
+    estado_cultivo = nuevoEstado;
+}
+
+void Motor::setMapa(std::string idCultivo, Cultivo* nuevoCultivo)
+{
+    m_mapaCultivos[idCultivo]=nuevoCultivo;
 }
 

@@ -13,7 +13,6 @@ public:
 
     void hacer () override; ///sobrecarga
     void metodo_cargador_de_imagenes()override;
-    bool cargado = false;//parche usado en cultivo_arado
     bool aumentarProgreso() override;
 
 private:
@@ -21,11 +20,6 @@ private:
 ///estado_cultivo_terreno tiene un cultivo ( composicion usada para cerrar el circulo de la maquina finita de estados )
     Estado_Cultivo* _objeto;
     int progreso;
-    //Imagen* terreno;
-
-   // Imagen* imagen; ///los objetos de esta clase van a tener una imagen (composicion)
-//los metodos para mostrar esta imagen deben ser parte de esta clase o de otra intermedia? un objeto de esta clase deberia poder mostrarse a si mismo?
-
 };
 
 #endif // ESTADO_CULTIVO_TERRENO_H

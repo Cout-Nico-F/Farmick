@@ -20,7 +20,6 @@ public:
     std::string getIdCultivo();
     void setUbicacion_x(int);
     void setUbicacion_y(int);
-    //void setEstadoMotor(Estado_Cultivo* estado);
 
 private:
     Estado_Cultivo* estado_actual;//composicion (un cultivo tiene un estado_cultivo)

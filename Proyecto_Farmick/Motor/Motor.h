@@ -25,7 +25,7 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
         void renderizar();
         void eventos();
 
-        bool metodo_cargador_de_imagenes();//metodo de prueba
+        bool metodo_cargador_de_imagenes();
         void indicadorMonedas();
         void actualizarEstadoCultivo(Estado_Cultivo* nuevoEstado);
         Cultivo* getCultivo(std::string idCultivo);
@@ -33,9 +33,6 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
 
         std::map<std::string, Cultivo*> getMapa();
         void setMapa(std::string, Cultivo*);
-
-        //bool clickTerreno(); FALTA IMPLEMENTAR LA FORMULA PARA DETECTAR EN QUE TERRENO SE HIZO CLICK
-        //void inicializarUbicacionCultivos();// INICIALIZACION DE UBICACION
 
         void crearCultivos();
         void borrarCultivos();
@@ -53,14 +50,9 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
         SDL_Renderer* m_renderizador;
         Estado_Cultivo* estado_cultivo;
 
-//        int m_evento_x;
-//        int m_evento_y;
-//        bool m_botonIzqMouse;
-
         TTF_Font * m_fuente;
         SDL_Surface * m_superficie;
         SDL_Texture* m_textura;
-        //Cultivo* m_mapa_cultivos[3][3];// Array de punteros a Objetos ( compila, falta asignarle adonde apuntan cada uno
         std::map<std::string, Cultivo*> m_mapaCultivos;
 };
 

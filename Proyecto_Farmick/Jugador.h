@@ -12,7 +12,7 @@ class Jugador//singletone ( en nuestro juego va a existir un solo jugador )
 
     private:
     Jugador(); //constructor privado
-    int _monedas;
+    int m_monedas;
     static Jugador* s_instancia;
 
 };

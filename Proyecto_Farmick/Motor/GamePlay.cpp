@@ -3,6 +3,11 @@
 
 GamePlay* GamePlay::s_instancia = nullptr;
 
+//tips de brian:
+//el gameplay le da mensajes a cultivo (lo hace con un metodo ) leer mensajes relacionado a metodos
+
+//los objetos de cultivo los crea la clase gameplay
+
 GamePlay::GamePlay()
 {
     //ctor
