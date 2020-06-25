@@ -4,6 +4,7 @@
 #include "GestorEventos.h"
 #include "GamePlay.h"
 #include "Timer.h"
+#include "../Objetos/Mercado.h"
 
 Motor* Motor::s_instancia = nullptr;
 
@@ -47,6 +48,7 @@ bool Motor::inicializar()
     GestorTexturas::getInstancia()->cargar("arado","assets/cultivo_arado.png");
     GestorTexturas::getInstancia()->cargar("sembrado","assets/cultivo_sembrado.png");
     GestorTexturas::getInstancia()->cargar("crecido","assets/cultivo_crecido.png");
+    GestorTexturas::getInstancia()->cargar("mercado","assets/mercado.png");
 
     return m_juegoActivo = true;
 }
@@ -99,6 +101,7 @@ void Motor::renderizar()
     //y al poner un cultivoN.metodocargador este se pondria en la ubicacion seteada en ese metodo concreto
 
     std::map<std::string,Cultivo*>::iterator iterador;
+    Mercado::getInstancia()->dibujar();
 
     for(iterador = m_mapaCultivos.begin(); iterador!= m_mapaCultivos.end(); iterador++)
     {
