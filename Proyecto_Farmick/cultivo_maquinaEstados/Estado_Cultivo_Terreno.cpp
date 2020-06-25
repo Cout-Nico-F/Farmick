@@ -13,7 +13,7 @@ Estado_Cultivo_Terreno::Estado_Cultivo_Terreno(Cultivo* contexto) : punteroAcult
 bool Estado_Cultivo_Terreno::aumentarProgreso()
 {
     progreso++;
-    if(progreso==10)    return true;
+    if(progreso==4)    return true;
 return false;
 }
 

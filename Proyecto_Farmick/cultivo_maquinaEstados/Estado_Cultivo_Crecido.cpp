@@ -10,7 +10,7 @@ Estado_Cultivo_Crecido::Estado_Cultivo_Crecido(Cultivo* contexto): _punteroAcult
 bool Estado_Cultivo_Crecido::aumentarProgreso()
 {
     progreso++;
-    if(progreso==2)
+    if(progreso==4)
         return true;
     return false;
 }

@@ -12,7 +12,7 @@ Estado_Cultivo_Arado::Estado_Cultivo_Arado(Cultivo* contexto): _punteroAcultivo(
 bool Estado_Cultivo_Arado::aumentarProgreso()
 {
     progreso++;
-    if(progreso==5)    return true;
+    if(progreso==4)    return true;
 return false;
 }
 

@@ -10,7 +10,7 @@ Estado_Cultivo_Sembrado::Estado_Cultivo_Sembrado(Cultivo* contexto): _punteroAcu
 bool Estado_Cultivo_Sembrado::aumentarProgreso()
 {
     progreso++;
-    if(progreso==3)    return true;
+    if(progreso==4)    return true;
 return false;
 }
 
