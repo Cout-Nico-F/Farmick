@@ -14,5 +14,6 @@ private:
     Cultivo* _punteroAcultivo;
     Estado_Cultivo* _objeto;
     int progreso;
+    int m_tiempoCrecimiento;
 };
 
