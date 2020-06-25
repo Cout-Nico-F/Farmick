@@ -12,13 +12,13 @@ Estado_Cultivo_Arado::Estado_Cultivo_Arado(Cultivo* contexto): _punteroAcultivo(
 
 bool Estado_Cultivo_Arado::aumentarProgreso()
 {
+    std::cout<<"Preparando el arado "<<progreso+1<<"/4"<<std::endl;
     progreso++;
     if(progreso>=4)
     {
         progreso = 0;
         return true;
     }
-
     return false;
 }
 

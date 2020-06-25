@@ -10,9 +10,13 @@ Estado_Cultivo_Crecido::Estado_Cultivo_Crecido(Cultivo* contexto): _punteroAcult
 
 bool Estado_Cultivo_Crecido::aumentarProgreso()
 {
+    std::cout<<"Los frutos crecen "<<progreso+1<<"/4"<<std::endl;
     progreso++;
-    if(progreso==4)
+    if(progreso>=4)
+    {
+        progreso = 0;
         return true;
+    }
     return false;
 }
 

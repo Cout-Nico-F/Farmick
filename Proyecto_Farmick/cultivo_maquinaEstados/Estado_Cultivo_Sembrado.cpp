@@ -9,9 +9,14 @@ Estado_Cultivo_Sembrado::Estado_Cultivo_Sembrado(Cultivo* contexto): _punteroAcu
 
 bool Estado_Cultivo_Sembrado::aumentarProgreso()
 {
+    std::cout<<"Las plantas crecen "<<progreso+1<<"/4"<<std::endl;
     progreso++;
-    if(progreso==4)    return true;
-return false;
+    if(progreso>=4)
+    {
+        progreso = 0;
+        return true;
+    }
+    return false;
 }
 
 void Estado_Cultivo_Sembrado::hacer()

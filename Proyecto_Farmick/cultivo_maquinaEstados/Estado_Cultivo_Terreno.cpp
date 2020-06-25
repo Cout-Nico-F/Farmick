@@ -13,6 +13,8 @@ Estado_Cultivo_Terreno::Estado_Cultivo_Terreno(Cultivo* contexto) : punteroAcult
 bool Estado_Cultivo_Terreno::aumentarProgreso()
 {
     progreso++;
+    std::cout<<"Paleas la tierra  "<<progreso<<"/4"<<std::endl;
+
     if(progreso==4)
         return true;
     return false;
