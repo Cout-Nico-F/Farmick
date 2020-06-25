@@ -108,6 +108,7 @@ void Motor::renderizar()
     {
         iterador->second->metodo_cargador_de_imagenes();
     }
+
     indicadorMonedas();
     indicadorSemillas();
 }
@@ -136,7 +137,7 @@ void Motor::eventos()
     break;
     default:
     {
-        //GestorEventos::getInstancia()->setBotonIzq(false);
+
     }
     break;
     }
@@ -154,7 +155,7 @@ void Motor::indicadorMonedas()//esta tiene que ir al textureManager o alguna cla
     SDL_QueryTexture(m_textura, NULL, NULL, &texW, &texH);
     SDL_Rect destRect = {20,20, texW, texH};
     SDL_RenderCopy (m_renderizador, m_textura, NULL, &destRect);
-    SDL_RenderPresent (m_renderizador);
+    //SDL_RenderPresent (m_renderizador); esta linea hace parpadear al indicador de semillas.
     SDL_DestroyTexture (m_textura);
     SDL_FreeSurface (m_superficie);
 }
