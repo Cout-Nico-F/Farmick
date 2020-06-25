@@ -6,7 +6,7 @@
 Estado_Cultivo_Sembrado::Estado_Cultivo_Sembrado(Cultivo* contexto): _punteroAcultivo(contexto)
 {
     progreso = SDL_GetTicks();//guarda el tick de cuando fue creado ( como si fuera su fecha de creacion )
-    m_tiempoCrecimiento = 20000 * Timer::getInstancia()->getDeltaTime();
+    m_tiempoCrecimiento = 30000 * Timer::getInstancia()->getDeltaTime();
 };
 
 bool Estado_Cultivo_Sembrado::aumentarProgreso()
