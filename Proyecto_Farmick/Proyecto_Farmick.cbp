@@ -46,6 +46,8 @@
 		<Unit filename="Motor/GestorEventos.h" />
 		<Unit filename="Motor/Motor.cpp" />
 		<Unit filename="Motor/Motor.h" />
+		<Unit filename="Motor/Timer.cpp" />
+		<Unit filename="Motor/Timer.h" />
 		<Unit filename="Motor/gestorTexturas.cpp" />
 		<Unit filename="Motor/gestorTexturas.h" />
 		<Unit filename="Objetos/Imagen.cpp" />
