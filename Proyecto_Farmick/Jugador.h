@@ -6,7 +6,7 @@ class Jugador//singletone ( en nuestro juego va a existir un solo jugador )
 {
     public:
     inline static Jugador* getInstancia(){return s_instancia = (s_instancia == nullptr)? new Jugador() : s_instancia;}
-    void incrementarMonedas();
+    void incrementarMonedas(int cuantas);
     void incrementarSemillas();
     void gastarMonedas(int cuantas);
     void gastarSemillas();

@@ -8,10 +8,9 @@ Jugador::Jugador()
     m_semillas = 0;
 }
 
-void Jugador::incrementarMonedas()
+void Jugador::incrementarMonedas(int cuantas)
 {
-    m_monedas++;
-
+    m_monedas+=cuantas;
 }
 
 void Jugador::incrementarSemillas()

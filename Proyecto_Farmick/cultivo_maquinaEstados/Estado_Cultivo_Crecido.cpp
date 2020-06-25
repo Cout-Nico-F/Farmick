@@ -1,6 +1,7 @@
 #include "Estado_Cultivo_Crecido.h"
 #include "Estado_Cultivo_Terreno.h"
 #include "../Motor/gestorTexturas.h"
+#include "../Jugador.h"
 
 Estado_Cultivo_Crecido::Estado_Cultivo_Crecido(Cultivo* contexto): _punteroAcultivo(contexto)
 {
@@ -17,7 +18,8 @@ bool Estado_Cultivo_Crecido::aumentarProgreso()
 
 void Estado_Cultivo_Crecido::hacer()
 {
-    std::cout<<"Crecido cambiando de estado hacia Terreno"<<std::endl;
+    std::cout<<"Crecido cambiando de estado hacia Terreno ( Se vendio la cosecha por 20 monedas )"<<std::endl;
+    Jugador::getInstancia()->incrementarMonedas(10);
 
     _objeto = new Estado_Cultivo_Terreno(_punteroAcultivo);
     _punteroAcultivo->setEstado(_objeto);

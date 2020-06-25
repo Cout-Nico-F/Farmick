@@ -81,7 +81,7 @@ void GestorEventos::clickEnArea(std::string idCultivo)
 
     if ( idCultivo == "0000" )
     {
-        Jugador::getInstancia()->incrementarMonedas();
+        Jugador::getInstancia()->incrementarMonedas(1);
         SDL_Log("Encontraste una moneda");
     }
 
