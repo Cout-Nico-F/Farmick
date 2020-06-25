@@ -27,6 +27,7 @@ class Motor ///Singletone ( solo puede existir una instancia de esta clase a la 
 
         bool metodo_cargador_de_imagenes();
         void indicadorMonedas();
+        void indicadorSemillas();
         void actualizarEstadoCultivo(Estado_Cultivo* nuevoEstado);
         Cultivo* getCultivo(std::string idCultivo);
         std::string buscarEnMapa();

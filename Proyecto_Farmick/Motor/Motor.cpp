@@ -109,6 +109,7 @@ void Motor::renderizar()
         iterador->second->metodo_cargador_de_imagenes();
     }
     indicadorMonedas();
+    indicadorSemillas();
 }
 
 void Motor::eventos()
@@ -157,6 +158,24 @@ void Motor::indicadorMonedas()//esta tiene que ir al textureManager o alguna cla
     SDL_DestroyTexture (m_textura);
     SDL_FreeSurface (m_superficie);
 }
+
+void Motor::indicadorSemillas()//esta tambien tiene que ir al textureManager o alguna clase referida a la GUI (la interfaz grafica de usuario )
+{
+    std::string monedas = "SEMILLAS: " + std::to_string(Jugador::getInstancia()->getSemillas());
+    const char*semillas_mostrar = monedas.c_str();
+
+    SDL_Color color = {239,184,16}; //Color oro.
+    m_superficie = TTF_RenderText_Solid(m_fuente,semillas_mostrar, color);
+    m_textura = SDL_CreateTextureFromSurface(m_renderizador, m_superficie);
+    int texW, texH;
+    SDL_QueryTexture(m_textura, NULL, NULL, &texW, &texH);
+    SDL_Rect destRect = {40,40, texW, texH}; //
+    SDL_RenderCopy (m_renderizador, m_textura, NULL, &destRect);
+    SDL_RenderPresent (m_renderizador);
+    SDL_DestroyTexture (m_textura);
+    SDL_FreeSurface (m_superficie);
+}
+
 //idea
 //objeto a mostrar: ( va a ser un objeto de la clase imagen )
 //necesitamos la clase imagen que tenga los atributos: id, direccion, bool cargada, posX, posY, tamX, tamY
@@ -225,4 +244,5 @@ void Motor::setMapa(std::string idCultivo, Cultivo* nuevoCultivo)
 {
     m_mapaCultivos[idCultivo]=nuevoCultivo;
 }
+
 
