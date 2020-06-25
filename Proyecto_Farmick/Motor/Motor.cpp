@@ -80,6 +80,7 @@ void Motor::actualizar()
 {
     if(GestorEventos::getInstancia()->getBotonIzq())
     {
+
         std::string idCultivo = Motor::buscarEnMapa();
         GestorEventos::getInstancia()->clickEnArea(idCultivo);
 
@@ -179,6 +180,12 @@ std::string Motor::buscarEnMapa()
             if((y>0.5*x-25)&&(y<-0.5*x+75))
                 return iterador->first;
         }
+    }
+    //si hizo click en el area de mercado return 1111
+    if((GestorEventos::getInstancia()->getX()>= 650 && GestorEventos::getInstancia()->getX() <= 743 ) && (GestorEventos::getInstancia()->getY() >=390 && GestorEventos::getInstancia()->getY() <= 461 ) )
+    //Reducir este if
+    {
+        return "mercado";
     }
     return "0000";
 }

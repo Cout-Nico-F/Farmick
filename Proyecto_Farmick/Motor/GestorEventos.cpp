@@ -50,9 +50,9 @@ bool GestorEventos::getBotonIzq()
 
 void GestorEventos::clickEnArea(std::string idCultivo)
 {
-    m_botonIzqMouse = false; /// Esto lo corrí aca porque estaba en todos los casos de los if
+    m_botonIzqMouse = false;
 
-    if(idCultivo!="0000")
+    if(idCultivo!="0000" && idCultivo!= "mercado")
     {
         if(Jugador::getInstancia()->getMonedas()>=4)
         {
@@ -62,12 +62,28 @@ void GestorEventos::clickEnArea(std::string idCultivo)
         }
         else
         {
-            SDL_Log("Monedas insuficientes, necesitas 10");
+            SDL_Log("Monedas insuficientes, necesitas 10 para pasar de estado");
         }
     }
-    else
+
+    if (idCultivo == "mercado")
+    {
+       if(Jugador::getInstancia()->getMonedas() >= 10)
+        {
+            Jugador::getInstancia()->gastarMonedas(10);
+            Jugador::getInstancia()->incrementarSemillas(); // Aca es donde estamos comprando semillas.
+        }
+       else
+        {
+            SDL_Log("Monedas insuficientes, necesitas 10 monedas para comprar un paquete de semillas");
+        }
+    }
+
+    if ( idCultivo == "0000" )
     {
         Jugador::getInstancia()->incrementarMonedas();
         SDL_Log("Encontraste una moneda");
     }
+
+
 }
