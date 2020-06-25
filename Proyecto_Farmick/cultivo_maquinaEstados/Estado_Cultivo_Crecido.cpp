@@ -19,7 +19,7 @@ bool Estado_Cultivo_Crecido::aumentarProgreso()
 void Estado_Cultivo_Crecido::hacer()
 {
     std::cout<<"Crecido cambiando de estado hacia Terreno ( Se vendio la cosecha por 20 monedas )"<<std::endl;
-    Jugador::getInstancia()->incrementarMonedas(10);
+    Jugador::getInstancia()->incrementarMonedas(20);
 
     _objeto = new Estado_Cultivo_Terreno(_punteroAcultivo);
     _punteroAcultivo->setEstado(_objeto);

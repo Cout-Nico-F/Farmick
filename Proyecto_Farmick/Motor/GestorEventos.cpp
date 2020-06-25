@@ -54,16 +54,8 @@ void GestorEventos::clickEnArea(std::string idCultivo)
 
     if(idCultivo!="0000" && idCultivo!= "mercado")
     {
-        if(Jugador::getInstancia()->getMonedas()>=4)
-        {
-            Jugador::getInstancia()->gastarMonedas(4);
-            std::map<std::string,Cultivo*> mapa= Motor::GetInstancia()->getMapa();
-            if(mapa[idCultivo]->aumentarProgreso()) mapa[idCultivo]->hacer();
-        }
-        else
-        {
-            SDL_Log("Monedas insuficientes, necesitas 10 para pasar de estado");
-        }
+        std::map<std::string,Cultivo*> mapa= Motor::GetInstancia()->getMapa();
+        if(mapa[idCultivo]->aumentarProgreso()) mapa[idCultivo]->hacer();
     }
 
     if (idCultivo == "mercado")
