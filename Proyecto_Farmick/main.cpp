@@ -1,5 +1,6 @@
 #include "Motor.h"
 #include "cultivo_maquinaEstados/Cultivo.h"
+#include "Timer.h"
 
 
 
@@ -16,6 +17,8 @@ int main(int argc, char** argv)
         Motor::GetInstancia()->actualizar();
         //Renderizado (Crear Dibujo)
         Motor::GetInstancia()->renderizar();
+
+        Timer::getInstancia()->tick();
     }
 
     Motor::GetInstancia()->limpiar();//devuelve la memoria pedida

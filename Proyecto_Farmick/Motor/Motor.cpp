@@ -3,6 +3,7 @@
 #include "../Jugador.h"
 #include "GestorEventos.h"
 #include "GamePlay.h"
+#include "Timer.h"
 
 //tips de brian:
 //el gameplay le da mensajes a cultivo (lo hace con un metodo ) leer mensajes relacionado a metodos
@@ -125,6 +126,7 @@ void Motor::actualizar()
     {
         std::string idCultivo = Motor::buscarEnMapa();
         GestorEventos::getInstancia()->clickEnArea(idCultivo);
+
 
         //Aca podemos pensar una manera de que esto este seteado en algun lado
         //como en una clase objeto que tenga estos valores o alguna otra clase
