@@ -34,7 +34,7 @@ void Estado_Cultivo_Sembrado::hacer()
     _objeto = new Estado_Cultivo_Crecido(_punteroAcultivo);
     _punteroAcultivo->setEstado(_objeto);
     Motor::GetInstancia()->actualizarEstadoCultivo(_objeto);
-    _punteroAcultivo->setM_mapaTexturas("crecido");
+    _punteroAcultivo->setM_mapaTexturas("a9crecido");
 }
 
 void Estado_Cultivo_Sembrado::metodo_cargador_de_imagenes()

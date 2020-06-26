@@ -10,16 +10,16 @@ GestorTexturas::GestorTexturas()
 
 bool GestorTexturas::cargar_cultivos()
 {
-    this->cargar("terreno","assets/cultivo_terreno.png");
-    this->cargar("terreno1","assets/tierra para arar1.png");
-    this->cargar("terreno2","assets/tierra para arar2.png");
-    this->cargar("terreno3","assets/tierra para arar3.png");
-    this->cargar("terreno4","assets/tierra para arar4.png");
-    this->cargar("terreno5","assets/tierra para arar5.png");
-    this->cargar("terreno6","assets/tierra para arar6.png");
-    this->cargar("arado","assets/cultivo_arado.png");
-    this->cargar("sembrado","assets/cultivo_sembrado.png");
-    this->cargar("crecido","assets/cultivo_crecido.png");
+    this->cargar("a0terreno","assets/cultivo_terreno.png");
+    this->cargar("a1terreno1","assets/tierra para arar1.png");
+    this->cargar("a2terreno2","assets/tierra para arar2.png");
+    this->cargar("a3terreno3","assets/tierra para arar3.png");
+    this->cargar("a4terreno4","assets/tierra para arar4.png");
+    this->cargar("a5terreno5","assets/tierra para arar5.png");
+    this->cargar("a6terreno6","assets/tierra para arar6.png");
+    this->cargar("a7arado","assets/cultivo_arado.png");
+    this->cargar("a8sembrado","assets/cultivo_sembrado.png");
+    this->cargar("a9crecido","assets/cultivo_crecido.png");
 }
 
 bool GestorTexturas::cargar(std::string id, std::string nombreArchivo)

@@ -32,7 +32,7 @@ void Estado_Cultivo_Crecido::hacer()
     _objeto = new Estado_Cultivo_Terreno(_punteroAcultivo);
     _punteroAcultivo->setEstado(_objeto);
     Motor::GetInstancia()->actualizarEstadoCultivo(_objeto);
-    _punteroAcultivo->setM_mapaTexturas("terreno");
+    _punteroAcultivo->setM_mapaTexturas("a0terreno");
 }
 
 void Estado_Cultivo_Crecido::metodo_cargador_de_imagenes()
