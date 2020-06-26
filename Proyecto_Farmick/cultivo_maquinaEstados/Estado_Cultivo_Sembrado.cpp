@@ -25,8 +25,8 @@ bool Estado_Cultivo_Sembrado::aumentarProgreso()
         progreso++;
         if(progreso==6)return true;
     }
-    else
-        std::cout<<"Hay que darle mas tiempo al cultivo para crecer"<<std::endl;
+//    else
+//        std::cout<<"Hay que darle mas tiempo al cultivo para crecer"<<std::endl;
     return false;
 }
 

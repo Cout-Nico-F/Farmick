@@ -81,7 +81,7 @@ void Motor::actualizar()
 
         std::string idCultivo = Motor::buscarEnMapa();
         GestorEventos::getInstancia()->clickEnArea(idCultivo);
-
+        GamePlay::getInstancia()->aumentarProgresoCultivoSembrado();
 
         //Aca podemos pensar una manera de que esto este seteado en algun lado
         //como en una clase objeto que tenga estos valores o alguna otra clase

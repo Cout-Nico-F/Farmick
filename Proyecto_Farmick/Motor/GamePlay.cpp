@@ -18,6 +18,21 @@ GamePlay::~GamePlay()
     //dtor
 }
 
+void GamePlay::aumentarProgresoCultivoSembrado()
+{
+    std::map<std::string,Cultivo*>::iterator iterador;
+    std::map<std::string,Cultivo*> mapa= Motor::GetInstancia()->getMapa();
+
+    for(iterador = mapa.begin(); iterador!= mapa.end(); iterador++)
+    {
+        if(strcmp(iterador->second->getTextura().c_str(),"a13")>0 &&
+           strcmp(iterador->second->getTextura().c_str(),"a19")<0)
+        {
+            iterador->second->aumentarProgreso();
+        }
+    }
+}
+
 void GamePlay::crearCultivos()
 {
     //Se crea la Matriz de posiciones en el mapa
