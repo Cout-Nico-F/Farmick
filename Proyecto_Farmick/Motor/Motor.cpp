@@ -92,7 +92,7 @@ void Motor::actualizar()
 
 void Motor::renderizar()
 {
-    SDL_SetRenderDrawColor(m_renderizador,247,229,178,255);
+    SDL_SetRenderDrawColor(m_renderizador,247,229,178,255); // TODO: Esto iría? Osea ya tenemos el backgroung..
     SDL_RenderClear(m_renderizador); ///Fondo color amarillo arena
     GestorTexturas::getInstancia()->dibujar("backGround",0,0,ANCHO_PANTALLA,ALTO_PANTALLA);
     GestorTexturas::getInstancia()->dibujar("logoGrande",120,66,728,259);
