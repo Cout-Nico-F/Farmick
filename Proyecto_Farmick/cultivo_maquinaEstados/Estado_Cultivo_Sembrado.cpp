@@ -5,8 +5,9 @@
 
 Estado_Cultivo_Sembrado::Estado_Cultivo_Sembrado(Cultivo* contexto): _punteroAcultivo(contexto)
 {
-    progreso = SDL_GetTicks();//guarda el tick de cuando fue creado ( como si fuera su fecha de creacion )
+    tiempoCreacion = SDL_GetTicks();//guarda el tick de cuando fue creado ( como si fuera su fecha de creacion )
     m_tiempoCrecimiento = 30000 * Timer::getInstancia()->getDeltaTime();
+    progreso=0;
 };
 
 int Estado_Cultivo_Sembrado::getProgreso()
@@ -18,9 +19,11 @@ bool Estado_Cultivo_Sembrado::aumentarProgreso()
 {
     //std::cout<<"Las plantas crecen "<<progreso+1<<"/4"<<std::endl;
     //progreso++;                                           //en este caso vamos a necesitar que el progreso sea en base al tiempo.
-    if(SDL_GetTicks() - progreso >= m_tiempoCrecimiento)      //como minimo parece que necesito saber en que tick se creó el cultivo
-    {                                                       //y en base a ese numero cuando se llega a tiempobase+tiempocultivo se dispara el metodo hacer (devuelve true el metodo aumentarProgreso)
-        return true;
+    if(SDL_GetTicks() - tiempoCreacion >= m_tiempoCrecimiento/6)      //como minimo parece que necesito saber en que tick se creó el cultivo
+    {
+        tiempoCreacion+=SDL_GetTicks()-tiempoCreacion;                //y en base a ese numero cuando se llega a tiempobase+tiempocultivo se dispara el metodo hacer (devuelve true el metodo aumentarProgreso)
+        progreso++;
+        if(progreso==6)return true;
     }
     else
         std::cout<<"Hay que darle mas tiempo al cultivo para crecer"<<std::endl;

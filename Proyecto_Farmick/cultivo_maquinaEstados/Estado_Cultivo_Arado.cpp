@@ -19,7 +19,7 @@ bool Estado_Cultivo_Arado::aumentarProgreso()
 {
     std::cout<<"Preparando el arado "<<progreso+1<<"/4"<<std::endl;
     progreso++;
-    if(progreso>=1)
+    if(progreso>=6)
     {
         return true;
     }
@@ -36,7 +36,7 @@ void Estado_Cultivo_Arado::hacer()
         _objeto = new Estado_Cultivo_Sembrado(_punteroAcultivo);
         _punteroAcultivo->setEstado(_objeto);//En esta linea estamos cambiando de estado hacia terreno.
         Motor::GetInstancia()->actualizarEstadoCultivo(_objeto);
-        _punteroAcultivo->setM_mapaTexturas("a8sembrado");
+        _punteroAcultivo->setM_mapaTexturas("a13sembrado");
     }
     else
     {

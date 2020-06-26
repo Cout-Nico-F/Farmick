@@ -16,5 +16,6 @@ private:
     Estado_Cultivo* _objeto;
     int progreso;
     int m_tiempoCrecimiento;
+    unsigned long int tiempoCreacion;
 };
 
