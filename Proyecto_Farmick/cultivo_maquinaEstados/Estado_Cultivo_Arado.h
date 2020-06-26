@@ -9,6 +9,7 @@ public:
     void hacer()override; //palabra clave para asegurarse que esta sobreescribiendo un metodo efectivamente ( seguro anti errores )
     void metodo_cargador_de_imagenes()override;
     bool aumentarProgreso() override;
+    int getProgreso() override;
 
 private:
     Cultivo* _punteroAcultivo;

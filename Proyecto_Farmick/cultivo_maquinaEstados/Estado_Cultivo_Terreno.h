@@ -14,6 +14,7 @@ public:
     void hacer () override; ///sobrecarga
     void metodo_cargador_de_imagenes()override;
     bool aumentarProgreso() override;
+    int getProgreso() override;
 
 private:
     Cultivo* punteroAcultivo;///referencia a cultivo

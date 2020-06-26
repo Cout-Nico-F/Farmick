@@ -12,6 +12,12 @@ Cultivo::Cultivo(std::string id)
 {
     estado_actual = new Estado_Cultivo_Terreno(this);
     m_idCultivo = id;
+    m_mapaTexturas= "terreno";
+}
+
+std::string Cultivo::getTextura()
+{
+    return m_mapaTexturas;
 }
 
 Cultivo::~Cultivo()
@@ -22,6 +28,16 @@ Cultivo::~Cultivo()
 void Cultivo::setEstado(Estado_Cultivo* nuevo_estado)
 {
     estado_actual = nuevo_estado;
+}
+
+void Cultivo::setM_mapaTexturas(std::string mapa)
+{
+    m_mapaTexturas=mapa;
+}
+
+int Cultivo::getProgreso()
+{
+    estado_actual->getProgreso();
 }
 
 bool Cultivo::aumentarProgreso()

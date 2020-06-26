@@ -8,6 +8,20 @@ GestorTexturas::GestorTexturas()
 
 }
 
+bool GestorTexturas::cargar_cultivos()
+{
+    this->cargar("terreno","assets/cultivo_terreno.png");
+    this->cargar("terreno1","assets/tierra para arar1.png");
+    this->cargar("terreno2","assets/tierra para arar2.png");
+    this->cargar("terreno3","assets/tierra para arar3.png");
+    this->cargar("terreno4","assets/tierra para arar4.png");
+    this->cargar("terreno5","assets/tierra para arar5.png");
+    this->cargar("terreno6","assets/tierra para arar6.png");
+    this->cargar("arado","assets/cultivo_arado.png");
+    this->cargar("sembrado","assets/cultivo_sembrado.png");
+    this->cargar("crecido","assets/cultivo_crecido.png");
+}
+
 bool GestorTexturas::cargar(std::string id, std::string nombreArchivo)
 {
     //leer el patron de recursos (resourse) recomendacion de brian
@@ -15,7 +29,7 @@ bool GestorTexturas::cargar(std::string id, std::string nombreArchivo)
     //debe preguntar si ya esta cargada ( si piden cargar con un id de recurso que todavia no existe)
     //se guarda una lista de imagenes para comprobar si ya esta cargado. si ya esta cargado devuelve un recurso ( un puntero al buffer de texturas)
 
-    SDL_Surface* superficie = IMG_Load(nombreArchivo.c_str());//que funcion es c_str?
+    SDL_Surface* superficie = IMG_Load(nombreArchivo.c_str());
     if(superficie==nullptr)
     {
         SDL_Log("Fallo al cargar la textura: %s, %s", nombreArchivo.c_str(), SDL_GetError());
@@ -30,6 +44,11 @@ bool GestorTexturas::cargar(std::string id, std::string nombreArchivo)
     }
     m_mapaTexturas[id] = textura;
     return true;
+}
+
+std::map <std::string,SDL_Texture*> GestorTexturas::getMapaTexturas()
+{
+    return m_mapaTexturas;
 }
 
 bool GestorTexturas::borrar(std::string id)

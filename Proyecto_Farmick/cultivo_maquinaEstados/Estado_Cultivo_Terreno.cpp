@@ -10,12 +10,17 @@ Estado_Cultivo_Terreno::Estado_Cultivo_Terreno(Cultivo* contexto) : punteroAcult
     progreso=0;
 }
 
+int Estado_Cultivo_Terreno::getProgreso()
+{
+    return progreso;
+}
+
 bool Estado_Cultivo_Terreno::aumentarProgreso()
 {
     progreso++;
-    std::cout<<"Paleas la tierra  "<<progreso<<"/4"<<std::endl;
+    std::cout<<"Paleas la tierra  "<<progreso<<"/6"<<std::endl;
 
-    if(progreso==4)
+    if(progreso==7)
         return true;
     return false;
 }
@@ -27,12 +32,13 @@ void Estado_Cultivo_Terreno::hacer()
     _objeto = new Estado_Cultivo_Arado(punteroAcultivo);
     punteroAcultivo->setEstado(_objeto);
     Motor::GetInstancia()->actualizarEstadoCultivo(_objeto);
+    punteroAcultivo->setM_mapaTexturas("arado");
 }
 
 void Estado_Cultivo_Terreno::metodo_cargador_de_imagenes()
 {
     GestorTexturas::getInstancia()->dibujar("logoGrande",120,66,728,259);
     GestorTexturas::getInstancia()->dibujar("click",591,570,174,70);
-    GestorTexturas::getInstancia()->dibujar("terreno",punteroAcultivo->getUbicacion_x(),punteroAcultivo->getUbicacion_y(),100,50);
+    GestorTexturas::getInstancia()->dibujar(punteroAcultivo->getTextura(),punteroAcultivo->getUbicacion_x(),punteroAcultivo->getUbicacion_y(),100,50);
 }
 

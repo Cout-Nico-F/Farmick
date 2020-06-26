@@ -8,6 +8,7 @@ class Estado_Cultivo ///interface ( tiene metodos virtuales declarados pero no d
     virtual void hacer() = 0;//igualar metodos a cero es la forma de definir una interface
     virtual void metodo_cargador_de_imagenes()=0;
     virtual bool aumentarProgreso()=0;
+    virtual int getProgreso()=0;
     Estado_Cultivo(){};
 };
 

@@ -10,13 +10,17 @@ Estado_Cultivo_Arado::Estado_Cultivo_Arado(Cultivo* contexto): _punteroAcultivo(
     progreso=0;
 };
 
+int Estado_Cultivo_Arado::getProgreso()
+{
+    return progreso;
+}
+
 bool Estado_Cultivo_Arado::aumentarProgreso()
 {
     std::cout<<"Preparando el arado "<<progreso+1<<"/4"<<std::endl;
     progreso++;
     if(progreso>=4)
     {
-        progreso = 0;
         return true;
     }
     return false;
@@ -32,8 +36,7 @@ void Estado_Cultivo_Arado::hacer()
         _objeto = new Estado_Cultivo_Sembrado(_punteroAcultivo);
         _punteroAcultivo->setEstado(_objeto);//En esta linea estamos cambiando de estado hacia terreno.
         Motor::GetInstancia()->actualizarEstadoCultivo(_objeto);
-
-
+        _punteroAcultivo->setM_mapaTexturas("sembrado");
     }
     else
     {
@@ -44,6 +47,6 @@ void Estado_Cultivo_Arado::hacer()
 
 void Estado_Cultivo_Arado::metodo_cargador_de_imagenes()
 {
-    GestorTexturas::getInstancia()->dibujar("arado",_punteroAcultivo->getUbicacion_x(),_punteroAcultivo->getUbicacion_y(),100,50);
+    GestorTexturas::getInstancia()->dibujar(_punteroAcultivo->getTextura(),_punteroAcultivo->getUbicacion_x(),_punteroAcultivo->getUbicacion_y(),100,50);
 }
 

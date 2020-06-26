@@ -12,9 +12,11 @@ public:
         return s_instancia = (s_instancia == nullptr)? new GestorTexturas() : s_instancia;
     }
     bool cargar(std::string id, std::string nombreArchivo);
+    bool cargar_cultivos();
     bool borrar(std::string id);
     bool limpiar();
     void dibujar(std::string id, int x, int y,int ancho, int alto, SDL_RendererFlip flip=SDL_FLIP_NONE);
+    std::map <std::string,SDL_Texture*> getMapaTexturas();
 
 protected:
 

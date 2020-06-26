@@ -1,4 +1,5 @@
 #include "GestorEventos.h"
+#include "gestorTexturas.h"
 #include "../Jugador.h"
 #include "SDL.h"
 #include "Motor.h"
@@ -55,7 +56,18 @@ void GestorEventos::clickEnArea(std::string idCultivo)
     if(idCultivo!="0000" && idCultivo!= "mercado")
     {
         std::map<std::string,Cultivo*> mapa= Motor::GetInstancia()->getMapa();
-        if(mapa[idCultivo]->aumentarProgreso()) mapa[idCultivo]->hacer();
+        int progreso = mapa[idCultivo]->getProgreso();
+        if(mapa[idCultivo]->aumentarProgreso())
+        {
+            mapa[idCultivo]->hacer();
+        }
+        else if(mapa[idCultivo]->getProgreso()!=progreso)
+        {
+            std::map <std::string,SDL_Texture*>::iterator iterador;
+            iterador = GestorTexturas::getInstancia()->getMapaTexturas().find(mapa[idCultivo]->getTextura());
+            iterador++;
+            mapa[idCultivo]->setM_mapaTexturas(iterador->first);
+        }
     }
 
     if (idCultivo == "mercado")

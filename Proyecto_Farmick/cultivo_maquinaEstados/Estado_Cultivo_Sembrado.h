@@ -9,6 +9,7 @@ public:
     void hacer()override;
     void metodo_cargador_de_imagenes()override;
     bool aumentarProgreso() override;
+    int getProgreso() override;
 
 private:
     Cultivo* _punteroAcultivo;

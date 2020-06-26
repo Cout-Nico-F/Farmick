@@ -9,13 +9,17 @@ Estado_Cultivo_Sembrado::Estado_Cultivo_Sembrado(Cultivo* contexto): _punteroAcu
     m_tiempoCrecimiento = 30000 * Timer::getInstancia()->getDeltaTime();
 };
 
+int Estado_Cultivo_Sembrado::getProgreso()
+{
+    return progreso;
+}
+
 bool Estado_Cultivo_Sembrado::aumentarProgreso()
 {
     //std::cout<<"Las plantas crecen "<<progreso+1<<"/4"<<std::endl;
     //progreso++;                                           //en este caso vamos a necesitar que el progreso sea en base al tiempo.
     if(SDL_GetTicks() - progreso >= m_tiempoCrecimiento)      //como minimo parece que necesito saber en que tick se creó el cultivo
     {                                                       //y en base a ese numero cuando se llega a tiempobase+tiempocultivo se dispara el metodo hacer (devuelve true el metodo aumentarProgreso)
-        progreso = 0;
         return true;
     }
     else
@@ -30,9 +34,10 @@ void Estado_Cultivo_Sembrado::hacer()
     _objeto = new Estado_Cultivo_Crecido(_punteroAcultivo);
     _punteroAcultivo->setEstado(_objeto);
     Motor::GetInstancia()->actualizarEstadoCultivo(_objeto);
+    _punteroAcultivo->setM_mapaTexturas("crecido");
 }
 
 void Estado_Cultivo_Sembrado::metodo_cargador_de_imagenes()
 {
-    GestorTexturas::getInstancia()->dibujar("sembrado",_punteroAcultivo->getUbicacion_x(),_punteroAcultivo->getUbicacion_y(),100,50);
+    GestorTexturas::getInstancia()->dibujar(_punteroAcultivo->getTextura(),_punteroAcultivo->getUbicacion_x(),_punteroAcultivo->getUbicacion_y(),100,50);
 }

@@ -41,13 +41,9 @@ bool Motor::inicializar()
 
     GamePlay::getInstancia()->crearCultivos();
 
+    GestorTexturas::getInstancia()->cargar_cultivos();
     GestorTexturas::getInstancia()->cargar("logoGrande","assets/logo_grande.png");
     GestorTexturas::getInstancia()->cargar("click","assets/click.png");
-
-    GestorTexturas::getInstancia()->cargar("terreno","assets/cultivo_terreno.png");
-    GestorTexturas::getInstancia()->cargar("arado","assets/cultivo_arado.png");
-    GestorTexturas::getInstancia()->cargar("sembrado","assets/cultivo_sembrado.png");
-    GestorTexturas::getInstancia()->cargar("crecido","assets/cultivo_crecido.png");
     GestorTexturas::getInstancia()->cargar("mercado","assets/mercado.png");
 
     return m_juegoActivo = true;
