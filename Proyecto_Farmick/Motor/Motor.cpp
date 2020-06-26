@@ -169,7 +169,7 @@ void Motor::indicadorSemillas()//esta tambien tiene que ir al textureManager o a
     m_superficie = TTF_RenderText_Solid(m_fuente,semillas_mostrar, color);
     m_textura = SDL_CreateTextureFromSurface(m_renderizador, m_superficie);
     int texW, texH;
-    SDL_QueryTexture(m_textura, NULL, NULL, &texW,&10);
+    SDL_QueryTexture(m_textura, NULL, NULL, &texW, &texH);
     SDL_Rect destRect = {5,50, texW, texH}; //
     SDL_RenderCopy (m_renderizador, m_textura, NULL, &destRect);
     SDL_RenderPresent (m_renderizador);
