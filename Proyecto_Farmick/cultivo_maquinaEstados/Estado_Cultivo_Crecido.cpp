@@ -17,7 +17,7 @@ bool Estado_Cultivo_Crecido::aumentarProgreso()
 {
     std::cout<<"Los frutos crecen "<<progreso+1<<"/4"<<std::endl;
     progreso++;
-    if(progreso>=4)
+    if(progreso>=1)
     {
         return true;
     }
