@@ -61,7 +61,7 @@ void GestorEventos::clickEnArea(std::string idCultivo)
         {
             mapa[idCultivo]->hacer();
         }
-        else if(mapa[idCultivo]->getProgreso()!=progreso)
+        else if(mapa[idCultivo]->getProgreso()>progreso)
         {
             std::map <std::string,SDL_Texture*>::iterator iterador;
             iterador = GestorTexturas::getInstancia()->getMapaTexturas().find(mapa[idCultivo]->getTextura());
