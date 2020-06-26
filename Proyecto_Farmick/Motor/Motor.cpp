@@ -39,12 +39,14 @@ bool Motor::inicializar()
     }
     m_fuente = TTF_OpenFont("Aarvark Cafe.ttf",25);
 
+    GestorTexturas::getInstancia()->cargar("backGround","assets/backGround.png");
     GamePlay::getInstancia()->crearCultivos();
-
     GestorTexturas::getInstancia()->cargar_cultivos();
+
     GestorTexturas::getInstancia()->cargar("logoGrande","assets/logo_grande.png");
     GestorTexturas::getInstancia()->cargar("click","assets/click.png");
     GestorTexturas::getInstancia()->cargar("mercado","assets/mercado.png");
+
 
     return m_juegoActivo = true;
 }
@@ -92,6 +94,10 @@ void Motor::renderizar()
 {
     SDL_SetRenderDrawColor(m_renderizador,247,229,178,255);
     SDL_RenderClear(m_renderizador); ///Fondo color amarillo arena
+    GestorTexturas::getInstancia()->dibujar("backGround",0,0,ANCHO_PANTALLA,ALTO_PANTALLA);
+    GestorTexturas::getInstancia()->dibujar("logoGrande",120,66,728,259);
+    GestorTexturas::getInstancia()->dibujar("click",591,570,174,70);
+
     //mirando esta parte me doy cuenta que si cada cultivo
     //pudiera ejecutar el metodo cargador de imagines de manera diferente seria muy interesante
     //cultivo1.metodocargador pondria la imagen del cultivo1 en las coordinadas correctas,]

@@ -37,8 +37,6 @@ void Estado_Cultivo_Terreno::hacer()
 
 void Estado_Cultivo_Terreno::metodo_cargador_de_imagenes()
 {
-    GestorTexturas::getInstancia()->dibujar("logoGrande",120,66,728,259);
-    GestorTexturas::getInstancia()->dibujar("click",591,570,174,70);
     GestorTexturas::getInstancia()->dibujar(punteroAcultivo->getTextura(),punteroAcultivo->getUbicacion_x(),punteroAcultivo->getUbicacion_y(),100,50);
 }
 
