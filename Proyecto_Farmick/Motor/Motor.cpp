@@ -113,6 +113,7 @@ void Motor::renderizar()
 
     indicadorMonedas();
     indicadorSemillas();
+    mensajes();
 }
 
 void Motor::eventos()
@@ -145,6 +146,23 @@ void Motor::eventos()
     }
 }
 
+void Motor::mensajes()
+{
+    std::string mensaje="HOLA FARMICK!!";
+
+    SDL_Color color = {255,255,0}; //Color amarillo
+    m_superficie = TTF_RenderText_Solid(m_fuente,mensaje.c_str(), color);
+    m_textura = SDL_CreateTextureFromSurface(m_renderizador, m_superficie);
+    int texW, texH;
+    SDL_QueryTexture(m_textura, NULL, NULL, &texW, &texH);
+    SDL_Rect destRect = {posXcultivos,posYcultivos, texW, texH};
+    SDL_RenderCopy (m_renderizador, m_textura, NULL, &destRect);
+    SDL_RenderPresent (m_renderizador);
+    SDL_DestroyTexture (m_textura);
+    SDL_FreeSurface (m_superficie);
+}
+
+
 void Motor::indicadorMonedas()//esta tiene que ir al textureManager o alguna clase referida a la GUI (la interfaz grafica de usuario )
 {
     std::string monedas = "MONEDAS: " + std::to_string(Jugador::getInstancia()->getMonedas());
@@ -174,7 +192,7 @@ void Motor::indicadorSemillas()//esta tambien tiene que ir al textureManager o a
     SDL_QueryTexture(m_textura, NULL, NULL, &texW, &texH);
     SDL_Rect destRect = {5,50, texW, texH}; //
     SDL_RenderCopy (m_renderizador, m_textura, NULL, &destRect);
-    SDL_RenderPresent (m_renderizador);
+    //SDL_RenderPresent (m_renderizador);
     SDL_DestroyTexture (m_textura);
     SDL_FreeSurface (m_superficie);
 }

@@ -1,6 +1,9 @@
 #ifndef GAMEPLAY_H
 #define GAMEPLAY_H
 
+#define posXcultivos 200
+#define posYcultivos 475
+#define cantidadCultivos 25 // debe ser un numero resultante de n al cuadrado (1,4,9,16,25...)
 
 class GamePlay //clase que va a tener las acciones ( metodos que segun si se cumple o no validaciones permitiran las acciones de los actores. )
 {

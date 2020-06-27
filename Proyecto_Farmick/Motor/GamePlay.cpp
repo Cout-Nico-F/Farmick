@@ -1,6 +1,7 @@
 #include "GamePlay.h"
 #include "../cultivo_maquinaEstados/Cultivo.h"
 #include "GestorEventos.h"
+#include <math.h>
 
 GamePlay* GamePlay::s_instancia = nullptr;
 
@@ -38,15 +39,16 @@ void GamePlay::crearCultivos()
 {
     //Se crea la Matriz de posiciones en el mapa
 
-    int matrizPosiciones[25][2]={0};
-    int x=200;
-    int y=475;
-    for(int i=0;i<5;i++)
+    int matrizPosiciones[cantidadCultivos][2]={0};
+    int x=posXcultivos;
+    int y=posYcultivos;
+    short maxiterador=sqrt(cantidadCultivos);
+    for(int i=0;i<maxiterador;i++)
     {
-        for(int j=0;j<5;j++)
+        for(int j=0;j<maxiterador;j++)
         {
-            matrizPosiciones[i*5+j][0]=x;
-            matrizPosiciones[i*5+j][1]=y;
+            matrizPosiciones[i*maxiterador+j][0]=x;
+            matrizPosiciones[i*maxiterador+j][1]=y;
             x+=50;
             y-=25;
         }
@@ -56,7 +58,7 @@ void GamePlay::crearCultivos()
 
     //Se crean los objetos cultivo en las coordenadas seteadas previamente
 
-    for(int i=0;i<25;i++)
+    for(int i=0;i<cantidadCultivos;i++)
     {
         std::string nombreCultivo = "CULTIVO_" + std::to_string(i+1);
         Cultivo* cultivoX = new Cultivo(nombreCultivo);//a modo de prueba de la maquina de estados de cultivo.
