@@ -86,7 +86,7 @@ void Motor::actualizar()
         //como en una clase objeto que tenga estos valores o alguna otra clase
         //recibiendo clickEnArea(objeto) y ese objeto ya conozca los parametros q pasamos ahora
     }
-    GamePlay::getInstancia()->aumentarProgresoCultivoSembrado();
+    GamePlay::getInstancia()->aumentarProgresoCultivos();
 }
 //este metodo necesita delegar hacia una interface?
 

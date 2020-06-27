@@ -15,5 +15,7 @@ private:
     Cultivo* _punteroAcultivo;
     Estado_Cultivo* _objeto;
     int progreso;
+    unsigned long int tiempoCreacion;
+    int m_tiempoCrecimiento;
 };
 

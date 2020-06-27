@@ -29,8 +29,12 @@ bool GestorTexturas::cargar_cultivos()
     this->cargar("a16sembrado","assets/tierraplantada4.png");
     this->cargar("a17sembrado","assets/tierraplantada5.png");
     this->cargar("a18sembrado","assets/tierraplantada6.png");
-
-    this->cargar("a90crecido","assets/cultivo_crecido.png");
+    this->cargar("a19crecido","assets/tierracasilista1.png");
+    this->cargar("a20crecido","assets/tierracasilista2.png");
+    this->cargar("a21crecido","assets/tierracasilista3.png");
+    this->cargar("a22crecido","assets/tierracasilista4.png");
+    this->cargar("a23crecido","assets/tierracasilista5.png");
+    this->cargar("a24crecido","assets/tierracasilista6.png");
 }
 
 bool GestorTexturas::cargar(std::string id, std::string nombreArchivo)

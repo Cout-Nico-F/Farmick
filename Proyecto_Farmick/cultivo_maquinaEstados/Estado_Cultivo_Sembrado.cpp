@@ -6,7 +6,7 @@
 Estado_Cultivo_Sembrado::Estado_Cultivo_Sembrado(Cultivo* contexto): _punteroAcultivo(contexto)
 {
     tiempoCreacion = SDL_GetTicks();//guarda el tick de cuando fue creado ( como si fuera su fecha de creacion )
-    m_tiempoCrecimiento = 30000 * Timer::getInstancia()->getDeltaTime();
+    m_tiempoCrecimiento = 10000 * Timer::getInstancia()->getDeltaTime();
     progreso=0;
 };
 
@@ -37,7 +37,7 @@ void Estado_Cultivo_Sembrado::hacer()
     _objeto = new Estado_Cultivo_Crecido(_punteroAcultivo);
     _punteroAcultivo->setEstado(_objeto);
     Motor::GetInstancia()->actualizarEstadoCultivo(_objeto);
-    _punteroAcultivo->setM_mapaTexturas("a9crecido");
+    _punteroAcultivo->setM_mapaTexturas("a19crecido");
 }
 
 void Estado_Cultivo_Sembrado::metodo_cargador_de_imagenes()

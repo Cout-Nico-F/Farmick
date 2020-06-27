@@ -2,9 +2,12 @@
 #include "Estado_Cultivo_Terreno.h"
 #include "../Motor/gestorTexturas.h"
 #include "../Jugador.h"
+#include "Timer.h"
 
 Estado_Cultivo_Crecido::Estado_Cultivo_Crecido(Cultivo* contexto): _punteroAcultivo(contexto)
 {
+    tiempoCreacion = SDL_GetTicks();
+    m_tiempoCrecimiento = 10000 * Timer::getInstancia()->getDeltaTime();
     progreso=0;
 };
 
@@ -15,11 +18,12 @@ int Estado_Cultivo_Crecido::getProgreso()
 
 bool Estado_Cultivo_Crecido::aumentarProgreso()
 {
-    std::cout<<"Los frutos crecen "<<progreso+1<<"/4"<<std::endl;
-    progreso++;
-    if(progreso>=1)
+    //std::cout<<"Los frutos crecen "<<progreso+1<<"/4"<<std::endl;
+   if(SDL_GetTicks() - tiempoCreacion >= m_tiempoCrecimiento/6)
     {
-        return true;
+        tiempoCreacion+=SDL_GetTicks()-tiempoCreacion;
+        progreso++;
+        if(progreso==6)return true;
     }
     return false;
 }
@@ -32,7 +36,7 @@ void Estado_Cultivo_Crecido::hacer()
     _objeto = new Estado_Cultivo_Terreno(_punteroAcultivo);
     _punteroAcultivo->setEstado(_objeto);
     Motor::GetInstancia()->actualizarEstadoCultivo(_objeto);
-    _punteroAcultivo->setM_mapaTexturas("a0terreno");
+    _punteroAcultivo->setM_mapaTexturas("a00terreno");
 }
 
 void Estado_Cultivo_Crecido::metodo_cargador_de_imagenes()

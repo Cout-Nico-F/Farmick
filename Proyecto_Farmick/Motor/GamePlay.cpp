@@ -19,7 +19,7 @@ GamePlay::~GamePlay()
     //dtor
 }
 
-void GamePlay::aumentarProgresoCultivoSembrado()
+void GamePlay::aumentarProgresoCultivos()
 {
     std::map<std::string,Cultivo*>::iterator iterador;
     std::map<std::string,Cultivo*> mapa= Motor::GetInstancia()->getMapa();
@@ -27,7 +27,7 @@ void GamePlay::aumentarProgresoCultivoSembrado()
     for(iterador = mapa.begin(); iterador!= mapa.end(); iterador++)
     {
         if(strcmp(iterador->second->getTextura().c_str(),"a13")>0 &&
-           strcmp(iterador->second->getTextura().c_str(),"a19")<0)
+           strcmp(iterador->second->getTextura().c_str(),"a24")<0)
         {
             GestorEventos::getInstancia()->clickEnArea(iterador->first);
         }

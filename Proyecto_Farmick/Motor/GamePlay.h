@@ -14,7 +14,7 @@ class GamePlay //clase que va a tener las acciones ( metodos que segun si se cum
         ~GamePlay();
 
         void crearCultivos();
-        void aumentarProgresoCultivoSembrado();
+        void aumentarProgresoCultivos();
 
 
     protected:
