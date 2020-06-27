@@ -5,6 +5,8 @@
 #include "GamePlay.h"
 #include "Timer.h"
 #include "../Objetos/Mercado.h"
+#include <math.h>
+#include <string>
 
 Motor* Motor::s_instancia = nullptr;
 
@@ -155,7 +157,12 @@ void Motor::mensajes()
     m_textura = SDL_CreateTextureFromSurface(m_renderizador, m_superficie);
     int texW, texH;
     SDL_QueryTexture(m_textura, NULL, NULL, &texW, &texH);
-    SDL_Rect destRect = {posXcultivos,posYcultivos, texW, texH};
+    //cuenta para setear el lugar en funcion de la cantidad de cultivos
+    int pos= sqrt(cantidadCultivos);
+    int posX= posXcultivos +(pos*50);
+    int posY= posYcultivos -(pos*25);
+
+    SDL_Rect destRect = {posX,posY, texW, texH};
     SDL_RenderCopy (m_renderizador, m_textura, NULL, &destRect);
     SDL_RenderPresent (m_renderizador);
     SDL_DestroyTexture (m_textura);
