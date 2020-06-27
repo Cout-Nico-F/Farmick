@@ -88,6 +88,4 @@ void GestorEventos::clickEnArea(std::string idCultivo)
         Jugador::getInstancia()->incrementarMonedas(1);
         SDL_Log("Encontraste una moneda");
     }
-
-
 }

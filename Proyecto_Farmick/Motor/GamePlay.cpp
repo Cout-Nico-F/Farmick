@@ -1,5 +1,6 @@
 #include "GamePlay.h"
 #include "../cultivo_maquinaEstados/Cultivo.h"
+#include "GestorEventos.h"
 
 GamePlay* GamePlay::s_instancia = nullptr;
 
@@ -28,7 +29,7 @@ void GamePlay::aumentarProgresoCultivoSembrado()
         if(strcmp(iterador->second->getTextura().c_str(),"a13")>0 &&
            strcmp(iterador->second->getTextura().c_str(),"a19")<0)
         {
-            iterador->second->aumentarProgreso();
+            GestorEventos::getInstancia()->clickEnArea(iterador->first);
         }
     }
 }

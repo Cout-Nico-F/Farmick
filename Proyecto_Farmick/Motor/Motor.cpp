@@ -81,12 +81,12 @@ void Motor::actualizar()
 
         std::string idCultivo = Motor::buscarEnMapa();
         GestorEventos::getInstancia()->clickEnArea(idCultivo);
-        GamePlay::getInstancia()->aumentarProgresoCultivoSembrado();
 
         //Aca podemos pensar una manera de que esto este seteado en algun lado
         //como en una clase objeto que tenga estos valores o alguna otra clase
         //recibiendo clickEnArea(objeto) y ese objeto ya conozca los parametros q pasamos ahora
     }
+    GamePlay::getInstancia()->aumentarProgresoCultivoSembrado();
 }
 //este metodo necesita delegar hacia una interface?
 
@@ -167,7 +167,7 @@ void Motor::indicadorSemillas()//esta tambien tiene que ir al textureManager o a
     std::string monedas = "SEMILLAS: " + std::to_string(Jugador::getInstancia()->getSemillas());
     const char*semillas_mostrar = monedas.c_str();
 
-    SDL_Color color = {0,170,50}; //Color verde.
+    SDL_Color color = {0,130,0}; //Color verde.
     m_superficie = TTF_RenderText_Solid(m_fuente,semillas_mostrar, color);
     m_textura = SDL_CreateTextureFromSurface(m_renderizador, m_superficie);
     int texW, texH;
