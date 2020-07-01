@@ -61,7 +61,7 @@ void GamePlay::crearCultivos()
     for(int i=0;i<cantidadCultivos;i++)
     {
         std::string nombreCultivo = "CULTIVO_" + std::to_string(i+1);
-        Cultivo* cultivoX = new Cultivo(nombreCultivo);//a modo de prueba de la maquina de estados de cultivo.
+        Cultivo* cultivoX = new Cultivo(nombreCultivo);
         Motor::GetInstancia()->setMapa(cultivoX->getIdCultivo(),cultivoX);
         cultivoX->setUbicacion_x(matrizPosiciones[i][0]);
         cultivoX->setUbicacion_y(matrizPosiciones[i][1]);

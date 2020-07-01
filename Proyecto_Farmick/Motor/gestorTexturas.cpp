@@ -10,7 +10,7 @@ GestorTexturas::GestorTexturas()
 
 bool GestorTexturas::cargar_cultivos()
 {
-    this->cargar("a00terreno","assets/cultivo_terreno.png");
+    //this->cargar("a00terreno","assets/cultivo_terreno.png");
     this->cargar("a01terreno1","assets/tierra para arar1.png");
     this->cargar("a02terreno2","assets/tierra para arar2.png");
     this->cargar("a03terreno3","assets/tierra para arar3.png");
