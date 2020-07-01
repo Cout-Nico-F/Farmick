@@ -3,6 +3,7 @@
 #include "../Jugador.h"
 #include "SDL.h"
 #include "Motor.h"
+#include "GamePlay.h"
 
 
 GestorEventos* GestorEventos::s_instancia = nullptr;
@@ -75,10 +76,12 @@ void GestorEventos::clickEnArea(std::string idCultivo)
        if(Jugador::getInstancia()->getMonedas() >= 10)
         {
             Jugador::getInstancia()->gastarMonedas(10);
-            Jugador::getInstancia()->incrementarSemillas(); // Aca es donde estamos comprando semillas.
+            Jugador::getInstancia()->incrementarSemillas();
+            GamePlay::getInstancia()->setMensajes("Compraste un paquete de semillas por 10 monedas"); // Aca es donde estamos comprando semillas.
         }
        else
         {
+            GamePlay::getInstancia()->setMensajes("Monedas insuficientes, necesitas 10 monedas para comprar un paquete de semillas");
             SDL_Log("Monedas insuficientes, necesitas 10 monedas para comprar un paquete de semillas");
         }
     }
@@ -86,6 +89,7 @@ void GestorEventos::clickEnArea(std::string idCultivo)
     if ( idCultivo == "0000" )
     {
         Jugador::getInstancia()->incrementarMonedas(1);
+        GamePlay::getInstancia()->setMensajes("Encontraste una moneda");
         SDL_Log("Encontraste una moneda");
     }
 }

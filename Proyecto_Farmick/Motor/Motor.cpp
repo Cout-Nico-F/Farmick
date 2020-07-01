@@ -97,7 +97,7 @@ void Motor::renderizar()
     SDL_RenderClear(m_renderizador);
     GestorTexturas::getInstancia()->dibujar("backGround",0,0,ANCHO_PANTALLA,ALTO_PANTALLA);
     GestorTexturas::getInstancia()->dibujar("logoGrande",120,30,728,259);//728 259 800,285
-    GestorTexturas::getInstancia()->dibujar("click",590,570,174,70);
+    GestorTexturas::getInstancia()->dibujar("click",590,550,174,70);
 
     //mirando esta parte me doy cuenta que si cada cultivo
     //pudiera ejecutar el metodo cargador de imagines de manera diferente seria muy interesante
