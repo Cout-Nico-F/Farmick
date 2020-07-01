@@ -12,7 +12,7 @@ Cultivo::Cultivo(std::string id)
 {
     estado_actual = new Estado_Cultivo_Terreno(this);
     m_idCultivo = id;
-    m_mapaTexturas= "a00terreno";
+    m_mapaTexturas= "a01terreno1";
 }
 
 std::string Cultivo::getTextura()

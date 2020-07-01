@@ -2,6 +2,7 @@
 #include "Estado_Cultivo_Terreno.h"
 #include "../Motor/gestorTexturas.h"
 #include "../Jugador.h"
+#include "../Motor/GamePlay.h"
 #include "Timer.h"
 
 Estado_Cultivo_Crecido::Estado_Cultivo_Crecido(Cultivo* contexto): _punteroAcultivo(contexto)
@@ -18,7 +19,6 @@ int Estado_Cultivo_Crecido::getProgreso()
 
 bool Estado_Cultivo_Crecido::aumentarProgreso()
 {
-    //std::cout<<"Los frutos crecen "<<progreso+1<<"/4"<<std::endl;
    if(SDL_GetTicks() - tiempoCreacion >= m_tiempoCrecimiento/6)
     {
         tiempoCreacion+=SDL_GetTicks()-tiempoCreacion;
@@ -30,13 +30,14 @@ bool Estado_Cultivo_Crecido::aumentarProgreso()
 
 void Estado_Cultivo_Crecido::hacer()
 {
-    std::cout<<"Crecido cambiando de estado hacia Terreno ( Se vendio la cosecha por 20 monedas )"<<std::endl;
+    std::cout<<"Crecido cambiando de estado hacia Terreno"<<std::endl;
     Jugador::getInstancia()->incrementarMonedas(20);
+    GamePlay::getInstancia()->setMensajes("Se vendio la cosecha por 20 monedas");
 
     _objeto = new Estado_Cultivo_Terreno(_punteroAcultivo);
     _punteroAcultivo->setEstado(_objeto);
     Motor::GetInstancia()->actualizarEstadoCultivo(_objeto);
-    _punteroAcultivo->setM_mapaTexturas("a00terreno");
+    _punteroAcultivo->setM_mapaTexturas("a01terreno1");
 }
 
 void Estado_Cultivo_Crecido::metodo_cargador_de_imagenes()

@@ -39,7 +39,7 @@ bool Motor::inicializar()
         SDL_Log("Failed to create Renderer: %s",SDL_GetError());
         return false;
     }
-    m_fuente = TTF_OpenFont("Aarvark Cafe.ttf",25);
+    m_fuente = TTF_OpenFont("assets/aArushShiny.ttf",25);
 
     GestorTexturas::getInstancia()->cargar("backGround","assets/backGround.png");
     GamePlay::getInstancia()->crearCultivos();
@@ -96,8 +96,8 @@ void Motor::renderizar()
 {
     SDL_RenderClear(m_renderizador);
     GestorTexturas::getInstancia()->dibujar("backGround",0,0,ANCHO_PANTALLA,ALTO_PANTALLA);
-    GestorTexturas::getInstancia()->dibujar("logoGrande",120,66,728,259);
-    GestorTexturas::getInstancia()->dibujar("click",100,300,174,70);
+    GestorTexturas::getInstancia()->dibujar("logoGrande",120,30,728,259);//728 259 800,285
+    GestorTexturas::getInstancia()->dibujar("click",590,570,174,70);
 
     //mirando esta parte me doy cuenta que si cada cultivo
     //pudiera ejecutar el metodo cargador de imagines de manera diferente seria muy interesante
@@ -149,18 +149,15 @@ void Motor::eventos()
 
 void Motor::mensajes()
 {
-    std::string mensaje="HOLA FARMICK!!";
-
-    SDL_Color color = {255,255,0}; //Color amarillo
-    m_superficie = TTF_RenderText_Solid(m_fuente,mensaje.c_str(), color);
+    SDL_Color color = {255,184,74}; //Color amarillo
+    m_superficie = TTF_RenderText_Solid(m_fuente, GamePlay::getInstancia()->getMensajes().c_str(),color);
     m_textura = SDL_CreateTextureFromSurface(m_renderizador, m_superficie);
     int texW, texH;
     SDL_QueryTexture(m_textura, NULL, NULL, &texW, &texH);
-    //cuenta para setear el lugar en funcion de la cantidad de cultivos
+//cuenta para setear el lugar en funcion de la cantidad de cultivos (la dejamos porque puede servir para otro momento)
 //    int pos= sqrt(cantidadCultivos);
 //    int posX= posXcultivos +(pos*50);
 //    int posY= posYcultivos -(pos*25);
-
     SDL_Rect destRect = {25,ALTO_PANTALLA -45, texW, texH};
     SDL_RenderCopy (m_renderizador, m_textura, NULL, &destRect);
     SDL_RenderPresent (m_renderizador);
@@ -179,7 +176,7 @@ void Motor::indicadorMonedas()//esta tiene que ir al textureManager o alguna cla
     m_textura = SDL_CreateTextureFromSurface(m_renderizador, m_superficie);
     int texW, texH;
     SDL_QueryTexture(m_textura, NULL, NULL, &texW, &texH);
-    SDL_Rect destRect = {20,20, texW, texH};
+    SDL_Rect destRect = {20,220, texW, texH};
     SDL_RenderCopy (m_renderizador, m_textura, NULL, &destRect);
     //SDL_RenderPresent (m_renderizador); esta linea hace parpadear al indicador de semillas.
     SDL_DestroyTexture (m_textura);
@@ -196,7 +193,7 @@ void Motor::indicadorSemillas()//esta tambien tiene que ir al textureManager o a
     m_textura = SDL_CreateTextureFromSurface(m_renderizador, m_superficie);
     int texW, texH;
     SDL_QueryTexture(m_textura, NULL, NULL, &texW, &texH);
-    SDL_Rect destRect = {5,50, texW, texH}; //
+    SDL_Rect destRect = {5,250, texW, texH}; //
     SDL_RenderCopy (m_renderizador, m_textura, NULL, &destRect);
     //SDL_RenderPresent (m_renderizador);
     SDL_DestroyTexture (m_textura);

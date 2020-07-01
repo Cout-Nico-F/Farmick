@@ -2,7 +2,7 @@
 #include "Estado_Cultivo_Terreno.h"
 #include "Estado_Cultivo_Arado.h"
 #include "gestorTexturas.h"
-#include "Motor.h"
+#include "../Motor/GamePlay.h"
 
 Estado_Cultivo_Terreno::Estado_Cultivo_Terreno(Cultivo* contexto) : punteroAcultivo(contexto)
 {
@@ -18,9 +18,9 @@ int Estado_Cultivo_Terreno::getProgreso()
 bool Estado_Cultivo_Terreno::aumentarProgreso()
 {
     progreso++;
-    std::cout<<"Paleas la tierra  "<<progreso<<"/6"<<std::endl;
-
-    if(progreso==7)
+    std::string mensaje = ("Paleas la tierra " + std::to_string(progreso) + "/5" );
+    GamePlay::getInstancia()->setMensajes(mensaje);
+    if(progreso==6)
         return true;
     return false;
 }
@@ -28,6 +28,8 @@ bool Estado_Cultivo_Terreno::aumentarProgreso()
 void Estado_Cultivo_Terreno::hacer()
 {
     std::cout<<"Terreno cambiando de estado hacia Arado"<<std::endl;
+
+    GamePlay::getInstancia()->setMensajes("Preparando el arado 1/6");
 
     _objeto = new Estado_Cultivo_Arado(punteroAcultivo);
     punteroAcultivo->setEstado(_objeto);

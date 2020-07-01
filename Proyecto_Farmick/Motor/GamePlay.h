@@ -1,5 +1,6 @@
 #ifndef GAMEPLAY_H
 #define GAMEPLAY_H
+#include <iostream>
 
 #define posXcultivos 200
 #define posYcultivos 475
@@ -18,6 +19,8 @@ class GamePlay //clase que va a tener las acciones ( metodos que segun si se cum
 
         void crearCultivos();
         void aumentarProgresoCultivos();
+        void setMensajes(std::string mensaje){m_mensajes = mensaje;}
+        std::string getMensajes(){return m_mensajes;}
 
 
     protected:
@@ -25,6 +28,7 @@ class GamePlay //clase que va a tener las acciones ( metodos que segun si se cum
     private:
 
         static GamePlay* s_instancia;
+        std::string m_mensajes;
 
 };
 
