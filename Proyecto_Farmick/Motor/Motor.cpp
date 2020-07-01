@@ -94,11 +94,10 @@ void Motor::actualizar()
 
 void Motor::renderizar()
 {
-    SDL_SetRenderDrawColor(m_renderizador,247,229,178,255); // TODO: Esto iría? Osea ya tenemos el backgroung..
-    SDL_RenderClear(m_renderizador); ///Fondo color amarillo arena
+    SDL_RenderClear(m_renderizador);
     GestorTexturas::getInstancia()->dibujar("backGround",0,0,ANCHO_PANTALLA,ALTO_PANTALLA);
     GestorTexturas::getInstancia()->dibujar("logoGrande",120,66,728,259);
-    GestorTexturas::getInstancia()->dibujar("click",591,570,174,70);
+    GestorTexturas::getInstancia()->dibujar("click",100,300,174,70);
 
     //mirando esta parte me doy cuenta que si cada cultivo
     //pudiera ejecutar el metodo cargador de imagines de manera diferente seria muy interesante
@@ -158,11 +157,11 @@ void Motor::mensajes()
     int texW, texH;
     SDL_QueryTexture(m_textura, NULL, NULL, &texW, &texH);
     //cuenta para setear el lugar en funcion de la cantidad de cultivos
-    int pos= sqrt(cantidadCultivos);
-    int posX= posXcultivos +(pos*50);
-    int posY= posYcultivos -(pos*25);
+//    int pos= sqrt(cantidadCultivos);
+//    int posX= posXcultivos +(pos*50);
+//    int posY= posYcultivos -(pos*25);
 
-    SDL_Rect destRect = {posX,posY, texW, texH};
+    SDL_Rect destRect = {25,ALTO_PANTALLA -45, texW, texH};
     SDL_RenderCopy (m_renderizador, m_textura, NULL, &destRect);
     SDL_RenderPresent (m_renderizador);
     SDL_DestroyTexture (m_textura);

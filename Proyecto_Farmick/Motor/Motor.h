@@ -5,7 +5,7 @@
 #include "SDL_ttf.h"
 #include <map>
 
-#define ANCHO_PANTALLA 901 ///resolucion actual 1024x768
+#define ANCHO_PANTALLA 901 ///resolucion actual 901x676
 #define ALTO_PANTALLA 676
 
 ///Usamos m_ en los miembros de clase (atributos) para reconocerlos rapidamente.
