@@ -47,7 +47,6 @@ void Estado_Cultivo_Arado::hacer()
         GamePlay::getInstancia()->setMensajes("Necesitas al menos un paquete de semillas para poder sembrar");
         SDL_Log("Necesitas al menos un paquete de semillas para poder sembrar");
     }
-
 }
 
 void Estado_Cultivo_Arado::metodo_cargador_de_imagenes()

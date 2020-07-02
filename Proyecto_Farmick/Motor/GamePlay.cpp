@@ -12,7 +12,7 @@ GamePlay* GamePlay::s_instancia = nullptr;
 
 GamePlay::GamePlay()
 {
-    //ctor
+
 }
 
 GamePlay::~GamePlay()
@@ -52,8 +52,8 @@ void GamePlay::crearCultivos()
             x+=50;
             y-=25;
         }
-        y+=148;
-        x-=202;
+        y+=(25*maxiterador+25)-2;
+        x-=(50*maxiterador-50)+2;
     }
 
     //Se crean los objetos cultivo en las coordenadas seteadas previamente
