@@ -12,7 +12,7 @@ GamePlay* GamePlay::s_instancia = nullptr;
 
 GamePlay::GamePlay()
 {
-
+	//ctor
 }
 
 void GamePlay::aumentarProgresoCultivos()
