@@ -158,7 +158,7 @@ void Motor::mensajes()
 //    int pos= sqrt(cantidadCultivos);
 //    int posX= posXcultivos +(pos*50);
 //    int posY= posYcultivos -(pos*25);
-    SDL_Rect destRect = {25,ALTO_PANTALLA -45, texW, texH};
+    SDL_Rect destRect = {7,ALTO_PANTALLA -35, texW, texH};
     SDL_RenderCopy (m_renderizador, m_textura, NULL, &destRect);
     SDL_RenderPresent (m_renderizador);
     SDL_DestroyTexture (m_textura);

@@ -81,7 +81,7 @@ void GestorEventos::clickEnArea(std::string idCultivo)
         }
        else
         {
-            GamePlay::getInstancia()->setMensajes("Monedas insuficientes, necesitas 10 monedas para comprar un paquete de semillas");
+            GamePlay::getInstancia()->setMensajes("Monedas insuficientes, un paquete cuesta 10 monedas");
             SDL_Log("Monedas insuficientes, necesitas 10 monedas para comprar un paquete de semillas");
         }
     }

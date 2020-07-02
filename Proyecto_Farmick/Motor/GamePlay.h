@@ -14,8 +14,8 @@ class GamePlay //clase que va a tener las acciones ( metodos que segun si se cum
             return s_instancia = (s_instancia == nullptr)? new GamePlay() : s_instancia;
         }
 
-        GamePlay();
-        ~GamePlay();
+
+
 
         void crearCultivos();
         void aumentarProgresoCultivos();
@@ -26,7 +26,7 @@ class GamePlay //clase que va a tener las acciones ( metodos que segun si se cum
     protected:
 
     private:
-
+        GamePlay();
         static GamePlay* s_instancia;
         std::string m_mensajes;
 
