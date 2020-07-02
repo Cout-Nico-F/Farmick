@@ -15,11 +15,6 @@ GamePlay::GamePlay()
     //ctor
 }
 
-GamePlay::~GamePlay()
-{
-    //dtor
-}
-
 void GamePlay::aumentarProgresoCultivos()
 {
     std::map<std::string,Cultivo*>::iterator iterador;
