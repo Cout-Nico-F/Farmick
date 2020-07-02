@@ -212,9 +212,9 @@ std::string Motor::buscarEnMapa()
         int x= GestorEventos::getInstancia()->getX() - iterador->second->getUbicacion_x();
         int y= GestorEventos::getInstancia()->getY() - iterador->second->getUbicacion_y();
 
-        if((x>0) && (x<50))
+        if((x>=0) && (x<=50))
         {
-            if((y>-0.5*x+25)&&(y<0.5*x+25))
+            if((y>=-0.5*x+25)&&(y<=0.5*x+25))
                 return iterador->first;
         }
 
